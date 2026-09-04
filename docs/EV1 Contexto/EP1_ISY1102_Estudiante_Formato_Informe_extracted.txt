@@ -1,0 +1,59 @@
+TITULO
+Informe de seguridad y calidad 
+en el desarrollo de software
+ISY1102 - Seguridad y calidad en el desarrollo de software
+Sección XX
+Integrantes
+Nombre Apellido Alumno 1
+Nombre Apellido Alumno 2
+Nombre Apellido Alumno 3
+INDICE
+1. Introducción
+Explicar de qué trata el sistema o proyecto y por qué es necesario realizar un plan de pruebas. Dentro de los puntos a desarrollar:
+Contexto del software o módulo a evaluar
+El propósito del plan, por qué se diseñan las pruebas, qué se busca asegurar
+Que contenidos se incluyen en este informe y como se estructura
+2. Criterios de calidad
+Establece que estándares debe cumplir el software, acorde al negocio, tipo de software o especificaciones detalladas en documento de especificación de requerimientos de software. Dentro de los puntos a desarrollar:
+Calidad en cuanto a usabilidad, rendimiento, estabilidad, confiabilidad, mantenibilidad.
+Seguridad relacionada a protección de datos, control de acceso, manejo de errores, integridad de la información.
+Normativas en cuanto a estándares técnicos, leyes, políticas internas 
+3. Plan de pruebas
+3.1 Estrategia de pruebas
+Explicar cómo se van a ejecutar las pruebas, que enfoque deben tener. Dentro de los puntos a desarrollar:
+Enfoque: manual, automatizado o mixto
+Etapas del proceso
+Herramientas que se podrían utilizar
+Priorización de pruebas
+Criterios de entrada y salida
+3.2 Tipos de prueba
+Identificar qué tipos de prueba se realizarán y por qué son necesarios. Dentro de los puntos a desarrollar:
+Pruebas funcionales
+Pruebas no funcionales
+Pruebas de seguridad
+Pruebas de integración
+Pruebas de usabilidad
+Pruebas de rendimiento, etc.
+3.3 Criterios de aceptación
+Establece que criterios de aceptación tanto de aspecto funcional, no funcional, reglas de negocio son necesarios a nivel transversal para los casos de prueba para ser considerados como aprobados o aceptados.
+3.4 Herramientas utilizadas
+Detalla las herramientas tecnológicas utilizadas en las pruebas detallando el fundamento de porque se utilizan y son necesarias para la ejecución. Ciertas herramientas utilizadas pueden ser usadas para tipos de prueba específicas. 
+Describir los recursos que se requieren para la ejecución de las pruebas. Dentro de los puntos a desarrollar:
+Recursos humanos (roles involucrados)
+Recursos técnicos (software, herramientas, equipos, navegadores, versiones, etc.)
+Entorno de prueba (ambiente de desarrollo, ambiente QA, etc.)
+4. Diseño de casos de prueba
+ID | NOMBRE | REQUERIMIENTO
+CP-01 | Nombre del caso | EJ REQ-FUNC-01
+DESCRIPCIÓN | DESCRIPCIÓN | DESCRIPCIÓN
+Breve descripción del objetivo del caso de prueba | Breve descripción del objetivo del caso de prueba | Breve descripción del objetivo del caso de prueba
+PRECONDICIONES | PRECONDICIONES | PRECONDICIONES
+Condiciones que deben cumplirse antes de efectuar los pasos del caso de prueba | Condiciones que deben cumplirse antes de efectuar los pasos del caso de prueba | Condiciones que deben cumplirse antes de efectuar los pasos del caso de prueba
+PASOS | PASOS | PASOS
+Describe los pasos que se deben efectuar para reproducir el caso de prueba | Describe los pasos que se deben efectuar para reproducir el caso de prueba | Describe los pasos que se deben efectuar para reproducir el caso de prueba
+RESULTADO ESPERADO | RESULTADO ESPERADO | RESULTADO ESPERADO
+Lo que el sistema debe hacer si el requerimiento está correctamente implementado | Lo que el sistema debe hacer si el requerimiento está correctamente implementado | Lo que el sistema debe hacer si el requerimiento está correctamente implementado
+CRITERIO DE ACEPTACIÓN | CRITERIO DE ACEPTACIÓN | CRITERIO DE ACEPTACIÓN
+Condiciones que deben cumplirse para considerar que la prueba fue exitosa | Condiciones que deben cumplirse para considerar que la prueba fue exitosa | Condiciones que deben cumplirse para considerar que la prueba fue exitosa
+DATOS DE PRUEBA | DATOS DE PRUEBA | DATOS DE PRUEBA
+Los valores específicos con los que se ejecutará la prueba | Los valores específicos con los que se ejecutará la prueba | Los valores específicos con los que se ejecutará la prueba

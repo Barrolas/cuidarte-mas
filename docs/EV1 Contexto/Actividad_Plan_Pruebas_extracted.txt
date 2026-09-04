@@ -1,0 +1,184 @@
+1. Integración de Dominios (QA + Sec + Gov)
+Sintetizar requisitos funcionales y no funcionales en un Plan Maestro de Pruebas (Master Test Plan) coherente, evitando la segregación de la seguridad y el cumplimiento como fases aisladas.
+Diferenciar y seleccionar los tipos de pruebas adecuados para cada pilar: pruebas de rendimiento/usabilidad (QA), análisis de vulnerabilidades SAST/DAST (Seguridad) y auditorías de traza/privacidad (Cumplimiento).
+2. Aplicación de Estándares y Normativas
+Interpretar y aplicar marcos de referencia internacionales (como ISO/IEC 25010 para calidad de software, OWASP Top 10 para seguridad web, y GDPR/ISO 27001 para cumplimiento) dentro del alcance de un proyecto específico.
+Traducir requisitos legales abstractos (ej. "protección de datos") en casos de prueba técnicos ejecutables (ej. "verificar encriptación AES-256 en base de datos").
+Unidad 1: Fundamentos de la Planificación de Pruebas
+Objetivo: Entender la estructura y propósito de un Plan Maestro de Pruebas (Master Test Plan).
+El Ciclo de Vida de las Pruebas (STLC): Fases de análisis, diseño, ejecución y cierre.
+Estructura de un Plan de Pruebas (Norma IEEE 29119):
+Definición de Alcance (In-scope vs. Out-scope).
+Recursos, cronograma y entregables.
+Integración QA + Sec + Gov: Diferencias y convergencias entre calidad, seguridad y cumplimiento.
+Criterios de Entrada y Salida: Definición de "Ready for Testing" y "Definition of Done".
+Unidad 2: Estrategias de Calidad de Software (QA)
+Objetivo: Seleccionar las pruebas funcionales y no funcionales adecuadas.
+Modelos de Calidad (ISO/IEC 25010):
+Funcionalidad, Rendimiento, Usabilidad, Fiabilidad, Mantenibilidad.
+Niveles de Pruebas (La Pirámide de Pruebas):
+Unitarias (Unit), Integración (Integration), Sistema (E2E) y Aceptación de Usuario (UAT).
+Tipos de Pruebas No Funcionales Clave:
+Pruebas de Carga y Estrés (Performance).
+Pruebas de Accesibilidad (WCAG).
+Pruebas de Compatibilidad (Navegadores/Dispositivos).
+Unidad 3: Pruebas de Seguridad en el Ciclo de Vida (DevSecOps)
+Objetivo: Incorporar la seguridad como un requisito de calidad continuo.
+Shift-Left Security: La importancia de probar seguridad desde el diseño.
+Tipologías de Pruebas de Seguridad:
+SAST (Static Application Security Testing): Análisis de código "caja blanca".
+DAST (Dynamic Application Security Testing): Análisis de aplicaciones en ejecución "caja negra".
+SCA (Software Composition Analysis): Análisis de librerías de terceros y dependencias.
+Marcos de Referencia de Seguridad:
+OWASP Top 10: Las 10 vulnerabilidades más críticas en aplicaciones web/API.
+Pruebas de Autenticación y Autorización.
+Unidad 4: Cumplimiento Normativo y Auditoría (Compliance)
+Objetivo: Traducir leyes en casos de prueba verificables.
+Panorama Regulatorio Común:
+Privacidad de Datos: GDPR (Europa), leyes locales de protección de datos.
+Industria Financiera: PCI-DSS (Tarjetas de crédito).
+Industria Salud: HIPAA (Historiales clínicos).
+Validación de Requisitos de Cumplimiento:
+Pruebas de retención y borrado de datos (Data Retention Policy).
+Pruebas de consentimiento de usuario (Cookies/Términos).
+Verificación de Trazabilidad y Logs (Audit Trails).
+.
+Introducción a la Actividad 1.4.2
+El Desafío de la "Triple Restricción": Calidad, Seguridad y Cumplimiento
+Contexto: Más allá de "que funcione"
+Durante décadas, el desarrollo de software se centró casi exclusivamente en una pregunta: ¿El sistema hace lo que debe hacer? Si la respuesta era "sí", el software se lanzaba. Hoy, esa mentalidad es una receta para el desastre.
+En el entorno digital actual, un software funcional pero inseguro es una puerta abierta a los hackers. Un software seguro pero que viola las leyes de privacidad (como GDPR) puede llevar a una empresa a la quiebra por multas millonarias. Y un software legal y seguro, pero imposible de usar, fracasará en el mercado.
+Los Tres Pilares de la Confianza Digital
+En esta actividad, dejarás de ver las pruebas como una fase final aislada y adoptarás el rol de un Arquitecto de Pruebas Integrales. Trabajarás en la intersección de tres mundos críticos:
+Calidad (QA): ¿El producto satisface las necesidades del usuario sin errores? (Rendimiento, Usabilidad, Funcionalidad).
+Seguridad (Security): ¿El producto resiste ataques y protege sus activos? (Confidencialidad, Integridad, Disponibilidad).
+Cumplimiento (Compliance/Gov): ¿El producto respeta las reglas del juego legales y normativas? (Auditoría, Privacidad, Estándares).
+¿Por qué es importante esta actividad?
+El mercado laboral actual busca perfiles DevSecOps. Las empresas ya no contratan tres equipos separados para probar esto al final del proyecto; necesitan profesionales capaces de diseñar una estrategia unificada desde el primer día (Shift-Left Testing).
+Al diseñar este Plan de Pruebas de Calidad, Seguridad y Cumplimiento, no solo estarás escribiendo un documento; estarás simulando la creación de la red de seguridad que protege a una organización moderna. Aprenderás a priorizar riesgos, a seleccionar las herramientas correctas y a garantizar que el software que entregas sea robusto, legal y confiable.
+Tu Misión
+En las siguientes horas, asumirás el liderazgo de pruebas para un proyecto crítico. Deberás analizar sus requerimientos y diseñar un plan maestro que responda: ¿Cómo garantizamos que este sistema es seguro, legal y de alta calidad antes de que llegue al usuario final?
+Fase 1: Fundamentación y Análisis (Conceptual)
+Actividad 1.1: Análisis de Caso - "Autopsia de un Fallo"
+Objetivo: Identificar la diferencia entre un fallo de calidad, una brecha de seguridad y una violación de cumplimiento.
+Descripción: Se presenta a los estudiantes un caso real de fracaso (ej. la filtración de datos de Equifax o un bug crítico en una app bancaria).
+Instrucciones:
+Leer el caso de estudio proporcionado.
+Clasificar los errores encontrados en tres columnas:
+Fallo de QA: (ej. el sistema era lento, el botón no funcionaba).
+Fallo de Seguridad: (ej. contraseña en texto plano, falta de parcheo).
+Fallo de Cumplimiento: (ej. no se notificó a los usuarios en 72h según GDPR).
+Entregable: Tabla de análisis de causa raíz.
+Tiempo estimado: 1 hora.
+Fase 2: Integración (La Actividad Central)
+Actividad 1.4.2: Diseño del Plan de Pruebas Integral (Proyecto Central)
+(Esta es la actividad que detallamos al inicio)
+Objetivo: Sintetizar todo lo aprendido en un documento maestro.
+Descripción: Crear el Master Test Plan para el proyecto "MediSecure" (o el elegido por el estudiante).
+Componentes clave: Alcance, Estrategia QA/Sec/Gov, Matriz de Riesgos y Cronograma.
+Entregable: Documento formal del Plan de Pruebas.
+Tiempo estimado: 1 horas (trabajo asíncrono).
+Resumen de la Secuencia Didáctica
+Con este esquema, la Actividad 1.4.2 deja de ser una tarea aislada y se convierte en el resultado de un proceso de aprendizaje lógico.
+GUIA PARA EL TRABAJO ALUMNOS 
+Esta es una estructura formal del documento que puedes entregar a los estudiantes. Está diseñada como una Guía de Trabajo / Plantilla para que completen la Actividad 1.4.2, asegurando que cubran todos los puntos exigidos en el material de origen (Unidades 1, 2, 3 y 4).
+GUÍA DE TRABAJO: Actividad 1.4.2
+Asignatura: ISY1102 – Seguridad y calidad en el desarrollo de software 1Experiencia de Aprendizaje: EA 1 - Diseño de un Plan de Pruebas Integral 2
+1. Introducción y Objetivo
+El objetivo de esta actividad es sintetizar los requisitos funcionales y no funcionales en un Plan Maestro de Pruebas (Master Test Plan). Deberás actuar como un arquitecto de pruebas y diseñar una estrategia que no segregue la calidad, la seguridad y el cumplimiento, sino que las integre en un plan coherente.
+Proyecto Base: Utiliza el caso de estudio "MediSecure" (Plataforma de gestión de historiales clínicos) o un proyecto propio aprobado por el docente.
+2. Estructura del Plan Maestro de Pruebas
+Instrucciones: Completa cada sección basándote en la norma IEEE 29119 y los marcos de referencia estudiados (ISO 25010, OWASP, Normativas de Datos).
+Sección A: Definición del Alcance (Scope)
+Define qué partes del sistema serán probadas y cuáles no.
+Sección B: Estrategia de Calidad (Quality Assurance)
+Basado en la ISO/IEC 25010, define las pruebas para asegurar que el producto satisface las necesidades del usuario.
+Pruebas Funcionales: Describe los flujos críticos a probar (Unitarias, Integración o E2E).
+Detalle:
+Pruebas de Rendimiento: ¿Cómo validarás la carga y el estrés del sistema?
+Detalle:
+Pruebas de Usabilidad/Accesibilidad: ¿Qué estándar usarás (ej. WCAG) y cómo lo probarás?
+Detalle:
+Getty Images
+Sección C: Estrategia de Seguridad (DevSecOps)
+Define cómo incorporarás la seguridad desde el diseño (Shift-Left).
+Análisis Estático (SAST): ¿Qué herramientas o revisiones de código "caja blanca" realizarás?
+Detalle:
+Análisis Dinámico (DAST): ¿Cómo ejecutarás pruebas de penetración o escaneos "caja negra”?
+Detalle:
+Cobertura OWASP Top 10: Selecciona 2 vulnerabilidades críticas del OWASP y explica cómo las mitigarás y probarás.
+Vulnerabilidad 1:
+Vulnerabilidad 2:
+Sección D: Estrategia de Cumplimiento (Compliance)
+Identifica las normativas legales y cómo auditar su cumplimiento.
+Normativa Aplicable: (Selecciona: GDPR, PCI-DSS, HIPAA, Ley Local).
+Norma:
+Pruebas de Privacidad: ¿Cómo verificarás la retención de datos, el "derecho al olvido" o el consentimiento?
+Prueba:
+Auditoría y Trazabilidad: Describe cómo validarás que el sistema genera logs (registros) inmutables de las acciones.
+Prueba:
+3. Matriz de Riesgos y Mitigación
+Identifica los riesgos técnicos y de negocio si las pruebas fallan o no se ejecutan.
+4. Selección de Herramientas (Toolchain)
+Enumera las herramientas que soportarán tu estrategia.
+Gestión de Pruebas: (Ej. Jira, TestRail)
+Automatización QA: (Ej. Selenium, Cypress)
+Seguridad (SAST/DAST): (Ej. OWASP ZAP)
+5. Cronograma de Ejecución
+Diseña una secuencia lógica. Recuerda no dejar la seguridad y el cumplimiento solo para el final.
+Semana 1:
+Semana 2:
+Semana 3:
+6. Autoevaluación (Checklist de Entrega)
+Antes de entregar, verifica que tu documento cumpla con los Resultados de Aprendizaje:
+[ ] ¿He integrado QA, Seguridad y Cumplimiento sin segregarlos? 
+[ ] ¿He traducido requisitos legales (ej. HIPAA) en casos de prueba técnicos? 
+[ ] ¿He seleccionado las herramientas adecuadas para el tipo de prueba (SAST vs DAST)? 
+Caso Propuesto
+FICHA DE CASO DE ESTUDIO: PROYECTO "MEDISECURE"
+Cliente: Red de Clínicas "Salud Global"
+Proyecto: Plataforma MediSecure (Versión 2.0)
+Contexto: La clínica está migrando de archivos en papel a una solución digital completa.
+1. Descripción del Sistema
+MediSecure es una plataforma web y móvil diseñada para la gestión integral de historiales clínicos. Su objetivo es permitir que médicos, enfermeros y administrativos accedan a la información del paciente en tiempo real, mientras los pacientes pueden visualizar sus propios diagnósticos y recetas desde una App móvil.
+El sistema maneja información altamente sensible (Datos de Salud - PHI y Datos Personales - PII), por lo que la seguridad no es negociable.
+2. Arquitectura Técnica
+Frontend: Aplicación Web (React.js) para personal médico y App Móvil (React Native) para pacientes.
+Backend: Microservicios en Node.js y Python expuestos vía API REST.
+Base de Datos: PostgreSQL (para datos relacionales) y MongoDB (para documentos médicos no estructurados).
+Infraestructura: Alojado en la nube (AWS), utilizando contenedores Docker y orquestación con Kubernetes.
+Integraciones: Pasarela de pagos externa (Stripe) para el cobro de consultas y servicios.
+3. Requerimientos Funcionales (Para Estrategia QA)
+El plan de pruebas debe cubrir los siguientes flujos críticos:
+Gestión de Citas: El paciente debe poder agendar, reagendar y cancelar citas desde la App.
+Historial Clínico: El médico debe poder crear y editar diagnósticos. Restricción: Un médico no puede editar un historial cerrado hace más de 48 horas sin permiso de un supervisor.
+Recetas Electrónicas: Generación de PDF de recetas y envío automático al correo del paciente.
+Rendimiento: El sistema debe soportar 5,000 usuarios concurrentes (lunes por la mañana) sin que el tiempo de carga supere los 2 segundos.
+4. Requerimientos de Seguridad (Para Estrategia Sec/DevSecOps)
+El equipo de seguridad ha levantado las siguientes alertas que deben probarse:
+Autenticación: Todo acceso externo debe requerir Autenticación de Doble Factor (2FA/MFA).
+Control de Acceso (RBAC):
+Administrativos: Solo ven datos de contacto y facturación.
+Enfermeros: Ven signos vitales y medicación, pero no diagnósticos psiquiátricos.
+Médicos: Acceso completo a historias clínicas de sus pacientes asignados.
+Vulnerabilidades Web: El historial de versiones anteriores mostró problemas de Inyección SQL y Cross-Site Scripting (XSS). El nuevo plan debe garantizar que esto no ocurra.
+5. Requerimientos de Cumplimiento (Para Estrategia Gov)
+El sistema opera bajo regulaciones estrictas:
+HIPAA (Ley de Portabilidad y Responsabilidad del Seguro Médico): Exige que todos los datos de salud estén encriptados tanto en tránsito (HTTPS) como en reposo (Base de datos encriptada).
+GDPR (Reglamento General de Protección de Datos): El paciente tiene derecho a descargar todos sus datos en un formato legible (XML/JSON) y a solicitar la eliminación de su cuenta ("Derecho al Olvido"), excepto los datos médicos que la ley obligue a conservar.
+Auditoría: Cada vez que alguien visualiza un registro médico, el sistema debe guardar un log inalterable con: ID de usuario, Fecha, Hora, IP y Registro accedido.
+6. Restricciones del Proyecto (Para Matriz de Riesgos)
+Tiempo: El lanzamiento es en 4 semanas. No hay tiempo para probar manualmente todo el sistema.
+Presupuesto: Limitado para herramientas de pago; se prefieren herramientas Open Source (como JMeter, OWASP ZAP).
+Entorno: El entorno de "Staging" (Pruebas) tiene datos anonimizados, pero a veces se desincroniza del entorno de Producción.
+Actividad 1.4.2: Diseño de un Plan de Pruebas Integral | Actividad 1.4.2: Diseño de un Plan de Pruebas Integral
+Sesión / Fase | Actividad | Foco Principal | Tipo de Trabajo
+1. Inicio | 1.1 Autopsia de un Fallo | Diagnóstico y Teoría | Individual
+4. Cierre (Hito) | 1.4.2 Plan Maestro | Integración Total | Individual (Proyecto)
+Tipo | Componentes / Módulos | Justificación
+En Alcance (In-Scope) | (Ej. Módulo de Login, API de Pagos...) | 
+Fuera de Alcance Out-Scope) | (Ej. Integraciones con terceros, Hardware...) | 
+Área | Riesgo Identificado | Nivel de Impacto | Plan de Mitigación (Prueba o Control)
+Calidad | (Ej. El sistema es lento con 1000 usuarios) | Alto | (Ej. Ejecutar JMeter con carga escalonada)
+Seguridad |  | Crítico | 
+Cumplimiento |  | Medio | 
