@@ -100,7 +100,7 @@
 
 ## Card 6 — Estrategia de pruebas
 
-**Asignada a:** Nicolás  
+**Asignada a:** Nicolás · **Entregable:** [Nicolas/Card06_Estrategia.md](./Nicolas/Card06_Estrategia.md)  
 **Etiquetas:** `Sección 4` `IE4` `Técnico`
 
 **Checklist:**
@@ -115,7 +115,7 @@
 
 ## Card 7 — Recursos y cronograma
 
-**Asignada a:** Nicolás  
+**Asignada a:** Nicolás · **Entregable:** [Nicolas/Card07_Recursos_Cronograma.md](./Nicolas/Card07_Recursos_Cronograma.md)  
 **Etiquetas:** `Sección 5` `IE4` `Técnico`
 
 **Checklist:**
@@ -129,7 +129,7 @@
 
 ## Card 8 — Casos funcionales + auditoría (CP-01 a CP-03)
 
-**Asignada a:** Nicolás  
+**Asignada a:** Nicolás · **Entregable:** [Nicolas/Card08_Casos_Funcionales.md](./Nicolas/Card08_Casos_Funcionales.md)  
 **Etiquetas:** `Sección 6` `IE3` `Funcional`
 
 | ID | ERS | Tipo |
@@ -145,7 +145,7 @@
 
 ## Card 9 — Casos seguridad y rendimiento (CP-04, CP-05)
 
-**Asignada a:** Nicolás  
+**Asignada a:** Nicolás · **Entregable:** [Nicolas/Card09_Casos_Seguridad_Rendimiento.md](./Nicolas/Card09_Casos_Seguridad_Rendimiento.md)  
 **Etiquetas:** `Sección 6` `IE3` `No funcional`  
 **Prioridad:** Crítica para Nicolás
 
@@ -163,7 +163,7 @@
 
 ## Card 10 — Caso usabilidad/compatibilidad + revisión (CP-06)
 
-**Asignada a:** Nicolás  
+**Asignada a:** Nicolás · **Entregable:** [Nicolas/Card10_Usabilidad_Revision.md](./Nicolas/Card10_Usabilidad_Revision.md)  
 **Etiquetas:** `Sección 6` `IE3` `IE5` `Técnico`
 
 | ID | ERS | Tipo |

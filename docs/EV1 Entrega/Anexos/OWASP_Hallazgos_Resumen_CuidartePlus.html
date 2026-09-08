@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Hallazgos EV1 Cuidarte+</title>
+<style>body{font-family:Arial,sans-serif;margin:36px;line-height:1.35;color:#222}h1{font-size:20px}h2{font-size:16px;margin-top:22px}table{border-collapse:collapse;width:100%;font-size:12px;margin:10px 0}th,td{border:1px solid #bbb;padding:7px;text-align:left}th{background:#f3f3f3}.crit{color:#a00;font-weight:bold}.alta{color:#c60;font-weight:bold}.ok{color:#060}</style></head><body>
+<h1>Anexo — Informe de hallazgos Cuidarte+ (EV1)</h1>
+<p><b>Fecha:</b> 7–8 sep 2026 · <b>Ejecutor:</b> Nicolás Barra · <b>Ambiente:</b> Docker local FE:3333 / API:4444</p>
+<p>ZAP baseline sin autenticación solo vio headers. Los defectos graves aparecen con revisión de código, API autenticada y JMeter.</p>
+<h2>Tabla de hallazgos</h2>
+<table>
+<tr><th>ID</th><th>Severidad</th><th>Hallazgo</th><th>ERS</th></tr>
+<tr><td>HALL-01</td><td class="alta">Alta</td><td>UI “Ver Documento” no visualiza adjunto (cargador/UX rota); API download 200 OK</td><td>RF-4 / NFR-USAB-2</td></tr>
+<tr><td>HALL-02</td><td class="crit">Crítica</td><td>Contraseñas en texto plano (sin bcrypt); login medico/medico OK</td><td>NFR-SEG-2</td></tr>
+<tr><td>HALL-03</td><td class="alta">Alta</td><td>JWT_SECRET por defecto “inseguro”</td><td>NFR-SEG-9</td></tr>
+<tr><td>HALL-04</td><td class="alta">Alta</td><td>delayMiddleware 5s: JMeter p95 GET examenes/pacientes ~5008 ms (0% &lt;300 ms)</td><td>NFR-PERF-1</td></tr>
+<tr><td>HALL-05</td><td>Media</td><td>ZAP: CSP, clickjacking, X-Content-Type-Options, X-Powered-By, CORS</td><td>NFR-SEG-5</td></tr>
+</table>
+<h2>JMeter (CP-05)</h2>
+<p>220 samples · 0% error · Login p95 ~14 ms (cumple) · GET Examenes/Pacientes p95 ~5010 ms (<span class="crit">no cumple</span> NFR-PERF-1 con delay activo). TG-B 50 VUs sin errores.</p>
+<p>Detalle: Informe_Hallazgos_CuidartePlus.md · Anexos/jmeter/ · Anexos ZAP PDF.</p>
+</body></html>

@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html><html><head><meta charset='utf-8'><title>Anexo OWASP ZAP Cuidarte+</title>
+<style>body{font-family:Arial,sans-serif;margin:40px;line-height:1.4}h1,h2{color:#1a1a1a}table{border-collapse:collapse;width:100%;margin:12px 0}th,td{border:1px solid #ccc;padding:8px;text-align:left;font-size:12px}th{background:#f0f0f0}.ok{color:#0a7} .warn{color:#c60}</style></head><body>
+<h1>Anexo B — Informe OWASP ZAP (Cuidarte+)</h1>
+<p><b>Fecha:</b> 7 sep 2026 · <b>Ejecutor:</b> Nicolás Barra · <b>Herramienta:</b> OWASP ZAP baseline (Docker)</p>
+<p><b>Targets:</b> Frontend http://localhost:3333 · API http://localhost:4444</p>
+<p class='ok'><b>Resultado:</b> 0 FAIL · Solo WARN/INFO de hardening (headers). Sin hallazgos High de inyección/XSS en baseline no autenticado.</p>
+<h2>Frontend — WARN principales</h2>
+<table><tr><th>Severidad</th><th>Alerta</th><th>NFR</th></tr>
+<tr><td class='warn'>Medium</td><td>CSP Header Not Set</td><td>NFR-SEG-5</td></tr>
+<tr><td class='warn'>Medium</td><td>Missing Anti-clickjacking Header</td><td>NFR-SEG-5</td></tr>
+<tr><td class='warn'>Medium</td><td>Sub Resource Integrity Missing</td><td>Hardening FE</td></tr>
+<tr><td>Low</td><td>X-Content-Type-Options Missing</td><td>NFR-SEG-5</td></tr>
+<tr><td>Low</td><td>Server version leak</td><td>NFR-SEG-6</td></tr>
+</table>
+<h2>API — WARN principales</h2>
+<table><tr><th>Severidad</th><th>Alerta</th><th>NFR</th></tr>
+<tr><td class='warn'>Medium</td><td>Cross-Domain Misconfiguration (CORS)</td><td>NFR-SEG-4/5</td></tr>
+<tr><td>Low</td><td>X-Powered-By leak</td><td>NFR-SEG-6</td></tr>
+<tr><td>Low</td><td>X-Content-Type-Options Missing</td><td>Hardening</td></tr>
+</table>
+<p>Detalle completo: PDF/HTML/MD en carpeta Anexos. Este resumen se adjunta al informe EV1 como evidencia IE3/IE4 (herramienta DAST).</p>
+<p><i>Ambiente local HTTP: NFR-SEG-1 (TLS) no evaluado aquí; pendiente en staging/producción.</i></p>
+</body></html>
