@@ -39,3 +39,7 @@ Material generado para la Evaluación Parcial Nº 1 (ISY1102).
 - `docs/EV1 Contexto/EP1_ISY1102_Estudiante_ERS_B.pdf`
 - `docs/EV1 Contexto/EP1_ISY1102_Estudiante_Formato_Informe.docx`
 - `docs/EV1 Contexto/Normativas/`
+
+## Nota post-EV1
+
+- [`../Notas_Futuro_Resiliencia_Dependencias_Externas.md`](../Notas_Futuro_Resiliencia_Dependencias_Externas.md) — énfasis futuro: caídas SII/Previred y otras dependencias externas.

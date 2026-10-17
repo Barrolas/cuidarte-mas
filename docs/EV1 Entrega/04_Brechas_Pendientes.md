@@ -25,6 +25,10 @@ Tras comparar Word Skarlett + paquete Nicolás y unificar el Markdown.
 | 2 | Checklist TLS / backups (NFR-SEG-1 / 7) como anexo operativo | Nicolás | Media |
 | 3 | Estudiar cuestionario individual (`02_Resumen_Estudio_Cuestionario_AVA.md`) | Cada uno | Alta día prueba |
 
+## Nota para ciclos futuros (post-EV1)
+
+Enfasis acordado: plan de pruebas ante **caída/degradación de dependencias externas** (p. ej. SII, Previred; en salud: FONASA, Registro Civil, notificaciones). Ver [`../Notas_Futuro_Resiliencia_Dependencias_Externas.md`](../Notas_Futuro_Resiliencia_Dependencias_Externas.md).
+
 **Cerrado:** 4 integrantes autorizados por docente; Word final generado desde Markdown unificado.
 
 ## Qué NO falta para la rúbrica del informe (si se entrega el Markdown unificado / Word actualizado)
