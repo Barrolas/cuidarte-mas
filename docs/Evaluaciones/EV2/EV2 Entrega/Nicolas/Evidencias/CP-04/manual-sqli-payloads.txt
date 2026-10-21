@@ -1,0 +1,3 @@
+or1: status=401 body=b'{"error":"Credenciales inv\xc3\xa1lidas"}'
+or_user: status=401 body=b'{"error":"Credenciales inv\xc3\xa1lidas"}'
+or_pass: status=401 body=b'{"error":"Credenciales inv\xc3\xa1lidas"}'

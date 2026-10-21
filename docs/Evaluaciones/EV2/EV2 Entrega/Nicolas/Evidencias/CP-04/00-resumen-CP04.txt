@@ -1,0 +1,8 @@
+CP-04 SQLMap — resumen (2026-10-20)
+Target: POST http://localhost:4444/autenticacion/login (JSON)
+Herramienta: sqlmap 1.10.10
+Parametros: marker * en nombre_usuario, --batch --level=1 --risk=1 --technique=BEUST
+Resultado SQLMap: NO injectable (all tested parameters do not appear to be injectable)
+Prueba manual payloads tipo OR 1=1: ver manual-sqli-payloads.txt (esperado 401)
+Ambiente: solo localhost Docker (autorizado curso)
+Nota: Ari completa ZAP/Burp/Nikto
