@@ -248,14 +248,15 @@ tr.tot td{font-weight:750;border-bottom:0}
 .map .l{font-size:max(12.5px,calc(12.8*var(--u)));color:var(--navy);line-height:1.35;padding:calc(6*var(--u)) calc(10*var(--u));background:var(--gray);border-radius:calc(8*var(--u))}
 .map .to{color:var(--blue);font-size:max(15px,calc(17*var(--u)));display:grid;place-items:center}
 .mapcols{display:grid;grid-template-columns:minmax(0,1.1fr) calc(28*var(--u)) minmax(0,1fr);gap:calc(10*var(--u));padding-bottom:calc(8*var(--u));border-bottom:1px solid var(--line)}
-.pend{border:1.5px dashed rgba(62,127,184,.45);background:repeating-linear-gradient(135deg,rgba(62,127,184,.035) 0 8px,transparent 8px 16px);border-radius:var(--r);padding:calc(12*var(--u)) calc(14*var(--u));display:flex;flex-direction:column;gap:calc(9*var(--u))}
+.pend{border:1px solid var(--line);background:var(--gray);border-radius:var(--r);padding:calc(12*var(--u)) calc(14*var(--u));display:flex;flex-direction:column;gap:calc(9*var(--u))}
 .pend .metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(10*var(--u))}
 .pend .mod{background:var(--white);border:1px solid var(--line);border-radius:calc(9*var(--u));padding:calc(9*var(--u)) calc(11*var(--u))}
 .pend .mod .row{justify-content:space-between;margin-bottom:calc(6*var(--u))}
 .pend .mod h4{font-family:var(--mono);font-size:var(--fs-xs);letter-spacing:.08em}
 .pend .kv{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:calc(4*var(--u))}
 .pend .kv div{font-size:var(--fs-label);color:var(--text-3);line-height:1.25}
-.pend .kv b{display:block;font-family:var(--mono);font-size:max(14px,calc(16*var(--u)));color:rgba(30,58,95,.35);font-weight:700}
+.pend .kv b{display:block;font-family:var(--mono);font-size:max(14px,calc(16*var(--u)));color:var(--navy);font-weight:700}
+.pend .note{margin:0;font-size:var(--fs-label);line-height:1.35;color:var(--text-2)}
 .sonar-r{display:flex;flex-direction:column;gap:var(--gap);min-width:0}
 .sonar-r .card p{font-size:max(12.5px,calc(12.8*var(--u)))}
 
@@ -704,23 +705,24 @@ html.is-fluid .port{font-size:1.15rem}
   </div>
 </section>
 
-<section class="slide" data-section="SonarQube frente a la ley" data-say="SonarQube muestra el defecto técnico; la ley nos dice cuánto pesa. Un secreto en el código toca el control de acceso de la ficha. Pero hay fallas que el análisis estático no ve, como /roles sin rol o la descarga sin auditoría: esas se confirman con pruebas dinámicas. Las métricas de SonarQube se completan con las ejecuciones CP-16 y CP-17.">
+<section class="slide" data-section="SonarQube frente a la ley" data-say="SonarQube muestra el defecto técnico; la ley nos dice cuánto pesa. El 20 de octubre el Quality Gate quedó Passed en backend y frontend, pero eso mira el código nuevo. En el código total el backend tiene 4 vulnerabilidades y el frontend 14 bugs, con cobertura 0 porque no hay pruebas unitarias. Sonar sí marcó la contraseña de PostgreSQL y el CORS. No marcó el JWT inseguro ni las contraseñas en texto plano: esas se confirman con pruebas dinámicas.">
   <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>08</b><span>Sonar vs ley</span></span></header>
   <div class="head" style="margin-bottom:calc(18*var(--u))"><h2 class="anim d1">SonarQube muestra el defecto; la ley mide su gravedad</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
   <div class="sonar">
     <div class="card anim d2" style="padding-top:calc(14*var(--u));padding-bottom:calc(8*var(--u))">
       <div class="mapcols"><span class="k">Regla estática · SAST</span><span></span><span class="k">Deber legal</span></div>
       <ul class="map">
-        <li><div class="r">Secretos y credenciales en código<small>Security Hotspot · CWE-798 · INC-02</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">Ley 20.584 art. 13 · DS 41 art. 9</div></li>
-        <li><div class="r">Política CORS permisiva<small>Security Hotspot · INC-05</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">DS 41 art. 8 I c)</div></li>
-        <li><div class="r">Errores 500 con <span class="mono">err.message</span><small>Fuga de información · INC-06</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">Ley 19.628 art. 11 · NFR-SEG-6</div></li>
-        <li><div class="r">Dependencias vulnerables<small>npm audit · INC-11</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">Ley 19.628 art. 11 · Ley 17.336 arts. 78-79</div></li>
+        <li><div class="r">Contraseña de PostgreSQL en el código<small>db.js:6 · Security Blocker · sí marcado</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">Ley 19.628 art. 11 · DS 41 art. 9</div></li>
+        <li><div class="r">Política CORS permisiva<small>app.js:21 · Security Medium · sí marcado</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">DS 41 art. 8</div></li>
+        <li><div class="r">Secreto JWT «inseguro»<small>7 rutas · no lo marcó · INC-02</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">Ley 20.584 art. 13</div></li>
+        <li><div class="r">Dependencias vulnerables<small>análisis omitido · INC-11</small></div><span class="to"><svg class="ico"><use href="#i-arrow"/></svg></span><div class="l">Ley 19.628 art. 11</div></li>
       </ul>
     </div>
     <div class="sonar-r">
-      <div class="pend anim d3" aria-label="Métricas SonarQube pendientes">
-        <div class="row between"><span class="k">Métricas SonarQube</span><span class="chip blue"><svg class="ico"><use href="#i-cal"/></svg>A integrar desde CP-16 y CP-17</span></div>
-        <div class="metrics"><div class="mod"><div class="row"><h4>BACKEND</h4><span class="chip ghost">Pendiente · CP-16</span></div><div class="kv"><div><b>—</b>Bugs</div><div><b>—</b>Vulnerab.</div><div><b>—</b>Hotspots</div><div><b>—</b>Code smells</div></div></div><div class="mod"><div class="row"><h4>FRONTEND</h4><span class="chip ghost">Pendiente · CP-17</span></div><div class="kv"><div><b>—</b>Bugs</div><div><b>—</b>Vulnerab.</div><div><b>—</b>Hotspots</div><div><b>—</b>Code smells</div></div></div></div>
+      <div class="pend anim d3" aria-label="Métricas SonarQube del 20 de octubre de 2026">
+        <div class="row between"><span class="k">Métricas SonarQube</span><span class="chip blue"><svg class="ico"><use href="#i-check"/></svg>20 oct 2026 · Passed</span></div>
+        <div class="metrics"><div class="mod"><div class="row"><h4>BACKEND</h4><span class="chip">Passed</span></div><div class="kv"><div><b>0</b>Bugs</div><div><b>4</b>Vulnerab.</div><div><b>0</b>Hotspots</div><div><b>2</b>Code smells</div></div></div><div class="mod"><div class="row"><h4>FRONTEND</h4><span class="chip">Passed</span></div><div class="kv"><div><b>14</b>Bugs</div><div><b>0</b>Vulnerab.</div><div><b>0</b>Hotspots</div><div><b>3</b>Code smells</div></div></div></div>
+        <p class="note">Quality Gate sobre código nuevo. Cobertura 0 %: no hay pruebas unitarias. Hotspots en 0: la métrica está obsoleta en esta versión.</p>
       </div>
       <div class="card anim d4"><div class="row"><span class="ic"><svg class="ico"><use href="#i-eye-off"/></svg></span><h3>Lo que el análisis estático no ve</h3></div><p>INC-01 (texto plano), INC-07 (<span class="mono">/roles</span>) e INC-13 (descarga sin auditoría) son lógica de negocio: se confirman con Burp Suite, John the Ripper y la tabla <span class="mono">auditoria</span>.</p></div>
       <div class="card anim d5"><div class="row"><span class="ic"><svg class="ico"><use href="#i-scale"/></svg></span><h3>Criterio de lectura</h3></div><p>La severidad la sube el <b>dato afectado</b>. Por eso INC-09 (borrado físico) pasó de Moderado a <b>Grave</b>: DS 41 arts. 11-12, sin vuelta atrás.</p></div>
