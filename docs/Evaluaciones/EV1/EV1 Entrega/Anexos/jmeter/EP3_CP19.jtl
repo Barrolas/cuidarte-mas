@@ -1,0 +1,521 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1793139708972,259,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-1,text,true,,584,281,1,1,http://host.docker.internal:4444/autenticacion/login,252,0,64
+1793139709511,19,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-2,text,true,,584,281,2,2,http://host.docker.internal:4444/autenticacion/login,19,0,5
+1793139710260,46,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-3,text,true,,584,281,3,3,http://host.docker.internal:4444/autenticacion/login,46,0,4
+1793139711008,18,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-4,text,true,,584,281,4,4,http://host.docker.internal:4444/autenticacion/login,18,0,4
+1793139711759,44,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-5,text,true,,584,281,5,5,http://host.docker.internal:4444/autenticacion/login,44,0,4
+1793139712511,62,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-6,text,true,,584,281,6,6,http://host.docker.internal:4444/autenticacion/login,62,0,4
+1793139713261,44,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-7,text,true,,584,281,7,7,http://host.docker.internal:4444/autenticacion/login,44,0,4
+1793139714004,21,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-8,text,true,,584,281,8,8,http://host.docker.internal:4444/autenticacion/login,21,0,5
+1793139709301,5054,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-1,text,true,,15103,498,8,8,http://host.docker.internal:4444/pacientes,5050,0,0
+1793139709531,5017,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-2,text,true,,15103,498,8,8,http://host.docker.internal:4444/pacientes,5016,0,0
+1793139714754,44,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-9,text,true,,584,281,9,9,http://host.docker.internal:4444/autenticacion/login,44,0,4
+1793139710307,5017,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-3,text,true,,15103,498,9,9,http://host.docker.internal:4444/pacientes,5015,0,0
+1793139715505,19,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-10,text,true,,584,281,10,10,http://host.docker.internal:4444/autenticacion/login,19,0,6
+1793139711028,5025,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-4,text,true,,15103,498,10,10,http://host.docker.internal:4444/pacientes,5022,0,0
+1793139716254,17,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-11,text,true,,584,281,11,11,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139711804,5019,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-5,text,true,,15103,498,11,11,http://host.docker.internal:4444/pacientes,5015,0,0
+1793139717005,43,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-12,text,true,,584,281,12,12,http://host.docker.internal:4444/autenticacion/login,43,0,3
+1793139712574,5073,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-6,text,true,,15103,498,12,12,http://host.docker.internal:4444/pacientes,5071,0,0
+1793139717754,52,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-13,text,true,,584,281,13,13,http://host.docker.internal:4444/autenticacion/login,52,0,7
+1793139713307,5014,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-7,text,true,,15103,498,13,13,http://host.docker.internal:4444/pacientes,5014,0,0
+1793139718504,44,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-14,text,true,,584,281,14,14,http://host.docker.internal:4444/autenticacion/login,44,0,4
+1793139714026,5020,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-8,text,true,,15103,498,14,14,http://host.docker.internal:4444/pacientes,5017,0,0
+1793139719254,53,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-15,text,true,,584,281,15,15,http://host.docker.internal:4444/autenticacion/login,53,0,4
+1793139714360,5035,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-1,text,true,,30860,497,15,15,http://host.docker.internal:4444/examenes,5026,0,0
+1793139719396,14,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-1,text,true,,584,576,15,15,http://host.docker.internal:4444/autenticacion/login,14,0,0
+1793139714549,5024,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-2,text,true,,30860,497,15,15,http://host.docker.internal:4444/examenes,5017,0,0
+1793139719574,14,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-2,text,true,,584,576,15,15,http://host.docker.internal:4444/autenticacion/login,14,0,0
+1793139714799,5015,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-9,text,true,,15103,498,15,15,http://host.docker.internal:4444/pacientes,5014,0,0
+1793139720004,50,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-16,text,true,,584,281,16,16,http://host.docker.internal:4444/autenticacion/login,49,0,6
+1793139715325,5017,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-3,text,true,,30860,497,16,16,http://host.docker.internal:4444/examenes,5015,0,0
+1793139720343,39,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-3,text,true,,584,576,16,16,http://host.docker.internal:4444/autenticacion/login,38,0,0
+1793139715526,5015,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-10,text,true,,15103,498,16,16,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139720753,43,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-17,text,true,,584,281,17,17,http://host.docker.internal:4444/autenticacion/login,43,0,4
+1793139716055,5031,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-4,text,true,,30860,497,17,17,http://host.docker.internal:4444/examenes,5026,0,0
+1793139721087,45,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-4,text,true,,584,576,17,17,http://host.docker.internal:4444/autenticacion/login,45,0,0
+1793139716272,5014,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-11,text,true,,15103,498,17,17,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139721503,43,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-18,text,true,,584,281,18,18,http://host.docker.internal:4444/autenticacion/login,43,0,3
+1793139716824,5022,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-5,text,true,,30860,497,18,18,http://host.docker.internal:4444/examenes,5015,0,0
+1793139721848,39,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-5,text,true,,584,576,18,18,http://host.docker.internal:4444/autenticacion/login,39,0,0
+1793139717050,5013,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-12,text,true,,15103,498,18,18,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139722256,19,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-19,text,true,,584,281,19,19,http://host.docker.internal:4444/autenticacion/login,19,0,4
+1793139717649,5019,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-6,text,true,,30860,497,19,19,http://host.docker.internal:4444/examenes,5014,0,0
+1793139722670,39,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-6,text,true,,584,576,19,19,http://host.docker.internal:4444/autenticacion/login,39,0,0
+1793139717808,5015,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-13,text,true,,15103,498,19,19,http://host.docker.internal:4444/pacientes,5015,0,0
+1793139723004,46,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-20,text,true,,584,281,20,20,http://host.docker.internal:4444/autenticacion/login,46,0,5
+1793139718322,5018,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-7,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5014,0,0
+1793139723341,39,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-7,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,39,0,0
+1793139718549,5015,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-14,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5014,0,0
+1793139719049,5022,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-8,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5019,0,0
+1793139724072,39,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-8,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,38,0,0
+1793139719309,5014,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-15,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5014,0,0
+1793139719411,5022,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-1,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5014,0,0
+1793139719590,5012,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-2,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139719815,5022,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-9,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5014,0,0
+1793139724839,44,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-9,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,44,0,0
+1793139720058,5018,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-16,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139720383,5011,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-3,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139720542,5016,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-10,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5013,0,0
+1793139725559,39,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-10,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,38,0,0
+1793139720798,5040,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-17,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5027,0,0
+1793139721134,5013,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-4,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139721287,5020,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-11,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5016,0,0
+1793139726308,40,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-11,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,40,0,0
+1793139721547,5016,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-18,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139721889,5014,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-5,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139722064,5021,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-12,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5014,0,0
+1793139727086,41,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-12,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,41,0,0
+1793139722277,5012,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-19,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139722711,5013,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-6,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139722824,5023,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-13,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5015,0,0
+1793139727848,39,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-13,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,38,0,0
+1793139723051,5015,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-20,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139723382,5012,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-7,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139723566,5023,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-14,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5015,0,0
+1793139728590,33,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-14,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,32,0,0
+1793139724112,5014,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-8,text,true,,15103,498,20,20,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139724324,5021,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-15,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5013,0,0
+1793139729344,41,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-15,text,true,,584,576,20,20,http://host.docker.internal:4444/autenticacion/login,41,0,0
+1793139724434,5029,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-1,text,true,,30860,497,20,20,http://host.docker.internal:4444/examenes,5018,0,0
+1793139724603,5017,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-2,text,true,,30860,497,19,19,http://host.docker.internal:4444/examenes,5013,0,0
+1793139724884,5014,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-9,text,true,,15103,498,18,18,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139725078,5019,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-16,text,true,,30860,497,18,18,http://host.docker.internal:4444/examenes,5016,0,0
+1793139730096,40,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-16,text,true,,584,576,18,18,http://host.docker.internal:4444/autenticacion/login,39,0,0
+1793139725395,5015,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-3,text,true,,30860,497,18,18,http://host.docker.internal:4444/examenes,5012,0,0
+1793139725599,5013,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-10,text,true,,15103,498,17,17,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139725839,5034,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-17,text,true,,30860,497,17,17,http://host.docker.internal:4444/examenes,5028,0,0
+1793139730872,40,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-17,text,true,,584,576,17,17,http://host.docker.internal:4444/autenticacion/login,40,0,0
+1793139726148,5017,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-4,text,true,,30860,497,17,17,http://host.docker.internal:4444/examenes,5013,0,0
+1793139726349,5015,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-11,text,true,,15103,498,16,16,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139726564,5040,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-18,text,true,,30860,497,16,16,http://host.docker.internal:4444/examenes,5035,0,0
+1793139731603,41,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-18,text,true,,584,576,16,16,http://host.docker.internal:4444/autenticacion/login,41,0,0
+1793139726904,5018,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-5,text,true,,30860,497,16,16,http://host.docker.internal:4444/examenes,5012,0,0
+1793139727128,5014,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-12,text,true,,15103,498,15,15,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139727290,5021,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-19,text,true,,30860,497,15,15,http://host.docker.internal:4444/examenes,5014,0,0
+1793139732310,14,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-19,text,true,,584,576,15,15,http://host.docker.internal:4444/autenticacion/login,14,0,0
+1793139727725,5019,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-6,text,true,,30860,497,15,15,http://host.docker.internal:4444/examenes,5016,0,0
+1793139727888,5013,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-13,text,true,,15103,498,14,14,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139728067,5022,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-20,text,true,,30860,497,14,14,http://host.docker.internal:4444/examenes,5015,0,0
+1793139733089,15,POST Login,200,OK,TG-A NFR-PERF-1 20VU 1-20,text,true,,584,576,14,14,http://host.docker.internal:4444/autenticacion/login,15,0,0
+1793139728395,5018,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-7,text,true,,30860,497,14,14,http://host.docker.internal:4444/examenes,5014,0,0
+1793139728624,5015,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-14,text,true,,15103,498,13,13,http://host.docker.internal:4444/pacientes,5012,0,0
+1793139729125,5018,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-8,text,true,,30860,497,13,13,http://host.docker.internal:4444/examenes,5013,0,0
+1793139729386,5012,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-15,text,true,,15103,498,12,12,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139729897,5023,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-9,text,true,,30860,497,12,12,http://host.docker.internal:4444/examenes,5014,0,0
+1793139730137,5013,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-16,text,true,,15103,498,11,11,http://host.docker.internal:4444/pacientes,5013,0,0
+1793139730611,5017,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-10,text,true,,30860,497,11,11,http://host.docker.internal:4444/examenes,5014,0,0
+1793139730913,5012,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-17,text,true,,15103,498,10,10,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139731363,5017,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-11,text,true,,30860,497,10,10,http://host.docker.internal:4444/examenes,5013,0,0
+1793139731645,5012,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-18,text,true,,15103,498,9,9,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139732141,5016,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-12,text,true,,30860,497,9,9,http://host.docker.internal:4444/examenes,5012,0,0
+1793139732325,5011,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-19,text,true,,15103,498,8,8,http://host.docker.internal:4444/pacientes,5010,0,0
+1793139732901,5020,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-13,text,true,,30860,497,8,8,http://host.docker.internal:4444/examenes,5015,0,0
+1793139733105,5012,GET Pacientes,200,OK,TG-A NFR-PERF-1 20VU 1-20,text,true,,15103,498,7,7,http://host.docker.internal:4444/pacientes,5011,0,0
+1793139733638,5020,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-14,text,true,,30860,497,7,7,http://host.docker.internal:4444/examenes,5014,0,0
+1793139734399,5016,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-15,text,true,,30860,497,6,6,http://host.docker.internal:4444/examenes,5012,0,0
+1793139735151,5022,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-16,text,true,,30860,497,5,5,http://host.docker.internal:4444/examenes,5015,0,0
+1793139735926,5018,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-17,text,true,,30860,497,4,4,http://host.docker.internal:4444/examenes,5015,0,0
+1793139736658,5019,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-18,text,true,,30860,497,3,3,http://host.docker.internal:4444/examenes,5013,0,0
+1793139737337,5019,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-19,text,true,,30860,497,2,2,http://host.docker.internal:4444/examenes,5016,0,0
+1793139738119,5016,GET Examenes,200,OK,TG-A NFR-PERF-1 20VU 1-20,text,true,,30860,497,1,1,http://host.docker.internal:4444/examenes,5014,0,0
+1793139743146,70,POST Login B,200,OK,TG-B Concurrencia 50VU 2-1,text,true,,556,276,1,1,http://host.docker.internal:4444/autenticacion/login,69,0,14
+1793139743242,35,POST Login B,200,OK,TG-B Concurrencia 50VU 2-2,text,true,,556,276,2,2,http://host.docker.internal:4444/autenticacion/login,34,0,13
+1793139743343,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-3,text,true,,556,276,3,3,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139743442,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-4,text,true,,556,276,4,4,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139743541,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-5,text,true,,556,276,5,5,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139743645,23,POST Login B,200,OK,TG-B Concurrencia 50VU 2-6,text,true,,556,276,6,6,http://host.docker.internal:4444/autenticacion/login,22,0,5
+1793139743743,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-7,text,true,,556,276,7,7,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139743843,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-8,text,true,,556,276,8,8,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139743943,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-9,text,true,,556,276,9,9,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744043,20,POST Login B,200,OK,TG-B Concurrencia 50VU 2-10,text,true,,556,276,10,10,http://host.docker.internal:4444/autenticacion/login,20,0,4
+1793139744145,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-11,text,true,,556,276,11,11,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744246,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-12,text,true,,556,276,12,12,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139744345,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-13,text,true,,556,276,13,13,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744445,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-14,text,true,,556,276,14,14,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139744543,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-15,text,true,,556,276,15,15,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744643,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-16,text,true,,556,276,16,16,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744744,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-17,text,true,,556,276,17,17,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139744842,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-18,text,true,,556,276,18,18,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744944,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-19,text,true,,556,276,19,19,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139745043,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-20,text,true,,556,276,20,20,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139745142,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-21,text,true,,556,276,21,21,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139745242,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-22,text,true,,556,276,22,22,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139745341,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-23,text,true,,556,276,23,23,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139745442,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-24,text,true,,556,276,24,24,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139745542,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-25,text,true,,556,276,25,25,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139745642,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-26,text,true,,556,276,26,26,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139745741,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-27,text,true,,556,276,27,27,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139745843,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-28,text,true,,556,276,28,28,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139745943,19,POST Login B,200,OK,TG-B Concurrencia 50VU 2-29,text,true,,556,276,29,29,http://host.docker.internal:4444/autenticacion/login,19,0,4
+1793139746042,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-30,text,true,,556,276,30,30,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139746142,20,POST Login B,200,OK,TG-B Concurrencia 50VU 2-31,text,true,,556,276,31,31,http://host.docker.internal:4444/autenticacion/login,20,0,4
+1793139746242,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-32,text,true,,556,276,32,32,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139746342,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-33,text,true,,556,276,33,33,http://host.docker.internal:4444/autenticacion/login,17,0,5
+1793139746443,20,POST Login B,200,OK,TG-B Concurrencia 50VU 2-34,text,true,,556,276,34,34,http://host.docker.internal:4444/autenticacion/login,20,0,4
+1793139746544,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-35,text,true,,556,276,35,35,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139746643,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-36,text,true,,556,276,36,36,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139746742,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-37,text,true,,556,276,37,37,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139746841,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-38,text,true,,556,276,38,38,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139746947,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-39,text,true,,556,276,39,39,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139747045,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-40,text,true,,556,276,40,40,http://host.docker.internal:4444/autenticacion/login,18,0,4
+1793139747142,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-41,text,true,,556,276,41,41,http://host.docker.internal:4444/autenticacion/login,15,0,3
+1793139747244,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-42,text,true,,556,276,42,42,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139747343,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-43,text,true,,556,276,43,43,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139747443,37,POST Login B,200,OK,TG-B Concurrencia 50VU 2-44,text,true,,556,276,44,44,http://host.docker.internal:4444/autenticacion/login,37,0,4
+1793139747543,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-45,text,true,,556,276,45,45,http://host.docker.internal:4444/autenticacion/login,18,0,4
+1793139747641,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-46,text,true,,556,276,46,46,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139747742,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-47,text,true,,556,276,47,47,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139747841,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-48,text,true,,556,276,48,48,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139747943,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-49,text,true,,556,276,49,49,http://host.docker.internal:4444/autenticacion/login,17,0,3
+1793139748042,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-50,text,true,,556,276,50,50,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139748142,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-51,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139748241,26,POST Login B,200,OK,TG-B Concurrencia 50VU 2-52,text,true,,556,276,52,52,http://host.docker.internal:4444/autenticacion/login,26,0,6
+1793139743278,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-2,text,true,,30832,492,52,52,http://host.docker.internal:4444/examenes,5016,0,4
+1793139743218,5084,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-1,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5083,0,17
+1793139748343,21,POST Login B,200,OK,TG-B Concurrencia 50VU 2-53,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,21,0,4
+1793139743361,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-3,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139748441,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-54,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139743461,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-4,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139748542,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-55,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139743560,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-5,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139748642,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-56,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,3
+1793139743669,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-6,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5016,0,3
+1793139748744,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-57,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,5
+1793139743760,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-7,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139748841,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-58,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139743863,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-8,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5016,0,3
+1793139748940,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-59,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139743959,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-9,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139749042,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-60,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744065,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-10,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139749140,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-61,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139744162,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-11,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139749240,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-62,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744263,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-12,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139749340,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-63,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744361,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-13,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139749440,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-64,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139744463,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-14,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139749540,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-65,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139744559,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-15,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,4
+1793139749640,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-66,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,5
+1793139744660,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-16,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139749740,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-67,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139744760,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-17,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139749840,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-68,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744858,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-18,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139749940,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-69,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139744963,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-19,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139750040,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-70,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139745061,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-20,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139750140,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-71,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139745159,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-21,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,4
+1793139750241,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-72,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,18,0,4
+1793139745260,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-22,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5019,0,4
+1793139750340,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-73,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139745357,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-23,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,3
+1793139750440,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-74,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139745460,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-24,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139745559,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-25,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,3
+1793139750559,47,POST Login B,200,OK,TG-B Concurrencia 50VU 2-75,text,true,,556,276,50,50,http://host.docker.internal:4444/autenticacion/login,47,0,4
+1793139750642,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-76,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139745659,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-26,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139750740,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-77,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139745759,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-27,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139750841,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-78,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139745860,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-28,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,4
+1793139750940,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-79,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139745964,5022,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-29,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5019,0,6
+1793139751041,19,POST Login B,200,OK,TG-B Concurrencia 50VU 2-80,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,18,0,3
+1793139746060,5022,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-30,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5020,0,4
+1793139751141,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-81,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,13,0,3
+1793139746163,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-31,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,4
+1793139751240,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-82,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139746260,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-32,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,4
+1793139751340,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-83,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,3
+1793139746361,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-33,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139751440,13,POST Login B,200,OK,TG-B Concurrencia 50VU 2-84,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,13,0,3
+1793139746465,5026,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-34,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5023,0,6
+1793139751540,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-85,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139746563,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-35,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,2
+1793139751640,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-86,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,3
+1793139746662,5023,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-36,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5020,0,5
+1793139751743,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-87,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139746760,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-37,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5011,0,3
+1793139751840,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-88,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139746859,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-38,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139751940,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-89,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,13,0,3
+1793139746965,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-39,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139752040,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-90,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139747065,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-40,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139752140,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-91,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139747159,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-41,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139752248,19,POST Login B,200,OK,TG-B Concurrencia 50VU 2-92,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,19,0,3
+1793139747262,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-42,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139752340,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-93,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139747359,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-43,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139752440,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-94,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139747481,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-44,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139752540,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-95,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,13,0,3
+1793139747562,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-45,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139752642,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-96,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139747659,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-46,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139752740,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-97,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,3
+1793139747760,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-47,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139752841,12,POST Login B,200,OK,TG-B Concurrencia 50VU 2-98,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,12,0,3
+1793139747860,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-48,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139752942,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-99,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139747961,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-49,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,4
+1793139753041,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-100,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139748061,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-50,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139753141,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-101,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139748161,5023,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-51,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5016,0,4
+1793139753241,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-102,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139748268,5025,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-52,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5021,0,7
+1793139753342,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-103,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,5
+1793139748366,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-53,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,2
+1793139753442,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-104,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139748457,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-54,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5018,0,4
+1793139753541,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-105,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139748559,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-55,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139753640,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-106,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139748658,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-56,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139753740,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-107,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139748762,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-57,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139753842,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-108,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139748857,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-58,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139753941,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-109,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,5
+1793139748957,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-59,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139754040,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-110,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139749059,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-60,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,2
+1793139754140,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-111,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,18,0,4
+1793139749155,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-61,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,3
+1793139754241,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-112,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139749257,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-62,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139754340,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-113,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139749356,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-63,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139754441,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-114,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139749457,5022,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-64,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139754546,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-115,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139749558,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-65,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139754647,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-116,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139749658,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-66,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139754745,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-117,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139749755,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-67,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139754847,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-118,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139749857,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-68,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,3
+1793139754946,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-119,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139749956,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-69,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139755045,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-120,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,5
+1793139750058,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-70,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139755145,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-121,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139750158,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-71,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139755246,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-122,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139750260,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-72,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139755346,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-123,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139750359,5023,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-73,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5020,0,6
+1793139755445,21,POST Login B,200,OK,TG-B Concurrencia 50VU 2-124,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,21,0,5
+1793139750457,5024,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-74,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5020,0,3
+1793139755546,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-125,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139750607,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-75,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,2
+1793139755645,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-126,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139750658,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-76,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139755745,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-127,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139750756,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-77,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139755846,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-128,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139750857,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-78,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5011,0,2
+1793139755946,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-129,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139750956,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-79,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,2
+1793139756046,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-130,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139751062,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-80,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5016,0,3
+1793139756145,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-131,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139751156,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-81,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5016,0,3
+1793139756245,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-132,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139751255,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-82,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139756345,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-133,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139751356,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-83,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,2
+1793139756446,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-134,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139751455,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-84,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,2
+1793139756545,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-135,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139751555,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-85,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139756645,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-136,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139751657,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-86,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139756746,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-137,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139751758,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-87,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139756845,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-138,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139751855,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-88,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,4
+1793139756945,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-139,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139751955,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-89,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5011,0,2
+1793139757045,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-140,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139752055,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-90,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139757146,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-141,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139752156,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-91,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,2
+1793139757245,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-142,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139752268,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-92,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139757345,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-143,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139752355,5013,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-93,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5011,0,3
+1793139757447,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-144,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139752456,5023,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-94,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5019,0,2
+1793139757546,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-145,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139752555,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-95,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,2
+1793139757646,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-146,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139752659,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-96,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139757745,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-147,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139752758,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-97,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139757845,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-148,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139752854,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-98,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139757945,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-149,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139752957,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-99,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139758045,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-150,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139753058,5022,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-100,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5018,0,3
+1793139758145,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-151,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,3
+1793139753157,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-101,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139758244,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-152,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139753259,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-102,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,2
+1793139758345,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-153,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139753360,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-103,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139758447,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-154,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139753458,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-104,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139758546,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-155,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,3
+1793139753558,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-105,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139758645,20,POST Login B,200,OK,TG-B Concurrencia 50VU 2-156,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,20,0,5
+1793139753656,5024,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-106,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5020,0,3
+1793139758746,30,POST Login B,200,OK,TG-B Concurrencia 50VU 2-157,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,29,0,7
+1793139753758,5039,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-107,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5032,0,3
+1793139758845,22,POST Login B,200,OK,TG-B Concurrencia 50VU 2-158,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,22,0,5
+1793139753859,5025,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-108,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5020,0,2
+1793139758940,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-159,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139753958,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-109,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139759041,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-160,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,5
+1793139754056,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-110,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139759142,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-161,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139754160,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-111,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5018,0,3
+1793139759241,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-162,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139754258,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-112,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139759340,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-163,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139754357,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-113,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139759441,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-164,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,18,0,4
+1793139754457,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-114,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139759542,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-165,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139754563,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-115,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139759642,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-166,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139754664,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-116,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139759742,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-167,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139754762,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-117,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139759843,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-168,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139754864,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-118,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139759941,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-169,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139754963,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-119,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139760041,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-170,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139755064,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-120,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,2
+1793139760140,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-171,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139755162,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-121,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139760241,23,POST Login B,200,OK,TG-B Concurrencia 50VU 2-172,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,23,0,4
+1793139755264,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-122,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5016,0,3
+1793139760340,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-173,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139755362,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-123,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5011,0,3
+1793139760440,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-174,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139755467,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-124,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5019,0,6
+1793139760541,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-175,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139755563,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-125,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,2
+1793139760641,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-176,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139755661,5013,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-126,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5011,0,2
+1793139755761,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-127,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5017,0,3
+1793139755862,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-128,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,2
+1793139760841,39,POST Login B,200,OK,TG-B Concurrencia 50VU 2-178,text,true,,556,276,50,50,http://host.docker.internal:4444/autenticacion/login,39,0,4
+1793139760941,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-179,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139755963,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-129,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139761041,19,POST Login B,200,OK,TG-B Concurrencia 50VU 2-180,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,19,0,6
+1793139756063,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-130,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,2
+1793139761140,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-181,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139756163,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-131,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5018,0,4
+1793139761240,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-182,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139756261,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-132,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5016,0,3
+1793139761341,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-183,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139756363,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-133,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139761440,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-184,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139756464,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-134,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,4
+1793139761541,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-185,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139756562,5014,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-135,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139761641,17,POST Login B,200,OK,TG-B Concurrencia 50VU 2-186,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,17,0,4
+1793139756662,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-136,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139761741,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-187,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139756764,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-137,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139761840,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-188,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139756861,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-138,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139761943,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-189,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139756962,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-139,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139762041,15,POST Login B,200,OK,TG-B Concurrencia 50VU 2-190,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139757063,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-140,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139762142,13,POST Login B,200,OK,TG-B Concurrencia 50VU 2-191,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,13,0,3
+1793139757163,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-141,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5012,0,3
+1793139762242,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-192,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139757262,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-142,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,4
+1793139762341,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-193,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,4
+1793139757361,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-143,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,4
+1793139762442,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-194,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,3
+1793139757464,5015,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-144,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139762542,14,POST Login B,200,OK,TG-B Concurrencia 50VU 2-195,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,14,0,4
+1793139757562,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-145,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5013,0,3
+1793139762642,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-196,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139757663,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-146,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5014,0,3
+1793139757762,5026,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-147,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5021,0,3
+1793139762744,59,POST Login B,200,OK,TG-B Concurrencia 50VU 2-197,text,true,,556,276,50,50,http://host.docker.internal:4444/autenticacion/login,59,0,12
+1793139762841,18,POST Login B,200,OK,TG-B Concurrencia 50VU 2-198,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,18,0,4
+1793139757863,5023,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-148,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5019,0,3
+1793139762939,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-199,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,16,0,5
+1793139757964,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-149,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5015,0,3
+1793139763040,16,POST Login B,200,OK,TG-B Concurrencia 50VU 2-200,text,true,,556,276,51,51,http://host.docker.internal:4444/autenticacion/login,15,0,4
+1793139758063,5027,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-150,text,true,,30832,492,51,51,http://host.docker.internal:4444/examenes,5025,0,5
+1793139758163,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-151,text,true,,30832,492,50,50,http://host.docker.internal:4444/examenes,5015,0,3
+1793139758260,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-152,text,true,,30832,492,49,49,http://host.docker.internal:4444/examenes,5015,0,3
+1793139758362,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-153,text,true,,30832,492,48,48,http://host.docker.internal:4444/examenes,5016,0,3
+1793139758463,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-154,text,true,,30832,492,47,47,http://host.docker.internal:4444/examenes,5015,0,3
+1793139758562,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-155,text,true,,30832,492,46,46,http://host.docker.internal:4444/examenes,5019,0,5
+1793139758667,5030,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-156,text,true,,30832,492,45,45,http://host.docker.internal:4444/examenes,5020,0,5
+1793139758777,5027,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-157,text,true,,30832,492,44,44,http://host.docker.internal:4444/examenes,5024,0,8
+1793139758869,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-158,text,true,,30832,492,43,43,http://host.docker.internal:4444/examenes,5018,0,4
+1793139758956,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-159,text,true,,30832,492,42,42,http://host.docker.internal:4444/examenes,5015,0,2
+1793139759059,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-160,text,true,,30832,492,41,41,http://host.docker.internal:4444/examenes,5016,0,3
+1793139759157,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-161,text,true,,30832,492,40,40,http://host.docker.internal:4444/examenes,5016,0,4
+1793139759257,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-162,text,true,,30832,492,39,39,http://host.docker.internal:4444/examenes,5015,0,3
+1793139759357,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-163,text,true,,30832,492,38,38,http://host.docker.internal:4444/examenes,5016,0,3
+1793139759460,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-164,text,true,,30832,492,37,37,http://host.docker.internal:4444/examenes,5014,0,3
+1793139759559,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-165,text,true,,30832,492,36,36,http://host.docker.internal:4444/examenes,5014,0,3
+1793139759660,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-166,text,true,,30832,492,35,35,http://host.docker.internal:4444/examenes,5014,0,3
+1793139759758,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-167,text,true,,30832,492,34,34,http://host.docker.internal:4444/examenes,5015,0,3
+1793139759860,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-168,text,true,,30832,492,33,33,http://host.docker.internal:4444/examenes,5015,0,3
+1793139759956,5029,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-169,text,true,,30832,492,32,32,http://host.docker.internal:4444/examenes,5017,0,3
+1793139760057,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-170,text,true,,30832,492,31,31,http://host.docker.internal:4444/examenes,5016,0,3
+1793139760156,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-171,text,true,,30832,492,30,30,http://host.docker.internal:4444/examenes,5014,0,3
+1793139760265,5024,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-172,text,true,,30832,492,29,29,http://host.docker.internal:4444/examenes,5021,0,6
+1793139760356,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-173,text,true,,30832,492,28,28,http://host.docker.internal:4444/examenes,5016,0,4
+1793139760458,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-174,text,true,,30832,492,27,27,http://host.docker.internal:4444/examenes,5014,0,3
+1793139760657,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-176,text,true,,30832,492,26,26,http://host.docker.internal:4444/examenes,5017,0,3
+1793139760881,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-178,text,true,,30832,492,25,25,http://host.docker.internal:4444/examenes,5016,0,3
+1793139760957,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-179,text,true,,30832,492,24,24,http://host.docker.internal:4444/examenes,5015,0,3
+1793139761061,5022,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-180,text,true,,30832,492,23,23,http://host.docker.internal:4444/examenes,5017,0,3
+1793139761157,5021,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-181,text,true,,30832,492,22,22,http://host.docker.internal:4444/examenes,5018,0,4
+1793139761258,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-182,text,true,,30832,492,21,21,http://host.docker.internal:4444/examenes,5014,0,3
+1793139761357,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-183,text,true,,30832,492,20,20,http://host.docker.internal:4444/examenes,5015,0,3
+1793139761456,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-184,text,true,,30832,492,19,19,http://host.docker.internal:4444/examenes,5016,0,3
+1793139761557,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-185,text,true,,30832,492,18,18,http://host.docker.internal:4444/examenes,5014,0,3
+1793139761758,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-187,text,true,,30832,492,17,17,http://host.docker.internal:4444/examenes,5015,0,3
+1793139761857,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-188,text,true,,30832,492,16,16,http://host.docker.internal:4444/examenes,5016,0,3
+1793139762156,5031,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-191,text,true,,30832,492,15,15,http://host.docker.internal:4444/examenes,5019,0,3
+1793139762257,5016,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-192,text,true,,30832,492,14,14,http://host.docker.internal:4444/examenes,5014,0,3
+1793139762358,5018,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-193,text,true,,30832,492,13,13,http://host.docker.internal:4444/examenes,5015,0,3
+1793139762457,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-194,text,true,,30832,492,12,12,http://host.docker.internal:4444/examenes,5014,0,3
+1793139762557,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-195,text,true,,30832,492,11,11,http://host.docker.internal:4444/examenes,5015,0,3
+1793139762659,5023,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-196,text,true,,30832,492,10,10,http://host.docker.internal:4444/examenes,5019,0,5
+1793139762804,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-197,text,true,,30832,492,9,9,http://host.docker.internal:4444/examenes,5015,0,3
+1793139762861,5019,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-198,text,true,,30832,492,8,8,http://host.docker.internal:4444/examenes,5017,0,4
+1793139762956,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-199,text,true,,30832,492,7,7,http://host.docker.internal:4444/examenes,5014,0,3
+1793139763057,5017,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-200,text,true,,30832,492,6,6,http://host.docker.internal:4444/examenes,5015,0,3
+1793139760740,68332,POST Login B,200,OK,TG-B Concurrencia 50VU 2-177,text,true,,556,276,5,5,http://host.docker.internal:4444/autenticacion/login,68332,0,68261
+1793139760556,73466,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-175,text,true,,30832,492,5,5,http://host.docker.internal:4444/examenes,73465,0,68445
+1793139829070,5020,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-177,text,true,,30832,492,4,4,http://host.docker.internal:4444/examenes,5016,0,6
+1793139762057,74025,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-190,text,true,,30832,492,3,3,http://host.docker.internal:4444/examenes,74019,0,68992
+1793139761958,74159,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-189,text,true,,30832,492,2,2,http://host.docker.internal:4444/examenes,74153,0,69091
+1793139761659,74460,GET Examenes B,200,OK,TG-B Concurrencia 50VU 2-186,text,true,,30832,492,1,1,http://host.docker.internal:4444/examenes,74456,0,69391

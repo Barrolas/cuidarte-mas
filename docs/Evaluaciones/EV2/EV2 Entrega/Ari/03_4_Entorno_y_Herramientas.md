@@ -1,7 +1,7 @@
 # Texto para §3.4 — Entorno y herramientas (Ari)
 
 Pegar o adaptar en el informe EP3, bloque de recursos técnicos / herramientas de seguridad y rendimiento.  
-Ejecución: **26 de octubre de 2026**, Windows + Docker Desktop. Evidencia: `Ari/Evidencias/EV2_Ari_Pruebas_Seguridad_Rendimiento.docx` fig. 1–6.
+Ejecución: **26 y 27 de octubre de 2026**, Windows + Docker Desktop. Evidencia: `Ari/Evidencias/Evidencia_ARI.docx`.
 
 ---
 
@@ -19,17 +19,16 @@ En el log del backend, el login respondió en ~115 ms y `GET /examenes` / `GET /
 
 **Herramientas utilizadas en la parte de Ari**
 
-| Herramienta del plan | Herramienta usada | Por qué | Casos |
-|----------------------|-------------------|---------|-------|
-| OWASP ZAP | OWASP ZAP **2.17.0** GUI | Se importó `http://localhost:4444/openapi.json` y se inyectó JWT con reglas de Reemplazo (`Authorization: Bearer …`), una de médico y otra de paciente. Escaneo activo por rol | CP-04 |
-| Burp Suite | Swagger UI (Authorize) + `curl.exe -i` | Equivalente funcional: cambiar token, método e id y ver código/cabeceras/cuerpo. Mismo criterio que CP-14 | CP-04, CP-17 |
-| Nikto | `curl.exe -i` / `-I` | Nikto no está instalado; se revisaron cabeceras de `:4444` y `:3333` | CP-04 |
-| SQLMap | — (Nicolás) | Ari no duplica | CP-04 |
-| John the Ripper | Docker `ghcr.io/openwall/john` sobre `hashes.txt` | Resultado: *No password hashes loaded* (texto plano) | CP-15 |
-| JMeter | Docker `justb4/jmeter` 5.5, modo `-n` | Plan `CuidartePlus_CP05.jmx` (EV1), `host.docker.internal:4444`, usuario `medico` | CP-05 |
-| psql | `docker exec … psql` | `\d usuarios` | CP-15 |
-| Compose / nginx | lectura + `docker compose ps` | Única “herramienta” de disponibilidad | CP-21 |
-| Lighthouse | no ejecutado | NFR-PERF-2 pendiente | CP-19 |
+| Herramienta | Uso | Casos |
+|-------------|-----|-------|
+| OWASP ZAP **2.17.0** GUI | OpenAPI + JWT Bearer por rol (médico y paciente). Escaneo activo | CP-04 |
+| Swagger UI + PowerShell | Token, método, id y cabeceras. No se usó Burp ni Nikto | CP-04, CP-17 |
+| SQLMap | Nicolás; Ari no duplica | CP-04 |
+| John the Ripper (`ghcr.io/openwall/john`) | *No password hashes loaded* (texto plano) | CP-15 |
+| JMeter 5.5 Docker `justb4/jmeter` | `CuidartePlus_CP05.jmx` y `CP19_200u.jmx`, desde PowerShell | CP-05, CP-19 |
+| Lighthouse (Chrome) | Performance **43** en `:3333` (27-10) | CP-19 |
+| psql | `\d usuarios` | CP-15 |
+| Compose / nginx | `docker compose ps` | CP-21 |
 
 Se confirma que **Jest y k6 no se usan**. CP-21 no requiere escáner.
 
