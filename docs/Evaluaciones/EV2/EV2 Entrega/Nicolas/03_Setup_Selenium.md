@@ -102,16 +102,35 @@ y una captura en `../Evidencias/CP-01/selenium-login-medico.png`.
 
 ---
 
-## 3.7 Cómo lo usarás en los CP
+## 3.7 Suite de flujos (recomendado)
 
-Para cada CP del playbook:
+Además del smoke, corre la suite alineada a tus CP:
 
-1. Ejecutas el flujo **manual** o el script Selenium indicado.  
-2. Guardas captura en `Evidencias/CP-xx/`.  
-3. Complementas con Postman si el caso pide API.  
-4. Anotas en la bitácora.
+```powershell
+python test_suite_flujos.py
+```
 
-No hace falta que todos los CP estén 100% automatizados el primer día: el smoke prueba que Selenium funciona; el playbook te guía caso a caso (manual + API está bien al inicio).
+Cubre: login inválido, login médico, pacientes, exámenes, RBAC médico/admin en `/usuarios`, Mis Resultados (paciente), logout UI.
+
+Evidencias y log:
+
+- Capturas: `../Evidencias/Selenium/01-…08-….png`
+- Log terminal: `../Evidencias/Selenium/suite-output.txt`
+
+Opcional sin ventana de Chrome:
+
+```powershell
+$env:SELENIUM_HEADLESS="1"
+python test_suite_flujos.py
+```
+
+---
+
+## 3.8 Cómo lo usarás en los CP
+
+1. Suite Selenium = evidencia automatizable de humo + RBAC/navegación.  
+2. Flujos profundos (upload formatos, auditoría API, SQLMap) siguen en manual/Postman.  
+3. Anotas en la bitácora: smoke + suite.
 
 ---
 

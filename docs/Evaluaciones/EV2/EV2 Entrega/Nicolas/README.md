@@ -20,7 +20,8 @@ Material para ejecutar **tus** casos sin experiencia previa en las herramientas.
 |---------|-----|
 | `Evidencias/` | Capturas y exports por CP (`Evidencias/CP-01/`, etc.) |
 | `postman/` | Colección importable |
-| `selenium_suite/` | Script Python de smoke + requirements |
+| `selenium_suite/` | Smoke login + suite de 8 flujos (`test_suite_flujos.py`) |
+| `Evidencias/Selenium/` | Capturas y `suite-output.txt` de la suite automatizada |
 
 ## Cuentas de prueba (dump del repo)
 

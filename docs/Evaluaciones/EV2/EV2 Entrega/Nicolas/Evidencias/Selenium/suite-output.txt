@@ -1,0 +1,35 @@
+Suite Selenium Nicolás EP3 — 2026-10-27T12:59:44
+Base URL: http://localhost:3333
+Resultado: 8/8 OK, 0 FAIL
+
+[OK] CP-01 Login inválido
+  Permanece en login. Captura: 01-login-invalido.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\01-login-invalido.png
+
+[OK] CP-01 Login médico OK
+  URL=http://localhost:3333/home. Captura: 02-login-medico-ok.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\02-login-medico-ok.png
+
+[OK] CP-10 Médico lista pacientes
+  Listado visible. Captura: 03-medico-pacientes.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\03-medico-pacientes.png
+
+[OK] CP-02 Médico lista exámenes
+  Listado visible. Captura: 04-medico-examenes.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\04-medico-examenes.png
+
+[OK] CP-08 Médico sin acceso a /usuarios
+  Sin panel admin de usuarios. URL=http://localhost:3333/usuarios. Captura: 05-medico-sin-usuarios.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\05-medico-sin-usuarios.png
+
+[OK] CP-08 Admin lista usuarios
+  Admin ve usuarios. Captura: 06-admin-usuarios.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\06-admin-usuarios.png
+
+[OK] CP-12 Paciente Mis Resultados
+  Vista paciente OK. Captura: 07-paciente-mis-resultados.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\07-paciente-mis-resultados.png
+
+[OK] CP-07 Logout UI a login
+  Logout -> http://localhost:3333/login. Captura: 08-logout-a-login.png
+  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\08-logout-a-login.png
