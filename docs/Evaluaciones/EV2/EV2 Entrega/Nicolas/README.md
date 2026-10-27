@@ -7,7 +7,7 @@ Material para ejecutar **tus** casos sin experiencia previa en las herramientas.
 1. [`00_ANTES_DE_EMPEZAR.md`](./00_ANTES_DE_EMPEZAR.md) — qué es cada herramienta y el mapa mental  
 2. [`01_Setup_Docker.md`](./01_Setup_Docker.md) — levantar Cuidarte+  
 3. [`02_Setup_Postman.md`](./02_Setup_Postman.md) — primer request a la API  
-4. [`03_Setup_Selenium.md`](./03_Setup_Selenium.md) — primer test UI automatizado  
+4. [`03_Setup_Selenium.md`](./03_Setup_Selenium.md) — suite profesional pytest + Page Objects  
 5. [`04_Playbook_Ejecucion_CP.md`](./04_Playbook_Ejecucion_CP.md) — **paso a paso de cada CP** (ERS + evidencias)  
 6. [`05_Buenas_Practicas_Observaciones.md`](./05_Buenas_Practicas_Observaciones.md) — **recomendaciones de informe** (lockout, formularios…; sin prueba ni captura extra)  
 7. [`Bitacora_Ejecucion.md`](./Bitacora_Ejecucion.md) — resultados CP + borrador REC  
@@ -20,8 +20,8 @@ Material para ejecutar **tus** casos sin experiencia previa en las herramientas.
 |---------|-----|
 | `Evidencias/` | Capturas y exports por CP (`Evidencias/CP-01/`, etc.) |
 | `postman/` | Colección importable |
-| `selenium_suite/` | Smoke login + suite de 8 flujos (`test_suite_flujos.py`) |
-| `Evidencias/Selenium/` | Capturas y `suite-output.txt` de la suite automatizada |
+| `selenium_suite/` | Suite profesional pytest + Page Objects (`tests/`, `pages/`) |
+| `Evidencias/Selenium/` | `report.html`, `report.json`, capturas `{ID}-passed.png` |
 
 ## Cuentas de prueba (dump del repo)
 

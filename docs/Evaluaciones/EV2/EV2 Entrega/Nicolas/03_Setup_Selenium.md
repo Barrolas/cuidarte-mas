@@ -1,43 +1,18 @@
-# 03 — Setup Selenium (desde cero)
+# 03 — Setup Selenium (suite profesional)
 
-Objetivo: que un script abra Chrome, entre a Cuidarte+ y haga login solo.
-
----
-
-## 3.1 ¿Qué hace Selenium?
-
-En vez de hacer tú los clics, un programa:
-
-1. Abre el navegador  
-2. Va a http://localhost:3333  
-3. Escribe usuario/contraseña  
-4. Pulsa Entrar  
-5. Comprueba que llegaste al home  
-6. (Opcional) guarda una captura  
-
-Tú solo ejecutas un comando. Si falla, el mensaje te dice qué no encontró.
+Objetivo: automatizar la capa UI de tus CP con **pytest + Page Objects**, generar `report.html` / `report.json` y capturas.
 
 ---
 
-## 3.2 Instalar Python
+## 3.1 ¿Qué hace esta suite?
 
-1. Abre https://www.python.org/downloads/  
-2. Descarga Python 3.11 o 3.12 para Windows.  
-3. En el instalador marca **“Add python.exe to PATH”**.  
-4. Finish.
+No solo “abre el login”: valida flujos de autenticación, RBAC, pacientes, exámenes y resultados con esperas explícitas y reporte presentable para la defensa.
 
-Comprobar en PowerShell **nueva**:
-
-```powershell
-python --version
-pip --version
-```
-
-Si `python` no se reconoce, prueba `py --version`.
+Herramientas: Selenium 4, pytest, pytest-html, webdriver-manager, Chrome.
 
 ---
 
-## 3.3 Crear entorno virtual e instalar paquetes
+## 3.2 Instalar Python y venv
 
 ```powershell
 cd "E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\selenium_suite"
@@ -54,83 +29,83 @@ Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
 .\.venv\Scripts\Activate.ps1
 ```
 
-Cuando el venv está activo, el prompt suele mostrar `(.venv)`.
+---
+
+## 3.3 Docker arriba
+
+1. En la raíz del repo: `docker compose up -d`  
+2. Verifica http://localhost:3333  
 
 ---
 
-## 3.4 Tener Chrome instalado
-
-Selenium usa Chrome (o Edge). Instala Google Chrome si no lo tienes.  
-El paquete `webdriver-manager` descarga el driver solo la primera vez.
-
----
-
-## 3.5 Docker debe estar arriba
-
-Antes de correr el test:
-
-1. `docker compose up -d` en la raíz del repo (guía 01).  
-2. Abre http://localhost:3333 a mano y confirma que carga.
-
----
-
-## 3.6 Primer test (smoke login)
-
-Con el venv activado y en la carpeta `selenium_suite`:
+## 3.4 Smoke (opcional)
 
 ```powershell
 python test_smoke_login.py
 ```
 
-### Éxito
-
-Verás algo como:
-
-```
-[OK] Login medico -> /home
-```
-
-y una captura en `../Evidencias/CP-01/selenium-login-medico.png`.
-
-### Fallo típico
-
-| Mensaje / síntoma | Qué hacer |
-|-------------------|-----------|
-| Connection refused / ERR_CONNECTION | Docker no está up o puerto 3333 ocupado |
-| Timeout finding element | La página cambió o carga lenta; espera y reintenta |
-| Credenciales inválidas / no navega a home | Usuario/clave o seed BD; prueba login manual |
+Equivale a `pytest -m smoke` (AUTH-02 login médico).
 
 ---
 
-## 3.7 Suite de flujos (recomendado)
+## 3.5 Suite profesional (recomendado)
 
-Además del smoke, corre la suite alineada a tus CP:
-
-```powershell
-python test_suite_flujos.py
-```
-
-Cubre: login inválido, login médico, pacientes, exámenes, RBAC médico/admin en `/usuarios`, Mis Resultados (paciente), logout UI.
-
-Evidencias y log:
-
-- Capturas: `../Evidencias/Selenium/01-…08-….png`
-- Log terminal: `../Evidencias/Selenium/suite-output.txt`
-
-Opcional sin ventana de Chrome:
+Con venv activo y en `selenium_suite`:
 
 ```powershell
 $env:SELENIUM_HEADLESS="1"
-python test_suite_flujos.py
+pytest -v --html=../Evidencias/Selenium/report.html --self-contained-html
 ```
+
+Sin headless (ves el Chrome): omite `SELENIUM_HEADLESS`.
+
+### Casos (11)
+
+| ID | Qué valida | CP |
+|----|------------|-----|
+| AUTH-01 | Login inválido + mensaje | CP-01 |
+| AUTH-02 | Login médico → home + rol | CP-01 |
+| AUTH-03 | Logout UI → login | CP-07 |
+| RBAC-01 | Médico sin panel admin usuarios | CP-08 |
+| RBAC-02 | Admin lista usuarios seed | CP-08 |
+| RBAC-03 | Paciente: Mis Resultados, sin Auditoría/Usuarios admin | CP-12 |
+| PAC-01 | Listado pacientes cargado (≥1 fila) | CP-10 |
+| PAC-02 | Abrir editar paciente y volver | CP-10 |
+| EXA-01 | Listado exámenes + abrir editar | CP-02/11 |
+| EXA-02 | Editar observaciones y guardar | CP-11 |
+| RES-01 | Paciente Mis Resultados | CP-12 |
+
+### Evidencias generadas
+
+Carpeta `../Evidencias/Selenium/`:
+
+- `report.html` — informe pytest-html (abrir en navegador)
+- `report.json` — totales, pasos, duración, screenshot por caso
+- `suite-output.txt` — resumen legible
+- `{ID}-passed.png` / `{ID}-failed.png`
+
+Estructura del código:
+
+- `pages/` — Page Objects (Login, Layout, Pacientes, Exámenes, Resultados)
+- `tests/` — casos por área
+- `conftest.py` — driver, capturas, reporte JSON
+- `reporting.py` — escritura de report.json / suite-output.txt
 
 ---
 
-## 3.8 Cómo lo usarás en los CP
+## 3.6 Relación con las pruebas manuales
 
-1. Suite Selenium = evidencia automatizable de humo + RBAC/navegación.  
-2. Flujos profundos (upload formatos, auditoría API, SQLMap) siguen en manual/Postman.  
-3. Anotas en la bitácora: smoke + suite.
+Los CP de UI ya ejecutados a mano **siguen válidos**. Selenium **repite en automático** esa capa UI para regresión y evidencia de ingeniería. No reemplaza Postman ni SQLMap.
+
+---
+
+## Fallos típicos
+
+| Síntoma | Qué hacer |
+|---------|-----------|
+| Connection refused | Docker / puerto 3333 |
+| Timeout Cargando… | Backend lento; reintenta |
+| Menu logout no abre | Corre con ventana (`SELENIUM_HEADLESS` off) para depurar |
 
 ---
 

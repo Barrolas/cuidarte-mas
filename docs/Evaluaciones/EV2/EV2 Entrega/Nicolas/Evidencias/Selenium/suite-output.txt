@@ -1,35 +1,89 @@
-Suite Selenium Nicolás EP3 — 2026-10-27T12:59:44
+Suite Selenium profesional Nicolas EP3 — 2026-10-27T16:25:20.982130+00:00
 Base URL: http://localhost:3333
-Resultado: 8/8 OK, 0 FAIL
+Resultado: 11/11 OK, 0 FAIL, 0 SKIP
 
-[OK] CP-01 Login inválido
-  Permanece en login. Captura: 01-login-invalido.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\01-login-invalido.png
+[PASSED] AUTH-01 Login invalido
+  cp=CP-01 duration_ms=1111
+  - abrir /login
+  - enviar credenciales invalidas
+  - esperar mensaje Credenciales invalidas
+  - assert URL contiene /login
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\AUTH-01-passed.png
 
-[OK] CP-01 Login médico OK
-  URL=http://localhost:3333/home. Captura: 02-login-medico-ok.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\02-login-medico-ok.png
+[PASSED] AUTH-02 Login medico OK
+  cp=CP-01 duration_ms=1720
+  - login medico/medico
+  - assert URL /home
+  - assert rol Medico visible
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\AUTH-02-passed.png
 
-[OK] CP-10 Médico lista pacientes
-  Listado visible. Captura: 03-medico-pacientes.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\03-medico-pacientes.png
+[PASSED] AUTH-03 Logout UI a login
+  cp=CP-07 duration_ms=3439
+  - login medico
+  - esperar home estable
+  - abrir menu usuario y Cerrar sesion
+  - assert URL /login
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\AUTH-03-passed.png
 
-[OK] CP-02 Médico lista exámenes
-  Listado visible. Captura: 04-medico-examenes.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\04-medico-examenes.png
+[PASSED] EXA-01 Listado examenes y abrir editar
+  cp=CP-02/11 duration_ms=13450
+  - login medico
+  - abrir /examenes
+  - assert listado listo
+  - abrir primer examen en edicion
+  - assert formulario editar examen
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\EXA-01-passed.png
 
-[OK] CP-08 Médico sin acceso a /usuarios
-  Sin panel admin de usuarios. URL=http://localhost:3333/usuarios. Captura: 05-medico-sin-usuarios.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\05-medico-sin-usuarios.png
+[PASSED] EXA-02 Editar observaciones y guardar
+  cp=CP-11 duration_ms=15300
+  - login medico
+  - abrir listado y editar primer examen
+  - escribir observaciones: Selenium CP-11 auto
+  - guardar examen
+  - assert toast exito o vuelta a listado
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\EXA-02-passed.png
 
-[OK] CP-08 Admin lista usuarios
-  Admin ve usuarios. Captura: 06-admin-usuarios.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\06-admin-usuarios.png
+[PASSED] RES-01 Paciente Mis Resultados
+  cp=CP-12 duration_ms=2246
+  - login paciente
+  - abrir /mis-resultados
+  - assert vista resultados o empty state
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\RES-01-passed.png
 
-[OK] CP-12 Paciente Mis Resultados
-  Vista paciente OK. Captura: 07-paciente-mis-resultados.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\07-paciente-mis-resultados.png
+[PASSED] PAC-01 Medico lista pacientes cargada
+  cp=CP-10 duration_ms=7833
+  - login medico
+  - abrir /pacientes y esperar fin de carga
+  - assert tabla con columnas y filas
+  - botones editar encontrados=10
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\PAC-01-passed.png
 
-[OK] CP-07 Logout UI a login
-  Logout -> http://localhost:3333/login. Captura: 08-logout-a-login.png
-  evidencia: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\08-logout-a-login.png
+[PASSED] PAC-02 Abrir editar paciente y volver
+  cp=CP-10 duration_ms=14062
+  - login medico
+  - abrir listado pacientes
+  - click primer boton editar
+  - assert formulario de edicion visible
+  - cancelar o volver al listado
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\PAC-02-passed.png
+
+[PASSED] RBAC-01 Medico sin panel admin usuarios
+  cp=CP-08 duration_ms=2654
+  - login medico
+  - navegar a /usuarios
+  - assert no aparece panel admin LISTAR USUARIOS
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\RBAC-01-passed.png
+
+[PASSED] RBAC-02 Admin lista usuarios seed
+  cp=CP-08 duration_ms=2982
+  - login admin
+  - navegar a /usuarios
+  - assert Gestion de Usuarios y filas seed
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\RBAC-02-passed.png
+
+[PASSED] RBAC-03 Paciente nav Mis Resultados sin Usuarios
+  cp=CP-12 duration_ms=1830
+  - login paciente
+  - assert Mis Resultados visible
+  - assert no Usuarios ni Auditoria en nav paciente
+  screenshot: E:\CODE\LEARNING\DUOC - INGENIERIA EN INFORMATICA\Seg. y Calidad del Software\cuidarte-mas\docs\Evaluaciones\EV2\EV2 Entrega\Nicolas\Evidencias\Selenium\RBAC-03-passed.png
