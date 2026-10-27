@@ -1,0 +1,117 @@
+P28: 1. Introducción
+P29: 1.1 Contexto del software a evaluar
+P30: Cuidarte+ es una plataforma web orientada a centros de salud, desarrollada por CreaLab Spa, cuya finalidad es la gestión de pacientes, exámenes médicos y documentos clínicos. El sistema contempla cuat
+P31: Arquitectónicamente, Cuidarte+ se implementa como una aplicación multicapa compuesta por un frontend React (SPA), un backend Express/Node.js que expone una API REST y una base de datos PostgreSQL. Las
+P32: Dado que el sistema trata datos de carácter personal y, en particular, datos sensibles de salud —grupo sanguíneo, alergias, enfermedades crónicas, discapacidades, diagnósticos y tratamientos—, cualqui
+P33: 2. Criterios de calidad, seguridad y cumplimiento normativo
+P34: Los criterios que se establecen a continuación constituyen el estándar contra el cual se evaluará Cuidarte+. Se derivan de tres fuentes complementarias: el modelo de calidad ISO/IEC 25010, los requeri
+
+=== CP TABLES T13-T18 ===
+
+--- TABLE 13 ---
+R0: ID || NOMBRE || REQUERIMIENTO
+R1: CP-01 || Autenticación válida y rechazo de credenciales inválidas || RF-1.1: El sistema debe permitir a un usuario autenticarse con nombre_usuario y contraseña. | NFR-SEG-9: Manejo de sesión mediante token de acceso (JWT).
+R2: DESCRIPCIÓN
+R3: Verificar que un usuario válido obtiene una sesión JWT y que las credenciales inválidas son rechazadas sin exponer información sensible ni revelar la existencia de la cuenta.
+R4: PRECONDICIONES
+R5: Backend y base de datos levantados en el ambiente QA. Usuario medico.qa creado con rol médico y contraseña conforme a la política del ERS.
+R6: PASOS
+R7: 1. Enviar POST al endpoint de autenticación con credenciales válidas. | 2. Verificar la presencia del token JWT en la respuesta y su tiempo de expiración. | 3. Enviar POST al mismo endpoint con contra
+R8: RESULTADO ESPERADO
+R9: El inicio de sesión válido devuelve HTTP 200 junto con un token JWT de vigencia acotada. El inicio de sesión inválido devuelve HTTP 401, sin token y con un mensaje de error genérico.
+R10: CRITERIO DE ACEPTACIÓN
+R11: El acceso exitoso genera un token de sesión. El fallo no revela si el usuario existe. No se registran contraseñas ni tokens en los registros del sistema.
+R12: DATOS DE PRUEBA
+R13: Usuario válido: medico.qa / PruebaSegura#2026. Usuario inválido: medico.qa / ClaveIncorrecta#1
+R14: TIPO DE PRUEBA
+R15: Funcional y de seguridad
+
+--- TABLE 14 ---
+R0: ID || NOMBRE || REQUERIMIENTO
+R1: CP-02 || Registro de examen médico por un profesional autorizado || RF-3.1: Un usuario médico puede registrar un nuevo examen a un paciente para llevar registro de sus antecedentes médicos. | RB-3: Un médico puede ver la información clínica de cualquier paciente regis
+R2: DESCRIPCIÓN
+R3: Validar que un médico autenticado puede crear un examen asociado a un paciente existente y que el sistema valida correctamente los campos obligatorios.
+R4: PRECONDICIONES
+R5: Sesión activa de médico. Paciente de prueba previamente registrado en el sistema.
+R6: PASOS
+R7: 1. Iniciar sesión con el rol médico. | 2. Seleccionar el paciente de prueba. | 3. Registrar un examen con datos válidos y adjuntar un documento PDF dentro del límite permitido. | 4. Confirmar la persi
+R8: RESULTADO ESPERADO
+R9: El examen se crea y el sistema devuelve HTTP 201. El registro queda visible para el médico y correctamente asociado al paciente. El intento sin campos obligatorios es rechazado con un mensaje comprens
+R10: CRITERIO DE ACEPTACIÓN
+R11: El CRUD de exámenes opera conforme a lo especificado, la validación de ingreso funciona en el servidor y el médico accede a la información clínica del paciente según RB-3.
+R12: DATOS DE PRUEBA
+R13: Identificador del paciente de prueba; tipo de examen: hemograma completo; fecha de emisión; observaciones: control rutinario; documento PDF adjunto.
+R14: TIPO DE PRUEBA
+R15: Funcional
+
+--- TABLE 15 ---
+R0: ID || NOMBRE || REQUERIMIENTO
+R1: CP-03 || Registro de auditoría ante una acción crítica || RF-5.1: Registrar en auditoría las acciones críticas: creación, edición y eliminación de registros, y subida o descarga de documentos. | NFR-SEG-6: Gestión de log segura.
+R2: DESCRIPCIÓN
+R3: Comprobar que la eliminación de un examen o de un usuario genera un registro de auditoría que identifica al actor, la acción, la fecha y el recurso afectado.
+R4: PRECONDICIONES
+R5: Examen existente creado en CP-02. Usuario con rol autorizado para ejecutar la eliminación.
+R6: PASOS
+R7: 1. Ejecutar la eliminación previa confirmación en la interfaz. | 2. Consultar el módulo o la tabla de auditoría. | 3. Verificar los campos mínimos del evento registrado. | 4. Confirmar que no se audit
+R8: RESULTADO ESPERADO
+R9: Tras confirmar la eliminación, existe un registro de auditoría que consigna la acción, el usuario responsable, la marca temporal y la referencia al recurso afectado.
+R10: CRITERIO DE ACEPTACIÓN
+R11: Se genera un registro por cada acción crítica y la interfaz solicita confirmación antes de eliminar. El registro no contiene datos secretos.
+R12: DATOS DE PRUEBA
+R13: Identificador del examen creado en CP-02; usuario actor medico.qa, o admin.qa si se prueba la baja de un usuario.
+R14: TIPO DE PRUEBA
+R15: Funcional y de cumplimiento
+
+--- TABLE 16 ---
+R0: ID || NOMBRE || REQUERIMIENTO
+R1: CP-04 || Control de acceso por rol y resistencia a inyección || NFR-SEG-4: Control de acceso por rol en backend. | NFR-SEG-5: Protección contra CSRF, XSS e inyección SQL; validación y saneamiento de entrada. | RB-1: Un paciente solo tiene permisos de lectura.
+R2: DESCRIPCIÓN
+R3: Verificar que un paciente no puede ejecutar operaciones de administración ni modificar datos ajenos, y que las entradas maliciosas de inyección SQL y XSS son rechazadas o saneadas.
+R4: PRECONDICIONES
+R5: Usuarios de los tres roles disponibles. Endpoints protegidos y desplegados en el ambiente QA.
+R6: PASOS
+R7: 1. Autenticarse con el rol paciente y obtener el token. | 2. Invocar un endpoint reservado a la administración de usuarios. | 3. Intentar editar o eliminar un examen que no pertenece al paciente. | 4.
+R8: RESULTADO ESPERADO
+R9: Los accesos indebidos devuelven HTTP 401 o 403. La inyección SQL no autentica ni altera las consultas. El script XSS no se ejecuta, sino que se escapa o sanea. El paciente conserva únicamente lectura 
+R10: CRITERIO DE ACEPTACIÓN
+R11: El control de acceso es efectivo en el backend y no solo en la interfaz. Las entradas se validan y sanean. No se registran hallazgos críticos de inyección en la lista de verificación de seguridad.
+R12: DATOS DE PRUEBA
+R13: Token de paciente.qa. Carga de autenticación: ' OR 1=1 --. Carga en el campo de observaciones: <script>alert(1)</script>
+R14: TIPO DE PRUEBA
+R15: No funcional — Seguridad
+
+--- TABLE 17 ---
+R0: ID || NOMBRE || REQUERIMIENTO
+R1: CP-05 || Tiempo de respuesta de operaciones CRUD bajo carga normal || NFR-PERF-1: Tiempo de respuesta para operaciones CRUD simples menor a 300 ms bajo carga normal.
+R2: DESCRIPCIÓN
+R3: Medir el tiempo de respuesta de las operaciones CRUD de pacientes y exámenes bajo carga normal y contrastarlo con el umbral comprometido en el ERS.
+R4: PRECONDICIONES
+R5: Ambiente QA estable con el conjunto de datos sintéticos cargado y sin otras pruebas en ejecución.
+R6: PASOS
+R7: 1. Preparar la colección de peticiones CRUD representativas. | 2. Ejecutar la prueba de carga durante cinco minutos. | 3. Comparar el percentil 95 con el umbral de 300 ms. | 4. Documentar las desviaci
+R8: RESULTADO ESPERADO
+R9: El percentil de respuesta de las operaciones CRUD simples se mantiene bajo 300 ms durante toda la ventana de carga normal.
+R10: CRITERIO DE ACEPTACIÓN
+R11: La prueba cumple el umbral NFR-PERF-1 y se adjunta el resumen de latencias con su gráfico correspondiente.
+R12: DATOS DE PRUEBA
+R13: Script k6 o JMeter con 20 usuarios virtuales ejecutando operaciones GET y POST sobre exámenes y pacientes durante cinco minutos.
+R14: TIPO DE PRUEBA
+R15: No funcional — Rendimiento
+
+--- TABLE 18 ---
+R0: ID || NOMBRE || REQUERIMIENTO
+R1: CP-06 || Usabilidad para adulto mayor y compatibilidad responsive || NFR-USAB-1: Interfaces con tipografía legible, contraste adecuado y controles grandes para usuarios mayores. | NFR-USAB-2: Flujos claros para registro y visualización de exámenes o documentos. | NFR-U
+R2: DESCRIPCIÓN
+R3: Evaluar que un paciente adulto mayor pueda completar el flujo de acceso a su información clínica en móvil y tablet, con tipografía legible, contraste adecuado y controles táctiles suficientes.
+R4: PRECONDICIONES
+R5: Frontend desplegado. Cuenta de paciente con al menos un examen y un documento asociado.
+R6: PASOS
+R7: 1. Abrir la aplicación en un dispositivo móvil con viewport de 375 px. | 2. Iniciar sesión con el rol paciente. | 3. Navegar desde el perfil al listado de exámenes, al detalle y a la descarga del docu
+R8: RESULTADO ESPERADO
+R9: El flujo se completa sin bloqueos mayores. La interfaz responde correctamente al viewport, los textos resultan legibles, los controles son alcanzables y los mensajes de error son comprensibles.
+R10: CRITERIO DE ACEPTACIÓN
+R11: La sesión con usuario representativo concluye sin bloqueos mayores, se cumplen los criterios básicos de accesibilidad y se alcanza el puntaje mínimo de la lista de verificación del equipo.
+R12: DATOS DE PRUEBA
+R13: Dispositivo móvil con viewport de 375 px y tablet; usuario paciente.qa; lista de verificación de contraste y tamaño mínimo de controles.
+R14: TIPO DE PRUEBA
+R15: No funcional — Usabilidad y compatibilidad

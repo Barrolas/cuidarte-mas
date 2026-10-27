@@ -1,0 +1,284 @@
+2|normal|Cuidarte+
+Informe de seguridad y calidad 
+en el desarrollo de software
+9|normal|ISY1102 · Seguridad y Calidad en el Desarrollo de Software
+Ingeniería en Informática
+Sección: 001V
+Docente: Jose Sergio Collio Huennun
+Septiembre de 2026
+11|normal|Integrantes
+12|normal|Ari Araya
+13|normal|Giannina Guerrero
+Skarlett Tropan
+14|normal|Nicolás Barra
+19|Heading 1|ÍNDICE
+20|normal|1. Introducción
+21|normal|2. Criterios de calidad, seguridad y cumplimiento normativo
+22|normal|3. Plan de pruebas
+23|normal|4. Diseño de casos de prueba
+24|normal|Evidencia anexa: Informe_Hallazgos_CuidartePlus (MD/PDF), reportes OWASP ZAP en Anexos/ e Informe_JMeter_CP05.md.
+25|normal|HALL-05 (media, hardening): baseline ZAP sin autenticación reportó ausencia/debilidad de headers (CSP, anti-clickjacking, X-Content-Type-Options, X-Powered-By, CORS amplio), alineado a NFR-SEG-5 · CP-04. El baseline sin sesión no alcanza flujos clínicos con JWT; por ello no evidencia por sí solo los defectos HALL-01 a HALL-04.
+26|normal|HALL-04 (alta, rendimiento): delayMiddleware(5000) falsea NFR-PERF-1; JMeter midió p95 ≈ 5 s en GET de pacientes/exámenes. Relación: CP-05.
+27|normal|HALL-03 (alta, seguridad): JWT_SECRET con valor por defecto «inseguro», debilitando NFR-SEG-9.
+28|normal|HALL-02 (crítica, seguridad): contraseñas en texto plano (comparación e inserción sin bcrypt), en incumplimiento de NFR-SEG-2. Relación: CP-01/CP-04.
+29|normal|HALL-01 (alta, funcional/usabilidad): el control «Ver Documento» en la UI de edición de examen no visualiza el adjunto de forma usable (se reporta apertura del cargador de archivos); la API GET /documentos/:id responde 200. Relación: RF-4 / NFR-USAB-2 · CP-02/CP-06.
+30|normal|Además del diseño de CP-01 a CP-06, se ejecutó una batería exploratoria sobre el ambiente Docker local (API autenticada, baseline OWASP ZAP sin sesión y JMeter) para sustentar los casos no funcionales y documentar defectos reales sin corregir código en esta entrega. Resumen de hallazgos:
+31|Heading 2|4.1 Nota de ejecución exploratoria (complemento técnico)
+32|normal|5. Análisis de cobertura, pertinencia y coherencia
+33|normal|6. Conclusiones y recomendaciones
+34|normal|7. Referencias
+36|Heading 1|1. Introducción
+37|Heading 2|1.1 Contexto del software a evaluar
+38|normal|Cuidarte+ es una plataforma web orientada a centros de salud, desarrollada por CreaLab Spa, cuya finalidad es la gestión de pacientes, exámenes médicos y documentos clínicos. El sistema contempla cuatro perfiles de uso: los médicos registran pacientes y exámenes médicos; los pacientes visualizan su información clínica y descargan los documentos asociados; los administradores supervisan, auditan y administran usuarios y datos; y los visitantes solo acceden al flujo de registro, sin acceso alguno a información clínica.
+39|normal|Arquitectónicamente, Cuidarte+ se implementa como una aplicación multicapa compuesta por un frontend React (SPA), un backend Express/Node.js que expone una API REST y una base de datos PostgreSQL. Las comunicaciones deben realizarse sobre TLS, las contraseñas deben almacenarse mediante hashing con bcrypt, la autenticación se sustenta en tokens JWT y los documentos clínicos se conservan en almacenamiento interno con su referencia en base de datos.
+40|normal|Dado que el sistema trata datos de carácter personal y, en particular, datos sensibles de salud —grupo sanguíneo, alergias, enfermedades crónicas, discapacidades, diagnósticos y tratamientos—, cualquier fallo de calidad, seguridad o cumplimiento normativo compromete simultáneamente la confidencialidad clínica del paciente, la continuidad operativa del centro de salud y la responsabilidad legal de la organización. Esta triple exposición es la que justifica que el presente plan no se limite a verificar funcionalidad.
+41|Heading 2|1.2 Propósito del plan de pruebas
+42|Heading 2|Diseñar una estrategia integral que asegure, antes de producción, que Cuidarte+ cumple los requerimientos funcionales del ERS (RF-1 a RF-5), satisface atributos no funcionales (seguridad, rendimiento, usabilidad, disponibilidad y compatibilidad) y se alinea con el marco legal chileno de datos personales, ciberseguridad, documentos electrónicos y accesibilidad. El plan adopta el enfoque QA + Seguridad + Cumplimiento, evitando tratar la norma como una fase aislada al final.
+43|Heading 2|1.3 Objetivos
+44|Heading 2|Definir criterios de calidad, seguridad y cumplimiento trazables a códigos del ERS; clasificar y justificar los tipos de prueba aplicables; establecer estrategia, herramientas, criterios de entrada y salida, recursos y cronograma; diseñar al menos cinco casos representativos (CP-01 a CP-06); y evaluar cobertura, brechas y coherencia frente al ERS y al marco normativo (IE5).
+45|Heading 2|1.4 Alcance
+46|Heading 2|Incluye autenticación y sesión (RF-1), roles y reglas RB-1/RB-2/RB-3, exámenes y documentos (RF-3, RF-4), auditoría (RF-5) y atributos NFR-SEG, NFR-PERF, NFR-USAB y NFR-COMPAT. Quedan fuera de esta EV1 el pentest certificado, la certificación WCAG formal, la auditoría legal externa y la medición prolongada de disponibilidad 99,5%.
+47|Heading 2|1.5 Estructura del informe
+48|Heading 2|El documento sigue el Ítem I del encargo y la plantilla institucional: introducción; criterios y normativa; plan de pruebas (estrategia, tipos, aceptación, herramientas y recursos); diseño de casos; análisis de cobertura; conclusiones y referencias. Al final de la sección de casos se incorpora una nota técnica de ejecución exploratoria (API autenticada, OWASP ZAP y JMeter) como evidencia complementaria.
+49|Heading 1|2. Criterios de calidad, seguridad y cumplimiento normativo
+50|normal|Los criterios que se establecen a continuación constituyen el estándar contra el cual se evaluará Cuidarte+. Se derivan de tres fuentes complementarias: el modelo de calidad ISO/IEC 25010, los requerimientos no funcionales comprometidos en el ERS y el marco legal chileno aplicable al tratamiento de datos de salud.
+51|Heading 2|2.1 Criterios de calidad
+52|normal|Se adoptan como referencia las características del modelo ISO/IEC 25010 pertinentes al dominio, vinculando cada atributo a los códigos del ERS que lo sustentan y a la evidencia que deberá producir la ejecución de las pruebas.
+58|Heading 2|2.2 Criterios de seguridad
+59|normal|La seguridad se trata como un requerimiento verificable y no como una cualidad declarativa. Cada criterio del ERS se traduce en una condición observable durante la ejecución de las pruebas.
+61|normal|Reglas de negocio asociadas
+62|normal|RB-1: el paciente dispone únicamente de permisos de lectura sobre su propia información.
+63|normal|RB-2: el administrador ejerce operaciones CRUD completas sobre usuarios y datos.
+64|normal|RB-3: el médico puede consultar la información clínica de cualquier paciente registrado.
+65|Heading 2|2.3 Cumplimiento normativo y legal
+66|normal|Cuidarte+ trata datos personales y datos sensibles de salud, condición que determina el régimen jurídico aplicable y, con él, el estándar técnico exigible. La calificación no es accesoria: el propio modelo de datos del sistema registra alergias, enfermedades crónicas, discapacidades, diagnósticos y tratamientos, de modo que la organización que opere la plataforma actúa como responsable del tratamiento de datos sensibles frente a la legislación chilena.
+67|normal|Las normas se ordenan a continuación según su exigencia concreta sobre el sistema, indicando en cada caso la traducción operativa que reciben dentro de este plan de pruebas.
+69|normal|Un caso particular merece precisión: la Ley 21.180 sobre transformación digital del Estado no resulta directamente exigible a Cuidarte+ mientras opere como prestador privado. Solo pasa a ser aplicable si el sistema interopera con organismos de la Administración del Estado, como FONASA, el Registro Civil o un servicio de salud público. Se declara aquí como criterio de interoperabilidad futura y no como obligación vigente.
+70|Heading 2|2.4 Matriz criterio → requerimiento → norma
+71|normal|La siguiente matriz sintetiza la trazabilidad entre los criterios transversales del plan, los códigos del ERS que los materializan y la norma que les sirve de respaldo. Constituye el puente entre la exigencia jurídica y el caso de prueba ejecutable.
+77|Heading 1|3. Plan de pruebas
+78|Heading 2|3.1 Estrategia de pruebas
+79|normal|Enfoque general
+80|normal|Se adopta un enfoque mixto. Se automatizan las pruebas unitarias y de API, las verificaciones básicas de seguridad mediante análisis dinámico, las pruebas de rendimiento y la suite de humo. Se mantienen manuales las pruebas de usabilidad con adultos mayores, la exploración de flujos clínicos, la revisión de mensajes de error y la evaluación visual de criterios de accesibilidad.
+81|normal|La justificación es doble: la automatización reduce el costo de regresión sobre autenticación y API, que son las áreas de mayor riesgo legal y de cambio más frecuente; la ejecución manual resulta indispensable para validar la experiencia de usuarios mayores, criterio de aceptación explícito del ERS y dimensión que ninguna herramienta automatizada evalúa de forma concluyente.
+82|Heading 2|Nota técnica de implementación (ambiente local)
+83|Heading 2|Endpoints de referencia del backend Cuidarte+ utilizados en el diseño y ejecución de casos: POST /autenticacion/login y POST /autenticacion/registro; /usuarios; /pacientes; /examenes; /documentos; /auditoria; documentación OpenAPI en /docs. En el despliegue Docker local del repositorio, el frontend opera en el puerto 3333 y la API en el puerto 4444 (Swagger: http://localhost:4444/docs).
+84|normal|Etapas del proceso
+87|normal|Priorización por riesgo
+89|normal|Criterios de entrada
+90|normal|ERS estable en la versión de referencia del caso semestral.
+91|normal|Ambiente de pruebas levantado mediante Docker, con frontend, backend y PostgreSQL operativos.
+92|normal|Usuarios de prueba creados por cada rol —administrador, médico y paciente— con datos anonimizados.
+93|normal|Casos de prueba diseñados y revisados por la dupla responsable.
+94|normal|Criterios de salida
+95|normal|Ejecución del 100% de los casos clasificados como P0 y P1.
+96|normal|Ausencia de hallazgos críticos de seguridad abiertos.
+97|normal|Cumplimiento del umbral NFR-PERF-1 en el ambiente de prueba.
+98|normal|Matriz de trazabilidad actualizada y brechas documentadas.
+99|normal|Informe de resultados disponible para los interesados.
+107|Heading 2|3.2 Tipos de prueba
+108|normal|Distinción entre pruebas funcionales y no funcionales
+110|normal|Ambas dimensiones son indispensables y no sustituibles entre sí. Un flujo funcionalmente correcto que filtre datos clínicos por un fallo de autorización no constituye un simple defecto de software: configura un incumplimiento de seguridad y de la legislación de protección de datos, con las consecuencias patrimoniales descritas en la sección 2.3.
+111|normal|Catálogo de tipos de prueba aplicables al caso
+113|normal|Justificación de la selección
+114|normal|Se priorizan las pruebas de seguridad, auditoría y usabilidad porque Cuidarte+ maneja datos sensibles de salud y se orienta a usuarios de edad avanzada. El rendimiento se incorpora porque el ERS fija umbrales cuantitativos verificables. La compatibilidad responde al carácter multidispositivo del producto. Cabe subrayar que las pruebas de cumplimiento normativo no se posponen al cierre del ciclo: se traducen desde el diseño en casos técnicos ejecutables, como la verificación de RBAC y la comprobación de registros de auditoría.
+115|Heading 2|3.3 Criterios de aceptación
+116|normal|Un caso de prueba se considera aprobado únicamente si concurren las cuatro condiciones siguientes.
+117|normal|El resultado observado coincide con el resultado esperado documentado en el caso.
+118|normal|Se respeta la regla de negocio aplicable, según corresponda a RB-1, RB-2 o RB-3.
+119|normal|No se exponen datos clínicos a roles no autorizados en ningún punto del flujo.
+120|normal|Ante un fallo de seguridad o de cumplimiento normativo, el caso se marca como fallido aunque la interfaz presente un comportamiento aparentemente correcto.
+121|normal|Este último criterio es deliberado: en un sistema que trata datos de salud, la corrección visual no acredita conformidad. La verificación se realiza sobre la respuesta del backend y sobre el registro de auditoría, no sobre lo que muestra la pantalla.
+122|Heading 2|3.4 Herramientas y recursos necesarios
+123|normal|Recursos humanos
+126|normal|Recursos técnicos
+128|normal|Entorno de prueba
+130|normal|Las cuentas de prueba sugeridas son ficticias —admin.qa, medico.qa y paciente.qa— y sus contraseñas cumplen la política del ERS de al menos doce caracteres con mayúscula, minúscula, número y símbolo. El uso exclusivo de datos sintéticos durante las pruebas no es una comodidad técnica sino una exigencia derivada del principio de minimización de la Ley 21.719.
+131|normal|Cronograma de ejecución
+133|normal|Estimación de esfuerzo
+135|Heading 1|4. Diseño de casos de prueba
+136|normal|Se diseñan seis casos representativos que cubren los distintos tipos de requerimiento definidos en el ERS. Cada caso se documenta con el identificador, el nombre, el requerimiento asociado, la descripción, las precondiciones, los pasos de ejecución, el resultado esperado, el criterio de aceptación y los datos de prueba, conforme al formato institucional.
+137|normal|CP-01 — Autenticación válida y rechazo de credenciales inválidas
+144|normal|CP-02 — Registro de examen médico por un profesional autorizado
+146|normal|CP-03 — Registro de auditoría ante una acción crítica
+148|normal|CP-04 — Control de acceso por rol y resistencia a inyección
+156|normal|CP-05 — Tiempo de respuesta de operaciones CRUD bajo carga normal
+171|normal|CP-06 — Usabilidad para adulto mayor y compatibilidad responsive
+173|Heading 1|5. Análisis de cobertura, pertinencia y coherencia
+174|Heading 2|5.1 Matriz de trazabilidad
+175|normal|La matriz siguiente permite verificar que cada requerimiento relevante del ERS tiene al menos un caso de prueba asociado y, a la inversa, que ningún caso diseñado carece de fundamento en el ERS.
+177|Heading 2|5.2 Brechas identificadas y priorización
+178|normal|El reconocimiento explícito de las brechas es parte de la evaluación de cobertura. Se documentan a continuación aquellas que este ciclo no alcanza a cubrir, junto con la justificación de su postergación.
+180|normal|La priorización privilegia deliberadamente el riesgo legal y clínico —autenticación, control de acceso, auditoría e integridad documental— por sobre las métricas de comportamiento a largo plazo. Un fallo en las primeras genera responsabilidad patrimonial inmediata conforme al artículo 35 de la Ley 21.719; un incumplimiento de las segundas genera, en cambio, una degradación de servicio corregible en iteraciones posteriores.
+185|Heading 2|5.3 Coherencia entre estrategia, recursos y cronograma
+186|normal|La estrategia mixta es sostenible con las herramientas efectivamente disponibles en el taller —Postman, Docker, Lighthouse y k6— y con las sesiones manuales de usabilidad, sin requerir licencias ni infraestructura adicional.
+187|normal|El cronograma de tres semanas concentra los casos P0 y P1 en la semana dos, lo que resulta coherente con la priorización por riesgo declarada en la sección 3.1.
+188|normal|Los seis casos diseñados materializan tanto los tipos funcionales como los no funcionales exigidos, cubriendo autenticación, funcionalidad clínica, auditoría, seguridad, rendimiento y usabilidad.
+189|normal|La sección normativa conecta el requerimiento NFR-SEG-8 con normas chilenas concretas y con artículos determinados, evitando las menciones genéricas que no admiten verificación.
+190|Heading 2|5.4 Evaluación frente a los indicadores de la rúbrica
+192|Heading 1|6. Conclusiones y recomendaciones
+193|normal|El plan de pruebas diseñado para Cuidarte+ integra calidad, seguridad y cumplimiento normativo desde la etapa de diseño, en alineación con el ERS del caso semestral. Los seis casos representativos cubren autenticación, funcionalidad clínica, auditoría, control de acceso y saneamiento de entradas, rendimiento y usabilidad con compatibilidad.
+194|normal|La conclusión central del análisis es que, tratándose de un sistema que administra datos sensibles de salud, la separación tradicional entre defecto funcional e incumplimiento legal deja de ser útil. Una autorización mal implementada no es un error de programación con consecuencias técnicas: es un tratamiento indebido de datos sensibles, con las sanciones que el artículo 35 de la Ley 21.719 asocia a las infracciones graves y gravísimas. Por esa razón el plan traduce cada exigencia normativa en un criterio de aceptación observable y no en una declaración de intenciones.
+195|normal|Recomendaciones
+196|normal|Ampliar la suite con casos de cierre de sesión y revocación de token (RF-1.2) y de CRUD administrativo (RF-2.5 a RF-2.7).
+197|normal|Medir el rendimiento con delayMiddleware desactivado y reutilizar el plan JMeter de Anexos/jmeter/CuidartePlus_CP05.jmx para verificar NFR-PERF-1 en condiciones reales de QA.
+198|normal|Formalizar una lista de comprobación de TLS y respaldos (NFR-SEG-1 y NFR-SEG-7) aplicable a cada despliegue en QA.
+199|normal|Ejecutar al menos una sesión de aceptación con cinco adultos mayores, documentando los hallazgos conforme al ERS §3.1.1.
+200|normal|Mantener el uso exclusivo de datos de prueba sintéticos, reduciendo el riesgo legal durante la ejecución del ciclo.
+201|normal|Incorporar, antes del paso a producción, un análisis dinámico de mayor profundidad y una revisión de dependencias que verifique tanto vulnerabilidades conocidas como compatibilidad de licencias, conforme a los artículos 78 y 79 de la Ley 17.336.
+202|normal|Incorporar un mecanismo de verificación de integridad —resumen criptográfico almacenado y revalidado en cada descarga— sobre los documentos clínicos, en cumplimiento del Título Cuarto del Decreto 181.
+203|Heading 1|7. Referencias
+204|normal|Chile. Ley N° 17.336, sobre propiedad intelectual, de 2 de octubre de 1970.
+205|normal|Chile. Ley N° 19.628, sobre protección de la vida privada, de 28 de agosto de 1999.
+206|normal|Chile. Ley N° 19.799, sobre documentos electrónicos, firma electrónica y servicios de certificación.
+207|normal|Chile. Decreto Supremo N° 181, de 17 de agosto de 2002, reglamento de la Ley N° 19.799.
+208|normal|Chile. Ley N° 21.180, sobre transformación digital del Estado, de 11 de noviembre de 2019.
+209|normal|Chile. Ley N° 21.459, que establece normas sobre delitos informáticos, de 20 de junio de 2022.
+210|normal|Chile. Ley N° 21.663, Ley Marco sobre Ciberseguridad e Infraestructura Crítica de la Información.
+211|normal|Chile. Ley N° 21.719, que regula la protección y el tratamiento de los datos personales.
+212|normal|Chile. Política Nacional de Ciberseguridad.
+213|normal|Instituto Nacional de Normalización. NCh 27002.Of2009, Tecnología de la información: código de práctica para la gestión de la seguridad de la información.
+214|normal|Gobierno de Chile. Manual de Accesibilidad Web.
+215|normal|ISO/IEC 25010, Systems and software Quality Requirements and Evaluation (SQuaRE): modelos de calidad.
+216|normal|OWASP Foundation. OWASP Top 10: riesgos de seguridad en aplicaciones web.
+217|normal|DuocUC. EP1_ISY1102_Estudiante: instrucciones y pauta de evaluación.
+218|normal|DuocUC. EP1_ISY1102_Estudiante_ERS_B: especificación de requerimientos de software del sistema Cuidarte+.
+
+=== TABLES ===
+T0 (6x4):
+  Atributo || Criterio de calidad || Requerimiento ERS || Evidencia esperada
+  Usabilidad || Tipografía legible, contraste adecuado, controles amplios para adultos mayores y || NFR-USAB-1 a NFR-USAB-4 || Sesiones con usuarios representativos; auditoría Lighthouse
+  Rendimiento || Operaciones CRUD bajo 300 ms; carga de página principal bajo 2 s; soporte de 200 || NFR-PERF-1 a NFR-PERF-3 || Pruebas de carga con k6 o JMeter
+  Fiabilidad y disponibilidad || Disponibilidad objetivo de 99,5% mensual con ventanas de mantenimiento controlad || NFR-DIS-1, NFR-DIS-2 || Monitoreo y pruebas de recuperación
+T1 (10x3):
+  ID ERS || Criterio || Qué se verifica
+  NFR-SEG-1 || TLS obligatorio || El tráfico HTTP es rechazado o redirigido forzosamente a HTTPS
+  NFR-SEG-2 || Hashing con bcrypt || Las contraseñas no se almacenan ni se comparan en texto plano
+  NFR-SEG-3 || Cifrado en reposo de datos sensibles || Documentos y datos clínicos protegidos en almacenamiento y base de datos
+T2 (10x4):
+  Norma o estándar || Aspecto relevante || Aplicación en Cuidarte+ || Traducción a prueba
+  Ley 19.628, sobre protección de la vida privada || Régimen del tratamiento de datos personales y sensibles; art. 22 sobre registro  || Finalidad declarada, deber de secreto y derechos del paciente sobre su ficha clí || Verificación de acceso restringido por rol y de no exposición indebida de la fic
+  Ley 21.719, sobre protección de datos personales || Principios de licitud, finalidad, proporcionalidad, seguridad y responsabilidad  || La organización es responsable del tratamiento de datos clínicos y responde patr || Casos de autorización, minimización de datos y registro de incidentes de acceso
+  Ley 21.663, Ley Marco de Ciberseguridad || Gestión de riesgos, sistema de gestión de seguridad y deber de reportar incident || La prestación de salud se considera servicio esencial, lo que eleva el estándar  || Pruebas de detección y reporte de incidentes, endurecimiento de configuración y 
+T3 (8x3):
+  Criterio transversal || Códigos ERS || Norma o estándar de respaldo
+  Confidencialidad clínica || NFR-SEG-3, NFR-SEG-4, RB-1 || Ley 19.628; Ley 21.719
+  Autenticación robusta || RF-1.1, RF-1.2, NFR-SEG-2, NFR-SEG-9 || Ley 21.663; NCh 27002.Of2009
+  Integridad de documentos clínicos || RF-4.3, RF-4.4, NFR-SEG-3 || Decreto 181; Ley 19.799
+T4 (9x4):
+  Fase || Descripción || RF/NFR principales || Herramientas
+  1. Análisis y diseño || Revisión del ERS, análisis de riesgos y diseño de casos || Todos || ERS, matriz de trazabilidad
+  2. Pruebas unitarias || Validaciones, hashing y utilidades de autenticación || NFR-SEG-2, NFR-SEG-9 || Jest
+  3. Integración de API || Contratos REST, códigos HTTP y manejo de JWT || RF-1 a RF-5, NFR-SEG-4 || Postman, Swagger
+T5 (6x3):
+  Prioridad || Área de riesgo || Motivo
+  P0 || Autenticación, RBAC y documentos clínicos || Impacto legal directo y riesgo de filtración de datos de salud
+  P1 || Auditoría y registros || Evidencia exigible ante incidentes conforme a las leyes 21.719 y 21.663
+  P2 || CRUD de exámenes y pacientes || Núcleo funcional del negocio
+T6 (4x3):
+  Dimensión || Pruebas funcionales || Pruebas no funcionales
+  Pregunta central || ¿El sistema hace lo que debe hacer? || ¿Lo hace bien: de forma segura, rápida, usable y compatible?
+  Base de derivación || RF-1 a RF-5 y reglas de negocio || NFR-SEG, NFR-PERF, NFR-USAB, NFR-DIS y NFR-COMPAT
+  Ejemplo en Cuidarte+ || El médico registra un examen a un paciente || La respuesta CRUD se mantiene bajo 300 ms; el paciente no puede eliminar usuario
+T7 (10x4):
+  Tipo de prueba || Propósito || RF/NFR que cubre || Ejemplo en Cuidarte+
+  Funcionales || Verificar los comportamientos de negocio esperados || RF-1 a RF-5 || Inicio de sesión, CRUD de exámenes, descarga de documentos
+  Integración y API || Validar los contratos entre React, Express y PostgreSQL || Interfaces §3.1.2, RF-1 a RF-4 || Endpoint de autenticación y persistencia de la sesión
+  Seguridad || Detectar vulnerabilidades y fallas de control de acceso || NFR-SEG-1 a 9, RB-1 a RB-3 || Un paciente invoca la API de administración y recibe 403; se rechaza una carga d
+T8 (7x2):
+  Rol || Responsabilidad
+  Analista de pruebas || Diseño y ejecución de casos; registro y seguimiento de defectos
+  Desarrollador backend || Soporte de la API, generación de datos de prueba y corrección de hallazgos
+  Desarrollador frontend || Soporte de interfaz, comportamiento responsive y accesibilidad
+T9 (10x2):
+  Recurso || Uso previsto
+  Node.js 18 o superior, React 19, Express, PostgreSQL 15 || Stack tecnológico del producto
+  Docker Compose || Entorno reproducible con base de datos, backend y frontend
+  Postman y Swagger || Pruebas de API e integración
+T10 (3x2):
+  Ambiente || Propósito
+  Local sobre Docker || Desarrollo y ejecución diaria de la suite de humo
+  QA o staging || Ejecución formal de la suite completa, con TLS habilitado y roles de prueba crea
+T11 (4x3):
+  Semana || Actividades || Entregables
+  Semana 1 || Análisis del ERS, evaluación de riesgos, diseño de casos P0 y P1, preparación de || Casos CP-01 a CP-06; entorno QA operativo
+  Semana 2 || Ejecución funcional, integración de API, pruebas de seguridad y auditoría || Bitácora de defectos; resultados de CP-01 a CP-04
+  Semana 3 || Rendimiento, usabilidad y compatibilidad, regresión y cierre || Resultados de CP-05 y CP-06; matriz de cobertura; informe final
+T12 (6x2):
+  Tipo de prueba || Esfuerzo relativo
+  Funcional y auditoría || 30%
+  Seguridad || 25%
+  Usabilidad y compatibilidad || 20%
+T13 (16x3):
+  ID || NOMBRE || REQUERIMIENTO
+  CP-01 || Autenticación válida y rechazo de credenciales inválidas || RF-1.1: El sistema debe permitir a un usuario autenticarse con nombre_usuario y 
+  DESCRIPCIÓN || DESCRIPCIÓN || DESCRIPCIÓN
+  Verificar que un usuario válido obtiene una sesión JWT y que las credenciales in || Verificar que un usuario válido obtiene una sesión JWT y que las credenciales in || Verificar que un usuario válido obtiene una sesión JWT y que las credenciales in
+T14 (16x3):
+  ID || NOMBRE || REQUERIMIENTO
+  CP-02 || Registro de examen médico por un profesional autorizado || RF-3.1: Un usuario médico puede registrar un nuevo examen a un paciente para lle
+  DESCRIPCIÓN || DESCRIPCIÓN || DESCRIPCIÓN
+  Validar que un médico autenticado puede crear un examen asociado a un paciente e || Validar que un médico autenticado puede crear un examen asociado a un paciente e || Validar que un médico autenticado puede crear un examen asociado a un paciente e
+T15 (16x3):
+  ID || NOMBRE || REQUERIMIENTO
+  CP-03 || Registro de auditoría ante una acción crítica || RF-5.1: Registrar en auditoría las acciones críticas: creación, edición y elimin
+  DESCRIPCIÓN || DESCRIPCIÓN || DESCRIPCIÓN
+  Comprobar que la eliminación de un examen o de un usuario genera un registro de  || Comprobar que la eliminación de un examen o de un usuario genera un registro de  || Comprobar que la eliminación de un examen o de un usuario genera un registro de 
+T16 (16x3):
+  ID || NOMBRE || REQUERIMIENTO
+  CP-04 || Control de acceso por rol y resistencia a inyección || NFR-SEG-4: Control de acceso por rol en backend. / NFR-SEG-5: Protección contra 
+  DESCRIPCIÓN || DESCRIPCIÓN || DESCRIPCIÓN
+  Verificar que un paciente no puede ejecutar operaciones de administración ni mod || Verificar que un paciente no puede ejecutar operaciones de administración ni mod || Verificar que un paciente no puede ejecutar operaciones de administración ni mod
+T17 (16x3):
+  ID || NOMBRE || REQUERIMIENTO
+  CP-05 || Tiempo de respuesta de operaciones CRUD bajo carga normal || NFR-PERF-1: Tiempo de respuesta para operaciones CRUD simples menor a 300 ms baj
+  DESCRIPCIÓN || DESCRIPCIÓN || DESCRIPCIÓN
+  Medir el tiempo de respuesta de las operaciones CRUD de pacientes y exámenes baj || Medir el tiempo de respuesta de las operaciones CRUD de pacientes y exámenes baj || Medir el tiempo de respuesta de las operaciones CRUD de pacientes y exámenes baj
+T18 (16x3):
+  ID || NOMBRE || REQUERIMIENTO
+  CP-06 || Usabilidad para adulto mayor y compatibilidad responsive || NFR-USAB-1: Interfaces con tipografía legible, contraste adecuado y controles gr
+  DESCRIPCIÓN || DESCRIPCIÓN || DESCRIPCIÓN
+  Evaluar que un paciente adulto mayor pueda completar el flujo de acceso a su inf || Evaluar que un paciente adulto mayor pueda completar el flujo de acceso a su inf || Evaluar que un paciente adulto mayor pueda completar el flujo de acceso a su inf
+T19 (12x4):
+  Requerimiento o regla || Tipo de prueba || Caso asociado || Cobertura
+  RF-1.1 || Funcional y de seguridad || CP-01 || Cubierto
+  RF-1.2 || Seguridad de sesión || CP-01 || Parcial
+  RF-3.1 || Funcional || CP-02 || Cubierto
+T20 (6x3):
+  Brecha || Justificación y siguiente iteración || Prioridad
+  RF-2, CRUD completo de usuarios por el administrador || Cubierto conceptualmente por la verificación de RBAC; se recomienda incorporar u || Media
+  RF-4.2, descarga de documentos con umbral de diez segundos || Cubierto parcialmente en CP-06; corresponde medir el tiempo de forma explícita e || Media
+  NFR-PERF-2 y NFR-PERF-3 || Solo se midió NFR-PERF-1 en CP-05 por el foco acotado de esta evaluación || Media
+T21 (6x2):
+  Indicador || Evidencia en este informe
+  IE1 || Sección 2: criterios de calidad y seguridad junto al marco legal chileno aplicad
+  IE2 || Sección 3.2: clasificación y justificación de los tipos de prueba, con distinció
+  IE3 || Casos CP-04, CP-05 y CP-06: pruebas no funcionales con criterios de aceptación m
+
+=== KEYWORDS ===
+/autenticacion: True
+delayMiddleware: True
+JMeter: True
+HALL-: True
+4444: True
+3333: True
+Postman: True
+OWASP: True
+medico.qa: True
+PruebaSegura: True
+NFR-PERF: True
+CP-01: True
+CP-05: True
+1.2: True
+1.3: True
+1.4: True
+1.5: True
+propósito: True
+Propósito: True
+objetivos: True
+Alcance: True
+Swagger: True
+k6: True
+Lighthouse: True
+JWT: True
+SQLi: True

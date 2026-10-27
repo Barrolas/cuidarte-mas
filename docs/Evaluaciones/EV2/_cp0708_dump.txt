@@ -1,0 +1,95 @@
+===== TABLE 0 =====
+R0: Código || Descripción (ERS B) || Caso || Tipo de prueba || Riesgo || Módulo || Ejecuta || Incidente vinculado || Resultado
+R1: RF-1.1 || Autenticarse con nombre_usuario y contraseña || CP-01 || Funcional y seguridad || P0 || Autenticación || Nicolás || INC-01, INC-02 || Pendiente
+R2: RF-1.2 || Cierre de sesión y revocación de tokens || CP-07 || Seguridad de sesión || P0 || Autenticación || Nicolás || INC-03 || Pendiente
+R3: RF-2.1 || Registro rápido con usuario, contraseña y correo; rol paciente por defecto || CP-09 || Funcional; valores límite || P2 || Registro || Nicolás || INC-10 || Pendiente
+R4: RF-2.2 || Médico o administrador registra a un paciente || CP-10 || Funcional || P2 || Pacientes || Nicolás || Ninguno || Pendiente
+R5: RF-2.3 || Médico o administrador edita el registro de un paciente || CP-10 || Funcional || P2 || Pacientes || Nicolás || Ninguno || Pendiente
+R6: RF-2.4 || Médico o administrador visualiza el registro de un paciente || CP-10 || Funcional; control de acceso || P0 || Pacientes || Nicolás || OC-01 || Pendiente
+R7: RF-2.5 || Administrador visualiza los usuarios registrados || CP-08 || Funcional; RBAC || P0 || Usuarios || Nicolás || Ninguno || Pendiente
+R8: RF-2.6 || Administrador edita un usuario y le asigna roles || CP-08 || Funcional; RBAC || P0 || Usuarios y roles || Nicolás || INC-07 || Pendiente
+R9: RF-2.7 || Administrador elimina un usuario || CP-08 || Funcional; auditoría || P0 || Usuarios || Nicolás || INC-09 || Pendiente
+R10: RF-3.1 || Médico registra un examen a un paciente || CP-02 || Funcional || P2 || Exámenes || Nicolás || INC-04 || Pendiente
+R11: RF-3.2 || Médico edita el examen y sus documentos || CP-11 || Funcional || P2 || Exámenes y documentos || Nicolás || Ninguno || Pendiente
+R12: RF-3.3 || Médico elimina el examen o sus documentos (baja lógica con confirmación) || CP-11 || Funcional; cumplimiento || P1 || Exámenes y documentos || Nicolás || INC-09 || Pendiente
+R13: RF-4.1 || Paciente visualiza sus exámenes || CP-12 || Funcional; control de acceso || P0 || Exámenes (vista paciente) || Nicolás || Ninguno || Pendiente
+R14: RF-4.2 || Paciente descarga los documentos de sus exámenes (máximo 10 s) || CP-13 || Funcional; rendimiento || P0 || Documentos || Nicolás (flujo) y Ari (tiempo) || INC-12, INC-13 || Pendiente
+R15: RF-4.3 || Médico adjunta un documento por examen en PDF, DOC, PPT, JPG o PNG || CP-13 || Funcional; partición de equivalencia || P2 || Documentos || Nicolás || INC-15 || Pendiente
+R16: RF-4.4 || Documentos en storage interno y referenciados en la BD || CP-13 || Integración || P1 || Documentos y BD || Nicolás || INC-16 || Pendiente
+R17: RF-5.1 || Auditar creación, edición, eliminación y subida o descarga de documentos || CP-03 || Funcional; cumplimiento || P1 || Auditoría || Nicolás || INC-13, INC-14 || Pendiente
+===== TABLE 1 =====
+R0: Código || Descripción (ERS B) || Caso || Tipo de prueba || Riesgo || Módulo || Ejecuta || Incidente vinculado || Resultado
+R1: NFR-SEG-1 || TLS obligatorio en todas las comunicaciones || CP-14 || Seguridad; verificación de configuración || P0 || Transversal (nginx y API) || Skarlett || Ninguno || Pendiente
+R2: NFR-SEG-2 || Contraseñas con hashing seguro (bcrypt) || CP-15 y CP-01 || Seguridad || P0 || Autenticación y BD || Ari || INC-01, INC-10 || Pendiente
+R3: NFR-SEG-3 || Cifrado de datos sensibles en reposo || CP-16 || Seguridad; verificación de configuración || P0 || BD y storage || Skarlett || Ninguno || Pendiente
+R4: NFR-SEG-4 || Control de acceso por rol en el backend || CP-04 y CP-08 || Seguridad || P0 || Transversal || Ari || INC-07 || Pendiente
+R5: NFR-SEG-5 || Protección contra CSRF, XSS e inyección SQL; validación y saneamiento || CP-04 || Seguridad || P0 || Transversal || Ari (ZAP, Burp, Nikto) y Nicolás (SQLMap) || INC-05, INC-08 || Pendiente
+R6: NFR-SEG-6 || Gestión de log segura || CP-17 || Seguridad; cumplimiento || P1 || Auditoría y manejo de errores || Skarlett (SonarQube) y Ari || INC-06, INC-14 || Pendiente
+R7: NFR-SEG-7 || Políticas de respaldo y recuperación definidas || CP-18 || Operación; verificación de configuración || P1 || Infraestructura || Skarlett || Ninguno || Pendiente
+R8: NFR-SEG-8 || Cumplimiento de la normativa de protección de datos personales || CP-23 (con CP-03 y CP-04) || Cumplimiento normativo || P0 || Transversal || Giannina || INC de seguridad || Pendiente
+R9: NFR-SEG-9 || Manejo de sesión con token de acceso (JWT) || CP-01 y CP-07 || Seguridad de sesión || P0 || Autenticación || Nicolás y Ari || INC-02, INC-03, INC-08 || Pendiente
+R10: NFR-PERF-1 || CRUD simple bajo 300 ms con carga normal || CP-05 || Rendimiento || P3 || API || Ari || INC-04 || Pendiente
+R11: NFR-PERF-2 || Página principal bajo 2 s en conexión móvil promedio || CP-19 || Rendimiento || P3 || Frontend || Ari (Skarlett apoya con Lighthouse) || Ninguno || Pendiente
+R12: NFR-PERF-3 || 200 usuarios concurrentes por defecto || CP-19 || Carga || P3 || API || Ari || INC-04 || Pendiente
+R13: NFR-USAB-1 || Tipografía legible, contraste y controles grandes para personas mayores || CP-06 || Usabilidad; accesibilidad || P4 || Frontend || Skarlett || Ninguno || Pendiente
+R14: NFR-USAB-2 || Flujos claros de registro y de visualización de exámenes o documentos || CP-06 || Usabilidad || P4 || Frontend || Skarlett || INC-12 || Pendiente
+R15: NFR-USAB-3 || Ayuda contextual y mensajes de error amigables || CP-20 || Usabilidad || P4 || Frontend || Skarlett || INC-06 || Pendiente
+R16: NFR-USAB-4 || Primero se accede al paciente y luego a sus exámenes || CP-06 || Usabilidad; flujo || P4 || Frontend || Skarlett || Ninguno || Pendiente
+R17: NFR-DIS-1 || Disponibilidad objetivo de 99,5 % mensual || CP-21 || Disponibilidad; verificación documental || P3 || Infraestructura || Ari || Ninguno || Pendiente
+R18: NFR-DIS-2 || Mantenimiento con ventana y migración segura de datos || CP-21 || Mantenibilidad; verificación documental || P3 || Infraestructura || Ari || Ninguno || Pendiente
+R19: NFR-COMPAT-1 || Últimas dos versiones de Chrome, Firefox, Safari y Edge || CP-22 || Compatibilidad || P4 || Frontend || Skarlett || Ninguno || Pendiente
+R20: NFR-COMPAT-2 || Responsivo en móviles y tablets || CP-06 || Compatibilidad || P4 || Frontend || Skarlett || Ninguno || Pendiente
+===== TABLE 2 =====
+R0: Código || Descripción (ERS B) || Caso || Tipo de prueba || Riesgo || Módulo || Ejecuta || Incidente vinculado || Resultado
+R1: RB-1 || Un paciente solo tiene permisos de lectura || CP-04 || Seguridad; RBAC || P0 || Transversal || Ari || Ninguno || Pendiente
+R2: RB-2 || El administrador tiene acceso completo de escritura, lectura, actualización y eliminación || CP-08 || Funcional; RBAC || P0 || Usuarios || Nicolás || INC-07, OC-01 || Pendiente
+R3: RB-3 || Un médico puede ver la información clínica de cualquier paciente registrado || CP-10 y CP-02 || Funcional; cumplimiento || P0 || Pacientes y exámenes || Nicolás || OC-01 || Pendiente
+===== TABLE 3 =====
+R0: Caso || Nombre || Códigos ERS cubiertos || Herramienta || Ejecuta || Origen
+R1: CP-01 || Autenticación válida y rechazo de credenciales inválidas || RF-1.1, NFR-SEG-2, NFR-SEG-9 || Postman/Swagger, Selenium || Nicolás || EV1 (detallado)
+R2: CP-02 || Registro de examen médico por un profesional autorizado || RF-3.1, RB-3 || Selenium, Postman || Nicolás || EV1 (detallado)
+R3: CP-03 || Registro de auditoría ante acciones críticas, incluida la subida y la descarga || RF-5.1, NFR-SEG-8 || Postman, consulta a la tabla auditoria || Nicolás || EV1, ampliado en EP3
+R4: CP-04 || Control de acceso por rol y resistencia a inyección || NFR-SEG-4, NFR-SEG-5, NFR-SEG-8, RB-1 || OWASP ZAP autenticado, Burp Suite, Nikto, SQLMap || Ari y Nicolás || EV1 (detallado)
+R5: CP-05 || Tiempo de respuesta de operaciones CRUD con y sin el retraso de 5 s || NFR-PERF-1 || JMeter || Ari || EV1, se repite sin delay
+R6: CP-06 || Usabilidad para adulto mayor y compatibilidad responsive || NFR-USAB-1, 2 y 4, NFR-COMPAT-2 || Lista de verificación manual, Lighthouse || Skarlett || EV1 (detallado)
+R7: CP-07 || Cierre de sesión y revocación del token || RF-1.2, NFR-SEG-9 || Postman/Swagger || Nicolás || Nuevo (ficha en 4.8)
+R8: CP-08 || Administración de usuarios por el administrador: listar, editar rol y eliminar || RF-2.5, 2.6, 2.7, NFR-SEG-4, RB-2 || Selenium, Postman || Nicolás || Nuevo (ficha en 4.8)
+R9: CP-09 || Registro rápido con rol paciente y política de contraseña || RF-2.1 || Selenium, Postman || Nicolás || Nuevo
+R10: CP-10 || Gestión de pacientes por médico y administrador || RF-2.2, 2.3, 2.4, RB-3 || Selenium || Nicolás || Nuevo
+R11: CP-11 || Edición y baja lógica de exámenes y documentos con confirmación || RF-3.2, RF-3.3 || Selenium, Postman || Nicolás || Nuevo
+R12: CP-12 || El paciente ve solo sus propios exámenes || RF-4.1 || Selenium, Postman || Nicolás || Nuevo
+R13: CP-13 || Carga y descarga de documentos: formatos, almacenamiento y tiempo || RF-4.2, 4.3, 4.4 || Postman, JMeter (tiempos) || Nicolás y Ari || Nuevo
+R14: CP-14 || Verificación de TLS en frontend y API || NFR-SEG-1 || Revisión de nginx.conf y docker-compose, navegador, Nikto || Skarlett || Nuevo (configuración)
+R15: CP-15 || Almacenamiento de contraseñas y resistencia a cracking || NFR-SEG-2 || Consulta a la BD de prueba, John the Ripper || Ari || Nuevo
+R16: CP-16 || Cifrado en reposo de datos clínicos y documentos || NFR-SEG-3 || Revisión del esquema y de la carpeta uploads, SonarQube || Skarlett || Nuevo (configuración)
+R17: CP-17 || Gestión de log y manejo de errores sin fuga de información || NFR-SEG-6 || SonarQube, Burp Suite, revisión manual || Skarlett y Ari || Nuevo
+R18: CP-18 || Respaldo y restauración de la base de datos || NFR-SEG-7 || pg_dump y restauración en Docker || Skarlett || Nuevo (configuración)
+R19: CP-19 || Carga de la página principal y 200 usuarios concurrentes || NFR-PERF-2, NFR-PERF-3 || Lighthouse, JMeter || Ari || Nuevo
+R20: CP-20 || Ayuda contextual y mensajes de error comprensibles || NFR-USAB-3 || Lista de verificación manual || Skarlett || Nuevo
+R21: CP-21 || Disponibilidad y procedimiento de mantenimiento || NFR-DIS-1, NFR-DIS-2 || Revisión documental y de docker-compose || Ari || Nuevo (documental)
+R22: CP-22 || Compatibilidad con navegadores || NFR-COMPAT-1 || Selenium en Chrome, Firefox y Edge; Safari si hay equipo || Skarlett || Nuevo
+R23: CP-23 || Verificación de cumplimiento normativo || NFR-SEG-8 || Checklist de la Tabla 6.1 del análisis normativo || Giannina || Nuevo (checklist)
+===== TABLE 5 =====
+R0: Campo || Contenido
+R1: ID y nombre || CP-07. Cierre de sesión y revocación del token
+R2: Requerimiento || RF-1.2: El sistema debe soportar cierre de sesión y revocación de tokens. NFR-SEG-9: Manejo de sesión mediante token de 
+R3: Descripción || Comprobar que, al cerrar sesión, el token emitido en el login deja de ser aceptado por la API, de modo que una sesión ol
+R4: Precondiciones || Ambiente Docker local arriba (frontend en el puerto 3333 y API en el 4444). Usuario de prueba con rol médico y al menos 
+R5: Pasos || 1. Iniciar sesión con POST /autenticacion/login y guardar el token. 2. Consultar GET /examenes con ese token y confirmar
+R6: Datos de entrada || Usuario de prueba con rol médico; token JWT obtenido en el paso 1.
+R7: Resultado esperado || Después del cierre de sesión la API responde 401 al token anterior. Existe un endpoint de logout que invalida el token e
+R8: Criterio de aceptación || Logout invalida la sesión (criterio de aceptación de RF-1 en el ERS). Si el token sigue funcionando después del cierre d
+R9: Tipo de prueba || Seguridad de sesión (no funcional), con verificación funcional del flujo de cierre.
+R10: Incidente esperado || INC-03: en el código no existe ruta de logout y el token se emite con expiración de 2 horas (BACKEND/src/routes/auth.js,
+===== TABLE 6 =====
+R0: Campo || Contenido
+R1: ID y nombre || CP-08. Administración de usuarios por el administrador
+R2: Requerimiento || RF-2.5, RF-2.6 y RF-2.7 (el administrador visualiza, edita con asignación de roles y elimina usuarios). NFR-SEG-4: Contr
+R3: Descripción || Verificar que el administrador puede gestionar usuarios de punta a punta y que ningún otro rol puede hacerlo, ni por la 
+R4: Precondiciones || Ambiente Docker local arriba. Cuentas de prueba con rol administrador y con rol médico. Un usuario de prueba sintético c
+R5: Pasos || 1. Con token de administrador, listar usuarios con GET /usuarios. 2. Editar el usuario de prueba con PUT /usuarios/:id y
+R6: Datos de entrada || Usuario sintético (por ejemplo, usuario.prueba08) con correo ficticio; tokens de administrador y de médico.
+R7: Resultado esperado || El administrador completa listar, editar y eliminar con respuestas 200. La eliminación pide confirmación, deja registro 
+R8: Criterio de aceptación || Las tres operaciones funcionan solo para el rol administrador y el control de acceso se aplica en el backend. Cualquier 
+R9: Tipo de prueba || Funcional (RF-2.5 a 2.7) y de seguridad (control de acceso por rol).
+R10: Incidentes esperados || INC-07: /roles no verifica el rol del usuario (BACKEND/src/routes/roles.js, líneas 18 a 90). INC-09: la eliminación usa 
