@@ -12,7 +12,8 @@ Estados: `Aprobado` | `Falla` | `Bloqueado` | `No ejecutado`
 
 | Fecha | CP | Capa (UI/API/ambas) | Resultado | Evidencia (ruta) | INC / BUG | Notas |
 |-------|----|---------------------|-----------|------------------|-----------|-------|
-| 2026-10-20 | CP-01 | ambas | Aprobado | Evidencias/CP-01/01…05 | | UI ok/fail + API 200/401 |
+| 2026-10-20 | CP-01 | ambas | Aprobado | Evidencias/CP-01/01…05 + selenium-* | | UI ok/fail + API 200/401 |
+| 2026-10-27 | CP-01 (Selenium smoke) | UI auto | Aprobado | Evidencias/CP-01/selenium-login-medico.png + selenium-smoke-output.txt | | `test_smoke_login.py` → /home; captura + log terminal |
 | 2026-10-20 | CP-07 | ambas | Falla | Evidencias/CP-07/01…03 | INC-03 | Logout redirige a login pero el mismo JWT sigue dando 200 en GET /examenes |
 | 2026-10-20 | CP-08 | ambas | Aprobado | Evidencias/CP-08/01…03 | | Admin lista usuarios + confirmación borrar; médico GET /usuarios → 403. Columna Rol N/A (nota UI) |
 | 2026-10-20 | CP-12 | ambas | Aprobado | Evidencias/CP-12/01…03 | | Paciente ve solo sus exámenes (UI + GET /examenes filtrado paciente_id 1) |
@@ -70,7 +71,7 @@ Detalle en [`05_Buenas_Practicas_Observaciones.md`](./05_Buenas_Practicas_Observ
 
 | Oleada | Fecha inicio | Fecha fin | Comentario |
 |--------|--------------|-----------|------------|
-| Setup (Docker/Postman/Selenium) | 2026-10-20 | 2026-10-20 | Docker + Postman OK (Selenium pendiente opcional) |
+| Setup (Docker/Postman/Selenium) | 2026-10-20 | 2026-10-27 | Docker + Postman OK; Selenium smoke login ejecutado 2026-10-27 |
 | P0 | 2026-10-20 | 2026-10-20 | CP-01 Aprobado; CP-07 Falla INC-03; CP-08 Aprobado; CP-12 Aprobado |
 | P1 | 2026-10-20 | 2026-10-20 | CP-03 Falla INC-13/14; CP-11 Aprobado; CP-13 Aprobado* INC-15 |
 | P2 + SQLMap | 2026-10-20 | 2026-10-20 | CP-02/09/10 Aprobado; CP-04 SQLMap sin inyección + payloads 401 |
