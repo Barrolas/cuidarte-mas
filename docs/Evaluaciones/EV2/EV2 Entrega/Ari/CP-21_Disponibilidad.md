@@ -37,7 +37,7 @@ docker compose restart cuidarteplus-backend-ev
 docker compose ps
 ```
 
-Esperado operativo: los tres contenedores `Up` y Postgres `healthy` tras el restart. Eso demuestra **recuperación local**, no el SLO mensual.
+El 26-10 los tres contenedores estaban `healthy` (Word fig. 1–3). Eso demuestra **recuperación/arranque local**, no el SLO mensual.
 
 ## 2. Resultado esperado vs observado
 
@@ -61,4 +61,5 @@ Esperado operativo: los tres contenedores `Up` y Postgres `healthy` tras el rest
 |---------|-----|
 | `docker-compose.yml` | restart, healthcheck, volúmenes, puertos |
 | `FRONTEND/nginx.conf` | solo `listen 80` |
-| `Evidencias/CP-21/README.md` | qué captura falta (compose ps) |
+| Word fig. 1–3 | contenedores `healthy` / `docker compose ps` (26-10) |
+| `Evidencias/CP-21/README.md` | índice de capturas |

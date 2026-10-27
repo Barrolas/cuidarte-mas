@@ -4,11 +4,13 @@
 
 - `docker-compose.yml` (raíz)
 - `FRONTEND/nginx.conf`
+- Resultado escrito: `../../CP-21_Disponibilidad.md`
 
-## Captura a agregar (cuando Docker esté healthy)
+## Capturas (26-10-2026)
 
-1. `docker compose ps` con los tres servicios `Up` (Postgres `healthy`).  
-2. Opcional: misma captura después de `docker compose restart cuidarteplus-backend-ev`.  
-3. Guardar como `01-compose-ps.png` y `02-compose-ps-post-restart.png` en esta carpeta.
+Están en el Word `EV2_Ari_Pruebas_Seguridad_Rendimiento.docx`:
 
-Si Postgres está vacío (`relation "usuarios" does not exist`), anotar **Bloqueado** en otros CP, no en CP-21: este caso no depende de la tabla `usuarios`.
+- Figura 1–2: contenedores up / `docker compose ps` (puertos 4444, 3333, 15442).
+- Figura 3: Docker Desktop + log del backend (login ~115 ms; GET ~5 s).
+
+Eso demuestra **recuperación/arranque local**, no el SLO 99,5 % mensual. CP-21 sigue en **Falla** (INC-17).

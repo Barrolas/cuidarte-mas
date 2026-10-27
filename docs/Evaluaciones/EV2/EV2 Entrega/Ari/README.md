@@ -1,37 +1,33 @@
 # Paquete Ari Araya — QA de seguridad y rendimiento (EP3)
 
-Material para integrar en el informe EP3 y para que **Nicolás** complete §5.2 / Tablas 21 y 22.
-
-**No codear el producto.** Documentar ejecución, criticidad y evidencias.
+Handoff **definitivo** para Nicolás (§5.2 / Tablas 21 y 22) y Giannina (informe).  
+Ejecución del **26 de octubre de 2026**. **No codear el producto.**
 
 ## Orden de lectura
 
 1. [`HANDOFF_PARA_NICOLAS.md`](./HANDOFF_PARA_NICOLAS.md) — filas listas para la bitácora 5.2  
 2. [`Bitacora_Ejecucion.md`](./Bitacora_Ejecucion.md) — detalle por caso  
-3. [`CP-21_Disponibilidad.md`](./CP-21_Disponibilidad.md) — caso que faltaba ejecutar (solo Docker)  
-4. [`03_4_Entorno_y_Herramientas.md`](./03_4_Entorno_y_Herramientas.md) — pegar/adaptar en §3.4  
-5. [`05_3_Criticidad_Incidentes.md`](./05_3_Criticidad_Incidentes.md) — §5.3 + decisión INC-09 Grave  
+3. [`Evidencias/EV2_Ari_Pruebas_Seguridad_Rendimiento.docx`](./Evidencias/EV2_Ari_Pruebas_Seguridad_Rendimiento.docx) — capturas y tablas del 26-10  
+4. [`CP-21_Disponibilidad.md`](./CP-21_Disponibilidad.md) — NFR-DIS-1/2  
+5. [`03_4_Entorno_y_Herramientas.md`](./03_4_Entorno_y_Herramientas.md) — pegar/adaptar en §3.4  
+6. [`05_3_Criticidad_Incidentes.md`](./05_3_Criticidad_Incidentes.md) — §5.3 + INC-09 Grave  
 
 ## Casos a cargo de Ari
 
-| Caso | Estado en este paquete |
-|------|------------------------|
-| CP-04 | Parcial: baseline ZAP EV1 + SQLMap de Nicolás. ZAP autenticado / Burp / Nikto ciclo 2: no ejecutado |
-| CP-05 | Falla con delay (JMeter EV1). Sin delay: no ejecutado |
-| CP-13 (tiempo) | No ejecutado (formatos: Nicolás) |
-| CP-15 | Falla (código + dump; John no aplica si no hay hash) |
-| CP-17 | Confirmado por código (`glosa`); Burp ciclo 2: no ejecutado |
+| Caso | Estado definitivo |
+|------|-------------------|
+| CP-04 | **Parcial.** ZAP auth 0 High (sin reporte HTML). Cabeceras **Falla** (INC-05). RBAC/IDOR **Aprobado** (curl/Swagger ≡ Burp/Nikto). SQLMap = Nicolás |
+| CP-05 | **Falla** con delay (rehecho 26-10: 220 samples, avg 2965 ms, max 5016 ms). Sin delay: no ejecutado |
+| CP-13 (tiempo) | No ejecutado (0 documentos en el dump) |
+| CP-15 | **Falla** (psql + John: *No password hashes loaded*) → INC-01 Crítico |
+| CP-17 | RBAC/IDOR **Aprobado**. INC-06 (`glosa`) **no demostrado** en el cuerpo del 500 |
 | CP-19 | No ejecutado |
-| CP-21 | **Ejecutado** (revisión Docker, 2026-10-26) → Falla documental |
+| CP-21 | **Falla** documental → INC-17. El Word lo dejó [Pendiente]; este markdown **sí** lo cierra |
 
-## Capturas / anexo ciclo 2
-
-- ZAP GUI (sep 2026): rama `feature/owasp-zap-ataque` y anexos EV1 en `docs/Evaluaciones/EV1/EV1 Entrega/Anexos/`  
-- JMeter EV1: `docs/Evaluaciones/EV1/EV1 Entrega/Anexos/jmeter/`  
-- CP-21: evidencia documental en `Evidencias/CP-21/` (agregar captura de `docker compose ps` cuando Docker esté up)
+No bloquean el handoff: Burp/Nikto nativos, reporte ZAP, JMeter sin delay, CP-13, CP-19.
 
 ## Cuentas (dump)
 
 `admin`/`admin` · `medico`/`medico` · `paciente`/`paciente`
 
-Si el login dice que no existe `usuarios`, el dump no cargó (`init-db.sh` con CRLF). Ver nota en la bitácora.
+Si el login dice que no existe `usuarios`, el dump no cargó (`init-db.sh` con CRLF). El 26-10 el login respondió 200.
