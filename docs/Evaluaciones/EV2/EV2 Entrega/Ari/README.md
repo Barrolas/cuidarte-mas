@@ -16,15 +16,15 @@ Ejecución del **26 de octubre de 2026**. **No codear el producto.**
 
 | Caso | Estado definitivo |
 |------|-------------------|
-| CP-04 | **Parcial.** ZAP auth 0 High (sin reporte HTML). Cabeceras **Falla** (INC-05). RBAC/IDOR **Aprobado** (curl/Swagger ≡ Burp/Nikto). SQLMap = Nicolás |
+| CP-04 | **Parcial.** ZAP auth 0 High (sin reporte HTML). Cabeceras **Falla** (INC-05). RBAC/IDOR **Aprobado** (Swagger y PowerShell). SQLMap = Nicolás |
 | CP-05 | **Falla** con delay (rehecho 26-10: 220 samples, avg 2965 ms, max 5016 ms). Sin delay: no ejecutado |
 | CP-13 (tiempo) | No ejecutado (0 documentos en el dump) |
 | CP-15 | **Falla** (psql + John: *No password hashes loaded*) → INC-01 Crítico |
 | CP-17 | RBAC/IDOR **Aprobado**. INC-06 (`glosa`) **no demostrado** en el cuerpo del 500 |
-| CP-19 | No ejecutado |
+| CP-19 | **Falla** (27-10). Lighthouse Performance 43; JMeter 520 muestras, p95 5024 ms, pico 52 hilos |
 | CP-21 | **Falla** documental → INC-17. El Word lo dejó [Pendiente]; este markdown **sí** lo cierra |
 
-No bloquean el handoff: Burp/Nikto nativos, reporte ZAP, JMeter sin delay, CP-13, CP-19.
+No bloquean el cierre: reporte ZAP HTML, JMeter sin delay, CP-13 tiempo. Burp y Nikto no se usaron.
 
 ## Cuentas (dump)
 
