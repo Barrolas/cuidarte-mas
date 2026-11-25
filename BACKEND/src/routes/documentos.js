@@ -3,6 +3,7 @@ const multer = require("multer");
 const { pool } = require("../db");
 const jwt = require("jsonwebtoken");
 const delayMiddleware = require("../middleware/delay");
+const { sendInternalError } = require("../utils/httpErrors");
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
 
@@ -109,11 +110,7 @@ router.post("/", delayMiddleware(5000), upload.single("documento"), async (req, 
 
     res.status(201).json({ documento });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al subir documentos",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al subir documentos");
   }
 });
 
@@ -172,11 +169,7 @@ router.get("/examen/:examen_id", async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al obtener documentos",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al obtener documentos");
   }
 });
 
@@ -251,11 +244,7 @@ router.get("/:id", async (req, res) => {
     );
     res.send(documento.documento);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al descargar documento",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al descargar documento");
   }
 });
 
@@ -289,11 +278,7 @@ router.delete("/:id", async (req, res) => {
 
     res.json({ deleted: true });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al eliminar documento",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al eliminar documento");
   }
 });
 

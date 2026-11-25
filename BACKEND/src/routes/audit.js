@@ -1,6 +1,7 @@
 const express = require("express");
 const { pool } = require("../db");
 const jwt = require("jsonwebtoken");
+const { sendInternalError } = require("../utils/httpErrors");
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
@@ -33,13 +34,7 @@ router.post("/", async (req, res) => {
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res
-      .status(500)
-      .json({
-        error: "Error al registrar log",
-        glosa: "Ocurrió un error interno en el servidor",
-      });
+    sendInternalError(res, err, "Error al registrar log");
   }
 });
 
@@ -99,13 +94,7 @@ router.get("/", async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res
-      .status(500)
-      .json({
-        error: "Error al listar logs",
-        glosa: "Ocurrió un error interno en el servidor",
-      });
+    sendInternalError(res, err, "Error al listar logs");
   }
 });
 

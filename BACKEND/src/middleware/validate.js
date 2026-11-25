@@ -1,3 +1,5 @@
+const { sendInternalError } = require("../utils/httpErrors");
+
 const validate = (schema, source = "body") => {
   return async (req, res, next) => {
     try {
@@ -16,11 +18,12 @@ const validate = (schema, source = "body") => {
           detalles: errors,
         });
       }
-      console.error(error);
-      return res.status(500).json({
-        error: "Error en la validación",
-        glosa: "Ocurrió un error interno al validar los datos",
-      });
+      return sendInternalError(
+        res,
+        error,
+        "Error en la validación",
+        "Ocurrió un error interno al validar los datos"
+      );
     }
   };
 };

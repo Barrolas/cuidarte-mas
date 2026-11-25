@@ -1,5 +1,6 @@
 const express = require("express");
 const { pool } = require("../db");
+const { sendInternalError } = require("../utils/httpErrors");
 const router = express.Router();
 
 // Listar tipos de examen (público para autenticados)
@@ -10,11 +11,7 @@ router.get("/", async (req, res) => {
     );
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al listar tipos de examen",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al listar tipos de examen");
   }
 });
 
@@ -31,11 +28,7 @@ router.get("/:id", async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al obtener tipo de examen",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al obtener tipo de examen");
   }
 });
 

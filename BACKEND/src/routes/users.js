@@ -3,6 +3,7 @@ const { pool } = require("../db");
 const jwt = require("jsonwebtoken");
 const validate = require("../middleware/validate");
 const { createUserSchema, updateUserSchema } = require("../validations/users");
+const { sendInternalError } = require("../utils/httpErrors");
 
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
@@ -63,11 +64,7 @@ router.post("/", validate(createUserSchema), async (req, res) => {
 
     res.status(201).json(newUser);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al crear usuario",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al crear usuario");
   }
 });
 
@@ -129,11 +126,7 @@ router.get("/", async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al listar usuarios",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al listar usuarios");
   }
 });
 
@@ -235,11 +228,7 @@ router.get("/:id", async (req, res) => {
 
     res.json(usuario);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al obtener usuario",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al obtener usuario");
   }
 });
 
@@ -272,11 +261,7 @@ router.put("/:id", validate(updateUserSchema), async (req, res) => {
       rol_id,
     });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al actualizar usuario",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al actualizar usuario");
   }
 });
 
@@ -426,11 +411,7 @@ async function updateUsuarioEmpresa(
 
     res.json(usuarioResult.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al actualizar usuario",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al actualizar usuario");
   }
 }
 
@@ -560,11 +541,7 @@ async function updateUsuarioSistemaMedico(
 
     res.json(usuarioResult.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al actualizar usuario",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al actualizar usuario");
   }
 }
 
@@ -588,11 +565,7 @@ router.delete("/:id", async (req, res) => {
 
     res.json({ deleted: true });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al eliminar usuario",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al eliminar usuario");
   }
 });
 

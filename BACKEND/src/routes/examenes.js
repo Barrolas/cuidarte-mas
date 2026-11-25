@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const validate = require("../middleware/validate");
 const delayMiddleware = require("../middleware/delay");
 const { examenMedicoSchema, updateExamenMedicoSchema } = require("../validations/examenes");
+const { sendInternalError } = require("../utils/httpErrors");
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
 
@@ -87,11 +88,7 @@ router.post("/", delayMiddleware(5000), validate(examenMedicoSchema), async (req
 
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al crear examen médico",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al crear examen médico");
   }
 });
 
@@ -167,11 +164,7 @@ router.get("/", delayMiddleware(5000), async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al listar exámenes médicos",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al listar exámenes médicos");
   }
 });
 
@@ -250,11 +243,7 @@ router.get("/:id", async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al obtener examen médico",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al obtener examen médico");
   }
 });
 
@@ -318,11 +307,7 @@ router.get("/paciente/:paciente_id", async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al obtener exámenes médicos",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al obtener exámenes médicos");
   }
 });
 
@@ -384,11 +369,7 @@ router.put("/:id", delayMiddleware(5000), validate(updateExamenMedicoSchema), as
 
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al actualizar examen médico",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al actualizar examen médico");
   }
 });
 
@@ -422,11 +403,7 @@ router.delete("/:id", async (req, res) => {
 
     res.json({ deleted: true });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al eliminar examen médico",
-      glosa: "Ocurrió un error interno en el servidor",
-    });
+    sendInternalError(res, err, "Error al eliminar examen médico");
   }
 });
 
