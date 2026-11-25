@@ -6,7 +6,8 @@ Paquete de **planificación y repartición**. Cada integrante ejecuta lo suyo (c
 
 1. [`00_Analisis_Encargo_Final.md`](./00_Analisis_Encargo_Final.md) — qué pide el examen, pizarrón, mitigación, rúbrica  
 2. [`00_Backlog_Equipo.md`](./00_Backlog_Equipo.md) — tablero EV56-00…25, dependencias, DoD  
-3. Tu backlog personal:
+3. [`CRONOGRAMA_29.md`](./CRONOGRAMA_29.md) — orden, prioridades y calendario hasta el domingo 29 (grabación)  
+4. Tu backlog personal:
    - [Nicolás](./Nicolas/BACKLOG.md)
    - [Ari](./Ari/BACKLOG.md)
    - [Skarlett](./Skarlett/BACKLOG.md)
