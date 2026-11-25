@@ -66,7 +66,7 @@ router.post("/", validate(createUserSchema), async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al crear usuario",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -132,7 +132,7 @@ router.get("/", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al listar usuarios",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -238,7 +238,7 @@ router.get("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al obtener usuario",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -275,7 +275,7 @@ router.put("/:id", validate(updateUserSchema), async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al actualizar usuario",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -429,7 +429,7 @@ async function updateUsuarioEmpresa(
     console.error(err);
     res.status(500).json({
       error: "Error al actualizar usuario",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 }
@@ -563,7 +563,7 @@ async function updateUsuarioSistemaMedico(
     console.error(err);
     res.status(500).json({
       error: "Error al actualizar usuario",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 }
@@ -591,7 +591,7 @@ router.delete("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al eliminar usuario",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });

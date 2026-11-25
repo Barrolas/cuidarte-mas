@@ -64,7 +64,7 @@ router.post("/login", validate(loginSchema), async (req, res) => {
     console.error(err);
     res
       .status(500)
-      .json({ error: "Error en login", glosa: err.message || err.toString() });
+      .json({ error: "Error en login", glosa: "Ocurrió un error interno en el servidor" });
   }
 });
 
@@ -160,7 +160,7 @@ router.post("/registro", validate(registerSchema), async (req, res) => {
     }
     res.status(500).json({
       error: "Error al registrar",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });

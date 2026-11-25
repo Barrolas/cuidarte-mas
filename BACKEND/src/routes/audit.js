@@ -38,7 +38,7 @@ router.post("/", async (req, res) => {
       .status(500)
       .json({
         error: "Error al registrar log",
-        glosa: err.message || err.toString(),
+        glosa: "Ocurrió un error interno en el servidor",
       });
   }
 });
@@ -104,7 +104,7 @@ router.get("/", async (req, res) => {
       .status(500)
       .json({
         error: "Error al listar logs",
-        glosa: err.message || err.toString(),
+        glosa: "Ocurrió un error interno en el servidor",
       });
   }
 });

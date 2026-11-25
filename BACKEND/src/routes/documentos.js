@@ -112,7 +112,7 @@ router.post("/", delayMiddleware(5000), upload.single("documento"), async (req, 
     console.error(err);
     res.status(500).json({
       error: "Error al subir documentos",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -175,7 +175,7 @@ router.get("/examen/:examen_id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al obtener documentos",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -254,7 +254,7 @@ router.get("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al descargar documento",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -292,7 +292,7 @@ router.delete("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al eliminar documento",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });

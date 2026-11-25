@@ -136,7 +136,7 @@ router.post("/", validate(pacienteSchema), async (req, res) => {
     }
     res.status(500).json({
       error: "Error al crear paciente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -164,7 +164,7 @@ router.get("/", delayMiddleware(5000), async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al listar pacientes",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -240,7 +240,7 @@ router.get("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al obtener paciente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -267,7 +267,7 @@ router.get("/buscar/rut/:rut", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al buscar paciente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -378,7 +378,7 @@ router.put("/:id", validate(updatePacienteSchema), async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al actualizar paciente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
@@ -416,7 +416,7 @@ router.delete("/:id", async (req, res) => {
     console.error(err);
     res.status(500).json({
       error: "Error al eliminar paciente",
-      glosa: err.message || err.toString(),
+      glosa: "Ocurrió un error interno en el servidor",
     });
   }
 });
