@@ -1,0 +1,196 @@
+<section class="slide cover" data-section="Portada" data-presenter="Giannina" data-say="GIANNINA (lámina 01)&#10;Buenas tardes. Presentamos el ciclo MITIGAR de Cuidarte+, Caso B: remediación, retest con evidencia before/after, Selenium, JMeter hasta 5000 usuarios y dictamen actualizado.&#10;Los integrantes son Ari Araya, Nicolás Barra, Skarlett Tropan y Giannina Guerrero.&#10;Sigue Giannina con la lámina 02.">
+  <div class="hero" aria-hidden="true"><img src="portada-hero-v2.jpg" alt=""></div>
+  <header class="c-top anim"><img class="c-logo" src="cuidarte-logo.svg" alt="Cuidarte+"><p class="c-course">Duoc UC · ISY1102<span>Seguridad y Calidad en el Desarrollo de Software</span></p></header>
+  <div class="c-main">
+    <p class="pill anim d1"><i></i><b>EP6</b><span>Evaluación Parcial 5–6</span><span>Presentación grupal</span></p>
+    <h1 class="anim d2">Mitigar, retestear y <em>actualizar el dictamen</em></h1>
+    <p class="c-case anim d3"><b>Caso B</b> · Sistema de exámenes médicos Cuidarte+ · ciclo MITIGAR</p>
+  </div>
+  <dl class="c-meta anim d4"><div class="psep" aria-hidden="true"><i class="l1"></i><svg class="pz" viewBox="0 0 64 24" width="64" height="24"><path class="pp" pathLength="1" d="M0 12H10L15 12L20 2.5L26 21.5L31 7L35 12H44"/><path class="pc" pathLength="1" d="M50 11.5L54.5 16L63 7.5"/></svg><i class="l2"></i><b class="pd"></b></div><div class="mi"><span class="ic"><svg class="ico"><use href="#i-users"/></svg></span><div><dt>Equipo · Sección 001V</dt><dd><div class="team"><span>Ari Araya</span><span>Nicolás Barra</span><span>Giannina Guerrero</span><span>Skarlett Tropan</span></div></dd></div></div><div class="mi"><span class="ic"><svg class="ico"><use href="#i-cap"/></svg></span><div><dt>Docente</dt><dd>Jose Sergio Collio Huennun</dd></div></div><div class="mi"><span class="ic"><svg class="ico"><use href="#i-cal"/></svg></span><div><dt>Grabación objetivo</dt><dd>29 de noviembre de 2026<small>Guion cerrado · 28-11</small></dd></div></div></dl>
+</section>
+
+<section class="slide" data-section="Del EV2 al MITIGAR" data-presenter="Giannina" data-say="GIANNINA (lámina 02)&#10;En la EP3 y EP4 diseñamos 40 de 40 requisitos y el dictamen fue No certificado: un crítico abierto, INC-01, y varios graves. Este ciclo mitiga al menos cinco incidentes, con al menos un crítico, retestea con evidencia before/after, incorpora Selenium obligatorio y JMeter hasta 5000 usuarios, y actualiza el dictamen.&#10;Regla: si INC-01 sigue abierto, no certificamos.&#10;Sigue Giannina con la lámina 03.">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>02</b><span>Ciclo MITIGAR</span></span></header>
+  <div class="head"><h2 class="anim d1">Del dictamen EV2 «No certificado» al ciclo MITIGAR</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg><p class="lede anim d2">Misma plataforma clínica; nuevo foco: remediación verificada, no solo hallazgo.</p></div>
+  <div class="body">
+    <div class="grid g2">
+      <article class="card soft anim d2"><span class="k">Baseline EV2 (cierre oct 2026)</span><h3 style="margin-top:8px">No certificado</h3><p>40/40 en diseño · 10 aprobados · 10 parciales · 20 fallidos</p><div class="chips" style="margin-top:10px"><span class="chip wine">INC-01 crítico</span><span class="chip navy">INC-02 · 03 · 07 graves</span><span class="chip">INC-04 delay 5 s</span></div></article>
+      <article class="card anim d3"><span class="k">Este ciclo · EV5-6 / EP5–EP6</span><h3 style="margin-top:8px">MITIGAR + retest</h3><ul style="display:grid;gap:8px;margin-top:10px"><li class="row"><span class="ic"><svg class="ico"><use href="#i-check"/></svg></span><p>≥5 INC mitigados (≥1 crítico)</p></li><li class="row"><span class="ic"><svg class="ico"><use href="#i-auto"/></svg></span><p>Selenium obligatorio post-fix</p></li><li class="row"><span class="ic"><svg class="ico"><use href="#i-gauge"/></svg></span><p>JMeter ramp hasta 5000 VU</p></li><li class="row"><span class="ic"><svg class="ico"><use href="#i-route"/></svg></span><p>Matriz con Resultado EV2 y EV5-6</p></li></ul></article>
+    </div>
+    <div class="callout anim d4"><p><strong>Regla de dictamen:</strong> crítico abierto → <em>No certificado</em>. P0 cerrados + reservas explícitas → <em>Certificado con reservas</em>.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-section="Estrategia y trazabilidad" data-presenter="Giannina" data-say="GIANNINA (lámina 03)&#10;La estrategia sigue siendo mixta y por riesgo. La cadena que sostiene el informe es: requisito del ERS, incidente, remediación, retest con evidencia, y recién ahí el dictamen. Cada fila de la matriz tiene Resultado EV2 y Resultado EV5-6.&#10;Pase a Nicolás. «Definida la cadena de trazabilidad, Nicolás presenta las mitigaciones de autenticación.»">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>03</b><span>Estrategia</span></span></header>
+  <div class="head"><h2 class="anim d1">Requisito → INC → retest → dictamen</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
+  <div class="body">
+    <div class="phases anim d2">
+      <div class="phase" data-n="1"><span class="tag">Priorizar</span><p>P0 auth, sesión, RBAC, documentos clínicos</p></div>
+      <div class="phase" data-n="2"><span class="tag">Mitigar</span><p>INC-01, 02, 03, 04, 07 (mínimo)</p></div>
+      <div class="phase" data-n="3"><span class="tag">Retest</span><p>Before/after + bitácora con path</p></div>
+      <div class="phase" data-n="4"><span class="tag">Automatizar</span><p>Selenium + JMeter 5000</p></div>
+      <div class="phase" data-n="5"><span class="tag">Dictaminar</span><p>Solo con números congelados</p></div>
+    </div>
+    <div class="grid g3" style="margin-top:8px">
+      <article class="card anim d3"><span class="num">01</span><h3>Matriz 40/40</h3><p>Resultado EV2 cargado; Resultado EV5-6 pendiente de handoff (salvo INC-04).</p></article>
+      <article class="card anim d4"><span class="num">02</span><h3>Inventario INC</h3><p>Estados: Abierto · En remediación · Verificado · Residual.</p></article>
+      <article class="card anim d5"><span class="num">03</span><h3>KPIs G1–G6</h3><p>Se insertan en el informe cuando existan reportes reales.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-section="Auth · INC-01 02 03" data-presenter="Nicolás" data-say="NICOLÁS (lámina 04)&#10;«Pendiente frase final con evidencia.» Cubrir bcrypt (INC-01), JWT solo en entorno (INC-02) y logout que revoque el token (INC-03). Mostrar before/after cuando exista path.&#10;Sigue Nicolás con la lámina 05.">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>04</b><span>Auth</span></span></header>
+  <div class="head"><h2 class="anim d1">Mitigaciones de autenticación y sesión</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg><p class="lede anim d2">Baseline EV2 a la izquierda; retest EV5-6 cuando llegue el handoff de Nicolás.</p></div>
+  <div class="body">
+    <div class="grid g3">
+      <article class="card fc is-crit anim d2"><div class="row between"><span class="tag">INC-01</span><span class="sev crit">Crítico</span></div><h3>Contraseñas en texto plano</h3><p>Remediación: bcrypt + política de clave. Retest: CP-15 / John + login.</p><div class="foot">Estado 25-11: Abierto · pendiente handoff</div></article>
+      <article class="card fc anim d3"><div class="row between"><span class="tag">INC-02</span><span class="sev grave">Grave</span></div><h3>JWT_SECRET en el repo</h3><p>Remediación: secreto solo en variables de entorno. Retest: revisión repo + login.</p><div class="foot">Estado 25-11: Abierto · pendiente handoff</div></article>
+      <article class="card fc anim d4"><div class="row between"><span class="tag">INC-03 · CP-07</span><span class="sev grave">Grave</span></div><h3>Logout sin revocación</h3><p>Remediación: logout que invalide el token. Retest: token post-logout → 401.</p><div class="foot">Estado 25-11: Abierto · pendiente handoff</div></article>
+    </div>
+    <div class="ev-row anim d5"><p>Baseline EV2 (antes). Sustituir/ampliar con capturas post-fix de Nicolás.</p><div class="ev-thumbs"><button type="button" class="ev" data-ev="assets/evidencias/cp15-john-sin-hashes.png" data-cap="CP-15 baseline EV2 · John sin hashes (texto plano) · Ari" aria-label="Ampliar John baseline"><img src="assets/evidencias/cp15-john-sin-hashes.png" alt="John sin hashes baseline EV2" loading="lazy"><span><b>CP-15 EV2</b>John sin hashes</span></button><button type="button" class="ev" data-ev="assets/evidencias/cp07-token-tras-logout.png" data-cap="CP-07 baseline EV2 · token vivo tras logout · Nicolás" aria-label="Ampliar CP-07 baseline"><img src="assets/evidencias/cp07-token-tras-logout.png" alt="Token tras logout baseline EV2" loading="lazy"><span><b>CP-07 EV2</b>token vivo</span></button></div></div>
+  </div>
+</section>
+
+<section class="slide" data-section="RBAC · INC-07" data-presenter="Nicolás" data-say="NICOLÁS (lámina 05)&#10;«Pendiente frase final.» Mostrar 401 sin token, 403 con rol insuficiente y 2xx con admin en /roles, más IDOR de paciente.&#10;Sigue Nicolás con Selenium.">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>05</b><span>RBAC</span></span></header>
+  <div class="head"><h2 class="anim d1">Control de acceso: `/roles` e IDOR</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
+  <div class="body">
+    <div class="grid g2">
+      <article class="card fc anim d2"><div class="row between"><span class="tag">INC-07</span><span class="sev grave">Grave</span></div><h3>`/roles` sin JWT + admin</h3><p>Meta de retest: sin token → 401 · médico → 403 · admin → 2xx.</p><div class="chips" style="margin-top:auto"><span class="chip wine">Pendiente handoff Nicolás</span></div></article>
+      <article class="card fc is-ok anim d3"><div class="row between"><span class="tag">Baseline EV2</span><span class="sev ok">Parcial OK</span></div><h3>IDOR y `/usuarios`</h3><p>Paciente: 403 en ajenos. Médico: 403 en `/usuarios`. Se retestea tras el fix de `/roles`.</p></article>
+    </div>
+    <div class="ev-row anim d4"><p>Controles ya vistos en EV2 (referencia). Agregar curl post-fix de `/roles`.</p><div class="ev-thumbs"><button type="button" class="ev" data-ev="assets/evidencias/cp04-paciente-403-ajeno.png" data-cap="CP-04 · paciente 403 en exámenes ajenos · Ari" aria-label="Ampliar CP-04"><img src="assets/evidencias/cp04-paciente-403-ajeno.png" alt="Paciente 403 ajenos" loading="lazy"><span><b>CP-04</b>403 en ajenos</span></button><button type="button" class="ev" data-ev="assets/evidencias/cp08-medico-usuarios-403.png" data-cap="CP-08 · médico 403 en /usuarios · Nicolás" aria-label="Ampliar CP-08"><img src="assets/evidencias/cp08-medico-usuarios-403.png" alt="Médico 403 usuarios" loading="lazy"><span><b>CP-08</b>403 en /usuarios</span></button></div></div>
+  </div>
+</section>
+
+<section class="slide" data-section="Selenium" data-presenter="Nicolás" data-say="NICOLÁS (lámina 06)&#10;«Pendiente frase final.» Baseline EV2: suite 11/11. Aquí se reporta el pass rate post-mitigación con report.html y report.json.&#10;Pase a Ari. «Con la regresión UI cubierta, Ari presenta el delay y el estrés.»">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>06</b><span>Selenium</span></span></header>
+  <div class="cov">
+    <div class="anim d1">
+      <p class="k">Obligatorio EP5</p>
+      <p style="font-size:calc(64*var(--u));font-weight:780;letter-spacing:-.04em;line-height:1;color:var(--navy);margin-top:8px"><span data-count="11" data-from="0">11</span><span style="font-size:.45em;color:var(--text-2)">/11</span></p>
+      <p class="lede">Baseline EV2 (27 oct) · no sustituye el post-fix</p>
+      <div class="chips" style="margin-top:14px"><span class="chip wine">Pass rate EV5-6 · pendiente Nicolás</span><span class="chip blue">report.html + report.json</span></div>
+    </div>
+    <div class="card anim d2">
+      <h3>Qué debe mostrar esta lámina al freeze</h3>
+      <ul style="display:grid;gap:10px;margin-top:12px">
+        <li class="row"><span class="ic"><svg class="ico"><use href="#i-list"/></svg></span><p>Casos totales / passed / failed / flaky</p></li>
+        <li class="row"><span class="ic"><svg class="ico"><use href="#i-cal"/></svg></span><p>Fecha de ejecución post-mitigación</p></li>
+        <li class="row"><span class="ic"><svg class="ico"><use href="#i-alert"/></svg></span><p>Fallos trazados a INC residual</p></li>
+        <li class="row"><span class="ic"><svg class="ico"><use href="#i-route"/></svg></span><p>Path bajo <span class="mono">Nicolas/Evidencias/</span></p></li>
+      </ul>
+      <div class="ev-left" style="margin-top:14px"><button type="button" class="ev" data-ev="assets/evidencias/selenium-rbac03-paciente.png" data-cap="Selenium baseline EV2 · RBAC paciente · Nicolás" aria-label="Ampliar Selenium baseline"><img src="assets/evidencias/selenium-rbac03-paciente.png" alt="Selenium baseline" loading="lazy"><span><b>Selenium EV2</b>referencia visual</span></button></div>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-section="INC-04 · JMeter" data-presenter="Ari" data-say="ARI (lámina 07)&#10;El delay artificial de 5 segundos ya no está en las rutas. Before: GET pacientes y exámenes alrededor de 5,03 segundos. After: alrededor de 0,03 segundos. El humo del frontend con usuario médico quedó en verde.&#10;Clic en las capturas before y after.&#10;Pendiente: ramp JMeter 100 → 1000 → 2500 → 5000 VU con archivos jtl. Si el hardware no alcanza, se declara el techo en el informe.&#10;Sigue Ari con la lámina 08.">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>07</b><span>Rendimiento</span></span></header>
+  <div class="head"><h2 class="anim d1">INC-04: delay retirado · camino a 5000 VU</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
+  <div class="body">
+    <div class="grid g2">
+      <article class="card anim d2"><span class="k">Before · EV56-04</span><p style="font-size:calc(42*var(--u));font-weight:780;color:var(--wine);letter-spacing:-.03em;line-height:1;margin:8px 0">~5,03 s</p><p>GET /pacientes y /examenes con <span class="mono">delayMiddleware(5000)</span></p></article>
+      <article class="card anim d3"><span class="k">After · 25-11-2026 · Ari</span><p style="font-size:calc(42*var(--u));font-weight:780;color:var(--blue);letter-spacing:-.03em;line-height:1;margin:8px 0">~0,03 s</p><p>Cumple umbral NFR-PERF-1 (300 ms) en 1 VU de laboratorio</p></article>
+    </div>
+    <div class="ev-row anim d4"><p>Evidencia real EV56-04. JMeter 5000: pendiente handoff Ari.</p><div class="ev-thumbs"><button type="button" class="ev" data-ev="assets/evidencias/ev56-04/EV56-04-before-GET-pacientes-examenes.png" data-cap="EV56-04 before · curl ~5 s · Ari" aria-label="Ampliar before"><img src="assets/evidencias/ev56-04/EV56-04-before-GET-pacientes-examenes.png" alt="Before delay" loading="lazy"><span><b>Before</b>~5 s</span></button><button type="button" class="ev" data-ev="assets/evidencias/ev56-04/EV56-04-after-GET-pacientes-examenes.png" data-cap="EV56-04 after · curl ~30 ms · Ari" aria-label="Ampliar after"><img src="assets/evidencias/ev56-04/EV56-04-after-GET-pacientes-examenes.png" alt="After delay" loading="lazy"><span><b>After</b>~30 ms</span></button><button type="button" class="ev" data-ev="assets/evidencias/ev56-04/EV56-04-humo-FE-pacientes.png" data-cap="Humo FE pacientes · médico · Ari" aria-label="Ampliar humo FE"><img src="assets/evidencias/ev56-04/EV56-04-humo-FE-pacientes.png" alt="Humo FE" loading="lazy"><span><b>Humo FE</b>pacientes OK</span></button><button type="button" class="ev" data-ev="assets/evidencias/cp05-jmeter-resumen.png" data-cap="Baseline EV2 JMeter con delay · Ari" aria-label="Ampliar JMeter EV2"><img src="assets/evidencias/cp05-jmeter-resumen.png" alt="JMeter EV2" loading="lazy"><span><b>JMeter EV2</b>con delay</span></button></div></div>
+  </div>
+</section>
+
+<section class="slide" data-section="ZAP · John" data-presenter="Ari" data-say="ARI (lámina 08)&#10;«Pendiente frase final.» Solo mostrar ZAP after, John post-bcrypt y fuerza bruta si hay path de evidencia. Baseline EV2 de John queda como before.&#10;Pase a Skarlett. «Con la evidencia dinámica en curso, Skarlett presenta Sonar y norma.»">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>08</b><span>DAST / John</span></span></header>
+  <div class="head"><h2 class="anim d1">ZAP, John y fuerza bruta (solo con evidencia)</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
+  <div class="body">
+    <div class="grid g3">
+      <article class="card anim d2"><span class="tag">ZAP</span><h3>Before / after</h3><p>Baseline EV2: autenticado sin alertas altas. After depende de INC-05 (CORS/headers).</p><div class="chips" style="margin-top:auto"><span class="chip wine">Pendiente Ari</span></div></article>
+      <article class="card anim d3"><span class="tag">John · CP-15</span><h3>Post-bcrypt</h3><p>Before: sin hashes que cargar. After: solo si INC-01 está mitigado.</p><div class="chips" style="margin-top:auto"><span class="chip wine">Bloqueado por INC-01</span></div></article>
+      <article class="card anim d4"><span class="tag">Lockout</span><h3>Anti fuerza bruta</h3><p>Ampliación P1. Si no alcanza, queda en residuales §6.</p><div class="chips" style="margin-top:auto"><span class="chip">Plan §6</span></div></article>
+    </div>
+    <div class="ev-row anim d5"><p>Before EV2 (John). No inventar after.</p><div class="ev-thumbs"><button type="button" class="ev" data-ev="assets/evidencias/cp15-john-sin-hashes.png" data-cap="John baseline EV2 · Ari" aria-label="Ampliar John"><img src="assets/evidencias/cp15-john-sin-hashes.png" alt="John baseline" loading="lazy"><span><b>John EV2</b>before</span></button></div></div>
+  </div>
+</section>
+
+<section class="slide" data-section="Sonar · norma" data-presenter="Skarlett" data-say="SKARLETT (lámina 09)&#10;«Pendiente frase final.» Mostrar delta Sonar before/after, INC-06 y vínculo con 20.584 / DS 41 / 19.628. Baseline EV2 queda como before.&#10;Sigue Skarlett con CI/CD.">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>09</b><span>Sonar · norma</span></span></header>
+  <div class="head"><h2 class="anim d1">Sonar delta, errores y lectura normativa</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
+  <div class="body">
+    <div class="grid g2">
+      <div class="card anim d2">
+        <div class="row between"><span class="k">Baseline Sonar EV2 · 20 oct</span><span class="chip blue">Before</span></div>
+        <div class="metrics" style="margin-top:12px"><div class="mod"><div class="row"><h4>BACKEND</h4></div><div class="kv"><div><b>0</b>Bugs</div><div><b>4</b>Vuln.</div></div></div><div class="mod"><div class="row"><h4>FRONTEND</h4></div><div class="kv"><div><b>14</b>Bugs</div><div><b>0</b>Vuln.</div></div></div></div>
+        <p style="margin-top:10px;font-size:var(--fs-sm)">After EV5-6: pendiente handoff Skarlett. INC-06 (<span class="mono">err.message</span>) abierto.</p>
+      </div>
+      <div class="card anim d3">
+        <h3>Norma (eje del ciclo)</h3>
+        <div class="chips" style="margin:12px 0"><span class="chip navy">20.584</span><span class="chip navy">DS 41</span><span class="chip navy">19.628</span><span class="chip wine">21.719 · desde 01-12</span></div>
+        <p>Tabla artículo ↔ INC/CP: pendiente Skarlett. TLS/cifrado: resultado o reserva fechada en §6.</p>
+      </div>
+    </div>
+    <div class="ev-row anim d4"><p>Before EV2. Reemplazar con capturas post-fix.</p><div class="ev-thumbs"><button type="button" class="ev" data-ev="assets/evidencias/sonar-backend-resumen.png" data-cap="Sonar backend baseline EV2 · Skarlett" aria-label="Ampliar Sonar"><img src="assets/evidencias/sonar-backend-resumen.png" alt="Sonar baseline" loading="lazy"><span><b>Sonar EV2</b>backend</span></button></div></div>
+  </div>
+</section>
+
+<section class="slide" data-section="CI/CD" data-presenter="Skarlett y Giannina" data-say="SKARLETT (lámina 10)&#10;Propuesta de mantenimiento continuo: commit, build, unitarias, Sonar Quality Gate, imagen Docker, deploy al laboratorio, Selenium y, si alcanza, ZAP nocturno.&#10;Pase a Giannina. «Con el pipeline planteado, Giannina resume los KPIs.»">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>10</b><span>CI/CD</span></span></header>
+  <div class="head"><h2 class="anim d1">Pipeline con controles de seguridad</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg><p class="lede anim d2">Borrador EV56-21 · Skarlett completa herramientas reales del equipo.</p></div>
+  <div class="body">
+    <div class="phases anim d2">
+      <div class="phase" data-n="1"><span class="tag">PR</span><p>Commit + secretos fuera del repo</p></div>
+      <div class="phase" data-n="2"><span class="tag">Build</span><p>Unitarias</p></div>
+      <div class="phase" data-n="3"><span class="tag">SAST</span><p>Sonar Quality Gate</p></div>
+      <div class="phase" data-n="4"><span class="tag">Deploy</span><p>Imagen Docker · lab 3333/4444</p></div>
+      <div class="phase" data-n="5"><span class="tag">Verify</span><p>Selenium · ZAP opcional</p></div>
+    </div>
+    <div class="callout anim d3"><p>Si el CI aún no está automatizado, se presenta como <strong>propuesta IE7</strong> (mantenimiento continuo) y se declara el estado actual del laboratorio Docker.</p></div>
+  </div>
+</section>
+
+<section class="slide" data-section="KPIs" data-presenter="Giannina" data-say="GIANNINA (lámina 11)&#10;Resumen de KPIs G1 a G6. Hoy solo están congelados los de EV2 y el after de INC-04. El resto se completa el sábado 28 con los handoffs del viernes 27.&#10;Sigue Giannina con el dictamen.">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>11</b><span>KPIs</span></span></header>
+  <div class="head"><h2 class="anim d1">KPIs G1–G6 · números aún no congelados</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
+  <div class="body">
+    <div class="grid g3">
+      <article class="card anim d2"><span class="k">G1 · CP</span><h3>EV2 → EV5-6</h3><p>10 / 10 / 20 · total 40. Columna EV5-6 vacía hasta handoff.</p></article>
+      <article class="card anim d3"><span class="k">G2 · INC</span><h3>Por severidad</h3><p>Crítico abierto: 1 (INC-01). Graves: completar al freeze.</p></article>
+      <article class="card anim d4"><span class="k">G3 · Selenium</span><h3>Pass rate</h3><p>Baseline 11/11. Post-fix: pendiente.</p></article>
+      <article class="card anim d5"><span class="k">G4–G5 · JMeter</span><h3>Latencia / error %</h3><p>1 VU after ~30 ms. Fases 100→5000: pendiente.</p></article>
+      <article class="card anim d6"><span class="k">G6 · Sonar</span><h3>Delta</h3><p>Before EV2 cargado. After: pendiente Skarlett.</p></article>
+      <article class="card anim d7"><span class="k">P0 mínimo</span><h3>% verificados</h3><p>INC-04 medido; 01/02/03/07 sin Verificado.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="slide" data-section="Dictamen" data-presenter="Giannina" data-say="GIANNINA (lámina 12)&#10;Dictamen provisional al 25 de noviembre: No certificado, porque INC-01 crítico sigue abierto. INC-04 ya muestra mejora medible, pero no basta.&#10;Meta del equipo: Certificado con reservas, si se verifican INC-01, 02, 03, 04 y 07, con reservas explícitas de TLS de laboratorio y techo de hardware en 5000 VU.&#10;Avanzar a preguntas.">
+  <header class="top anim"><img class="logo" src="cuidarte-logo.svg" alt="Cuidarte+"><span class="pill"><i></i><b>12</b><span>Dictamen</span></span></header>
+  <div class="head" style="margin-bottom:calc(14*var(--u))"><h2 class="anim d1">Dictamen provisional: No certificado</h2><svg class="rib anim d2" viewBox="0 0 140 18" aria-hidden="true"><path class="p1" pathLength="1" d="M1 10H44L49 10L53 4L58 15L62 7L65 10H96"/><path class="p2" pathLength="1" d="M103 9.5L107.5 14L117 4.5"/><circle class="p3" cx="128" cy="10" r="2.6"/></svg></div>
+  <div class="verd">
+    <div class="verd-l">
+      <div class="anim d2"><div class="stamp" role="img" aria-label="Dictamen provisional: No certificado"><div><div class="s1">Provisional · 25-11</div><div class="s2">No certificado</div><div class="s3">INC-01 abierto</div></div></div></div>
+      <p class="anim d3">INC-04 mejoró el desempeño (~5 s → ~0,03 s), pero <b>un crítico abierto impide certificar</b>. INC-02, 03 y 07 aún sin retest verificado.</p>
+      <div class="path anim d4"><div class="row"><span class="ic"><svg class="ico"><use href="#i-route"/></svg></span><h3>Meta: Certificado con reservas</h3></div>
+        <div class="steps"><span class="chip navy">Verificar INC-01</span><svg class="ico"><use href="#i-arrow"/></svg><span class="chip navy">02</span><svg class="ico"><use href="#i-arrow"/></svg><span class="chip navy">03</span><svg class="ico"><use href="#i-arrow"/></svg><span class="chip navy">04</span><svg class="ico"><use href="#i-arrow"/></svg><span class="chip navy">07</span><svg class="ico"><use href="#i-arrow"/></svg><span class="chip">Reservas TLS / HW 5000</span></div></div>
+    </div>
+    <div class="card anim d3">
+      <h3>Reservas candidatas (§6)</h3>
+      <ol class="recs" style="margin-top:8px">
+        <li><span class="num">01</span><div><h4>TLS de laboratorio</h4><p>CP-14 · resultado o limitación fechada</p></div></li>
+        <li><span class="num">02</span><div><h4>Techo hardware 5000 VU</h4><p>Declarar fase máxima alcanzada</p></div></li>
+        <li><span class="num">03</span><div><h4>Cifrado en reposo</h4><p>INC-16 / CP-16 · plan</p></div></li>
+        <li><span class="num">04</span><div><h4>Auditoría descarga</h4><p>INC-13/14 si no alcanzan al freeze</p></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="slide navy" data-section="Preguntas" data-presenter="Todos" data-say="TODOS (lámina 13)&#10;Muchas gracias. Quedamos atentos a sus preguntas.&#10;Ensayar: ¿por qué no certifican si el delay bajó a 30 ms? Porque INC-01 crítico sigue abierto.">
+  <div class="hero" aria-hidden="true"><img src="portada-hero-v2.jpg" alt=""></div>
+  <header class="c-top anim"><img class="c-logo" src="cuidarte-logo-white.svg" alt="Cuidarte+"><p class="c-course" style="color:#fff">Duoc UC · ISY1102<span>Seguridad y Calidad en el Desarrollo de Software</span></p></header>
+  <div class="qa-main">
+    <p class="pill anim d1"><i></i><b>EP6</b><span>Gracias</span></p>
+    <h1 class="anim d2">¿Preguntas?</h1>
+    <p class="sub anim d3"><b>Caso B</b> · Ciclo MITIGAR · Cuidarte+</p>
+  </div>
+  <dl class="c-meta anim d4"><div class="psep" aria-hidden="true"><i class="l1"></i><svg class="pz" viewBox="0 0 64 24" width="64" height="24"><path class="pp" pathLength="1" d="M0 12H10L15 12L20 2.5L26 21.5L31 7L35 12H44"/><path class="pc" pathLength="1" d="M50 11.5L54.5 16L63 7.5"/></svg><i class="l2"></i><b class="pd"></b></div><div class="mi"><span class="ic"><svg class="ico"><use href="#i-users"/></svg></span><div><dt>Equipo · Sección 001V</dt><dd><div class="team"><span>Ari Araya</span><span>Nicolás Barra</span><span>Giannina Guerrero</span><span>Skarlett Tropan</span></div></dd></div></div><div class="mi"><span class="ic"><svg class="ico"><use href="#i-cap"/></svg></span><div><dt>Docente</dt><dd>Jose Sergio Collio Huennun</dd></div></div><div class="mi"><span class="ic"><svg class="ico"><use href="#i-book"/></svg></span><div><dt>Asignatura</dt><dd>ISY1102<small>Noviembre 2026</small></dd></div></div></dl>
+</section>

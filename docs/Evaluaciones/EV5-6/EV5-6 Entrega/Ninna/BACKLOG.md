@@ -11,12 +11,20 @@ Estándares a hilvanar: **25010**, **27001**, **29119**; Leyes **20.584**, **19.
 
 ## Checklist
 
-- [ ] EV56-22 Planillas (registro CP, matriz, métricas, inventario INC)  
-- [ ] EV56-21 Apoyo diagrama CI/CD (con Skarlett)  
-- [ ] EV56-23 Informe EP5 §1–6 + KPIs  
-- [ ] EV56-24 Dictamen post-mitigación  
-- [ ] EV56-25 Guion + PPT + video (después del cierre operativo)  
-- [ ] Integración handoffs N/A/S  
+- [x] EV56-22 Planillas (esqueleto): matriz 40 CSV/MD, inventario INC, KPIs G1–G6, registro casos — **2026-11-25**  
+- [x] EV56-22 Excel: `Planillas/EV56-22-Matriz-Trazabilidad.xlsx` + `EV56-22-Registro-Casos-Seguimiento.xlsx` (EV2 cargado; EV5-6 pendiente) — **2026-11-25**  
+- [ ] EV56-22 Planillas (números finales post-handoff vie 27)  
+- [x] EV56-21 Diagrama CI/CD borrador — `Planillas/EV56-21-Diagrama-CICD-borrador.md` (completar con Skarlett)  
+- [x] EV56-23 Informe EP5 §1–§3 + §4 fichas + §6 remediaciones — `Entregables/01-Informe-EP5-borrador.md`  
+- [x] EV56-23 Word formato EP3/EP5 — `EV5-6 Contexto/Entregables/EP5-Informe-…docx` (gráficos aún pendientes de handoff)  
+- [x] EV56-24 Dictamen provisional documentado (No certificado mientras INC-01 abierto)  
+- [ ] EV56-24 Dictamen final post-mitigación  
+- [x] EV56-25 Outline guion — `Guion/EV56-25-Outline-EP6.md`  
+- [x] EV56-25 Base PPT/HTML desde EP4 — `EV5-6 Contexto/Entregables/presentacion-ep6/` (13 láminas; capturas post-fix pendientes) — **2026-11-25**  
+- [ ] EV56-25 Guion cerrado + capturas finales + video (sáb 28 / dom 29)  
+- [x] Checklist handoff al equipo — `Entregables/00-Checklist-handoff.md`  
+- [ ] Integración handoffs N/A/S (vie 27)  
+
 
 ---
 

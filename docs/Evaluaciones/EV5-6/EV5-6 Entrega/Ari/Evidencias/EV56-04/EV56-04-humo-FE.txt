@@ -1,0 +1,26 @@
+EV56-04 / INC-04 — humo frontend (tras quitar delay)
+Fecha:     2026-11-25 ~01:32 (UTC-3)
+Ejecutora: Ari Araya
+Entorno:   FE http://localhost:3333 · API http://localhost:4444
+Usuario:   medico (sesión en UI)
+
+Qué se hizo:
+- Login en el SPA.
+- Listados Pacientes y Exámenes Médicos con DevTools → Network (Fetch/XHR).
+- Primer intento (~01:27): GET /pacientes 401 (token aún no aplicado) + tabla vacía. Time 15–37 ms (el delay de 5 s ya no actúa ni en error).
+- Recaptura (~01:32): listados con datos.
+
+Resultado recaptura:
+
+| Pantalla | Request | Status | Time | UI |
+|----------|---------|--------|------|-----|
+| /pacientes | pacientes (xhr) | 304 | 23 ms | lista con pacientes (Rocío Jara Méndez, …) |
+| /examenes  | examenes (xhr)  | 304 | 11 ms | lista con exámenes (Radiografía de cráneo, …) |
+
+304 = Not Modified (caché). Petición autenticada válida; no es fallo. Time << 5 s y < 300 ms.
+
+Evidencia PNG:
+- EV56-04-humo-FE-pacientes.png — lista con datos, sesión médico (~01:33)
+- EV56-04-humo-FE-examenes-network.png — lista + Network 304 · 11 ms (captura Ari 01:32)
+
+Conclusión: humo FE pasa. INC-04 no se percibe en UI. Timing cuantitativo sigue siendo el curl AFTER.

@@ -11,12 +11,19 @@ Estándares a hilvanar en el relato: **25010** (producto), **27001** (controles 
 
 ## Checklist rápido
 
-- [ ] EV3-21 Matriz 40 ERS ciclo 3  
-- [ ] EV3-22 KPIs y gráficos §5.1  
-- [ ] EV3-23 Informe EP5 §1–6  
-- [ ] EV3-24 Dictamen actualizado  
-- [ ] EV3-25 Prep guion EP6  
+> Continuidad: el avance vivo está en `docs/Evaluaciones/EV5-6/EV5-6 Entrega/Ninna/` (ver `Entregables/README-continuidad-EV56.md`).
+
+- [x] EV3-21 Matriz 40 ERS ciclo 3 — esqueleto con Resultado EV2 (CSV EV56-22) · **2026-11-25**  
+- [ ] EV3-21 Columna Resultado ciclo 3 final (post-handoffs)  
+- [x] EV3-22 KPIs y gráficos §5.1 — plantilla G1–G6  
+- [ ] EV3-22 Gráficos con datos reales insertados en Word  
+- [x] EV3-23 Informe EP5 §1–§3 + esqueleto §4–§6  
+- [ ] EV3-23 Word/PDF final  
+- [x] EV3-24 Dictamen provisional (No certificado)  
+- [ ] EV3-24 Dictamen final  
+- [x] EV3-25 Prep guion EP6 — outline  
 - [ ] Integración handoffs N/A/S  
+
 
 ---
 
