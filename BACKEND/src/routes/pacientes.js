@@ -2,7 +2,6 @@ const express = require("express");
 const { pool } = require("../db");
 const jwt = require("jsonwebtoken");
 const validate = require("../middleware/validate");
-const delayMiddleware = require("../middleware/delay");
 const { pacienteSchema, updatePacienteSchema } = require("../validations/pacientes");
 const { normalizeRut } = require("../utils/rut");
 const router = express.Router();
@@ -142,7 +141,7 @@ router.post("/", validate(pacienteSchema), async (req, res) => {
 });
 
 // Listar pacientes (médico y admin)
-router.get("/", delayMiddleware(5000), async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const authCheck = await requireRole(req, ["medico", "admin"]);
     if (authCheck.error) {
