@@ -10,7 +10,7 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 
 ## Checklist
 
-- [ ] EV56-04 INC-04 quitar delay  
+- [x] EV56-04 INC-04 quitar delay *(before/after + humo FE 2026-11-25; aviso Nico pendiente)*  
 - [ ] EV56-08 INC-05 CORS + headers  
 - [ ] EV56-10 Fuerza bruta / lockout (evidencia + sync Nico)  
 - [ ] EV56-13 JMeter → 5000 VU  
@@ -23,14 +23,14 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 
 ## EV56-04 — INC-04 quitar delay (bloqueante para 5000 VU)
 
-1. Buscar `delayMiddleware` / `5000` en backend.  
-2. Medir **antes** con curl (`time_total` ~5 s) → guardar log.  
-3. Eliminar delay; rebuild API.  
-4. Medir **después** (≪ 5 s).  
-5. Humo FE: login + listados.  
+1. Buscar `delayMiddleware` / `5000` en backend. **Hecho.**  
+2. Medir **antes** con curl. **Hecho** 2026-11-25 00:57: `GET /pacientes` 200 **5.028832 s**, `GET /examenes` 200 **5.053524 s**.  
+3. Eliminar delay; rebuild API. **Hecho** — `delayMiddleware` retirado de `pacientes.js`, `examenes.js`, `documentos.js`. Queda `BACKEND/src/middleware/delay.js` sin usos.  
+4. Medir **después**. **Hecho** 2026-11-25 01:13: `GET /pacientes` 200 **0.029100 s**, `GET /examenes` 200 **0.031565 s**. Carpeta [`Evidencias/EV56-04/`](./Evidencias/EV56-04/README.md).  
+5. Humo FE: login + listados. **Hecho** 2026-11-25 01:32: pacientes 304 / 23 ms, exámenes 304 / 11 ms, listas con datos.  
 6. Avisar a Nicolás (Selenium) y liberar JMeter.
 
-**DoD:** sin espera artificial; timing before/after archivado.
+**DoD:** sin espera artificial; timing before/after archivado. **Cumplido** (curl 1 VU + humo FE). Aviso a Nico sigue.
 
 ---
 

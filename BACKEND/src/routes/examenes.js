@@ -2,7 +2,6 @@ const express = require("express");
 const { pool } = require("../db");
 const jwt = require("jsonwebtoken");
 const validate = require("../middleware/validate");
-const delayMiddleware = require("../middleware/delay");
 const { examenMedicoSchema, updateExamenMedicoSchema } = require("../validations/examenes");
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
@@ -43,7 +42,7 @@ function requireRole(req, allowedRoles) {
 }
 
 // Crear examen médico (solo médico y admin)
-router.post("/", delayMiddleware(5000), validate(examenMedicoSchema), async (req, res) => {
+router.post("/", validate(examenMedicoSchema), async (req, res) => {
   try {
     const authCheck = await requireRole(req, ["medico", "admin"]);
     if (authCheck.error) {
@@ -96,7 +95,7 @@ router.post("/", delayMiddleware(5000), validate(examenMedicoSchema), async (req
 });
 
 // Listar exámenes médicos (médico, admin y paciente)
-router.get("/", delayMiddleware(5000), async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const authUser = getUserFromAuthHeader(req);
     if (!authUser) {
@@ -327,7 +326,7 @@ router.get("/paciente/:paciente_id", async (req, res) => {
 });
 
 // Actualizar examen médico (médico y admin)
-router.put("/:id", delayMiddleware(5000), validate(updateExamenMedicoSchema), async (req, res) => {
+router.put("/:id", validate(updateExamenMedicoSchema), async (req, res) => {
   try {
     const authCheck = await requireRole(req, ["medico", "admin"]);
     if (authCheck.error) {
