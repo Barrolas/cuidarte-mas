@@ -1,0 +1,32 @@
+EV56-04 / INC-04 — medición ANTES de quitar delayMiddleware
+Fecha:     2026-11-25 ~00:57 (UTC-3)
+Ejecutora: Ari Araya
+Entorno:   Docker Compose local (API http://localhost:4444)
+Usuario:   medico (rol médico)
+Herramienta: PowerShell Invoke-RestMethod + curl.exe -w time_total
+Criterio:  NFR-PERF umbral 300 ms. Baseline esperado ~5 s por delay artificial de 5000 ms.
+
+Comando:
+
+$r = Invoke-RestMethod -Method Post -Uri "http://localhost:4444/autenticacion/login" -ContentType "application/json" -Body '{"nombre_usuario":"medico","password":"medico"}'
+$token = $r.token
+Write-Output "Token OK: $($token.Substring(0,24))..."
+
+curl.exe -s -o NUL -w "GET /pacientes  HTTP %{http_code}  time_total %{time_total}s`n" -H "Authorization: Bearer $token" "http://localhost:4444/pacientes"
+curl.exe -s -o NUL -w "GET /examenes   HTTP %{http_code}  time_total %{time_total}s`n" -H "Authorization: Bearer $token" "http://localhost:4444/examenes"
+
+Salida (sesión PowerShell, exit 0):
+
+Token OK: eyJhbGciOiJIUzI1NiIsInR5...
+GET /pacientes  HTTP 200  time_total 5.028832s
+GET /examenes   HTTP 200  time_total 5.053524s
+
+Resultado:
+- Ambos GET autenticados responden 200.
+- time_total ≈ 5,03 s y 5,05 s → confirma delayMiddleware(5000) activo.
+- Fuera de umbral NFR-PERF (300 ms). Hallazgo INC-04 vigente.
+
+Pendiente EV56-04:
+- Quitar delayMiddleware de las rutas.
+- Rebuild API.
+- Repetir el mismo comando → evidenciar AFTER << 5 s.
