@@ -4,6 +4,7 @@ const { pool } = require("../db");
 const validate = require("../middleware/validate");
 const { loginSchema, registerSchema } = require("../validations/auth");
 const { normalizeRut } = require("../utils/rut");
+const { sendInternalError } = require("../utils/httpErrors");
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
 
@@ -61,10 +62,7 @@ router.post("/login", validate(loginSchema), async (req, res) => {
 
     res.json({ token });
   } catch (err) {
-    console.error(err);
-    res
-      .status(500)
-      .json({ error: "Error en login", glosa: err.message || err.toString() });
+    sendInternalError(res, err, "Error en login");
   }
 });
 
@@ -151,17 +149,13 @@ router.post("/registro", validate(registerSchema), async (req, res) => {
       usuario: user,
     });
   } catch (err) {
-    console.error(err);
     if (err.code === "23505") {
       return res.status(400).json({
         error: "Error al registrar",
         glosa: "El nombre de usuario o correo ya existe",
       });
     }
-    res.status(500).json({
-      error: "Error al registrar",
-      glosa: err.message || err.toString(),
-    });
+    sendInternalError(res, err, "Error al registrar");
   }
 });
 

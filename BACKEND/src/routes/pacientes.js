@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const validate = require("../middleware/validate");
 const { pacienteSchema, updatePacienteSchema } = require("../validations/pacientes");
 const { normalizeRut } = require("../utils/rut");
+const { sendInternalError } = require("../utils/httpErrors");
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET || "inseguro";
 
@@ -126,17 +127,13 @@ router.post("/", validate(pacienteSchema), async (req, res) => {
 
     res.status(201).json(result.rows[0]);
   } catch (err) {
-    console.error(err);
     if (err.code === "23505") {
       return res.status(400).json({
         error: "Error al crear paciente",
         glosa: "El RUT o email ya existe",
       });
     }
-    res.status(500).json({
-      error: "Error al crear paciente",
-      glosa: err.message || err.toString(),
-    });
+    sendInternalError(res, err, "Error al crear paciente");
   }
 });
 
@@ -160,11 +157,7 @@ router.get("/", async (req, res) => {
 
     res.json(result.rows);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al listar pacientes",
-      glosa: err.message || err.toString(),
-    });
+    sendInternalError(res, err, "Error al listar pacientes");
   }
 });
 
@@ -236,11 +229,7 @@ router.get("/:id", async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al obtener paciente",
-      glosa: err.message || err.toString(),
-    });
+    sendInternalError(res, err, "Error al obtener paciente");
   }
 });
 
@@ -263,11 +252,7 @@ router.get("/buscar/rut/:rut", async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al buscar paciente",
-      glosa: err.message || err.toString(),
-    });
+    sendInternalError(res, err, "Error al buscar paciente");
   }
 });
 
@@ -374,11 +359,7 @@ router.put("/:id", validate(updatePacienteSchema), async (req, res) => {
 
     res.json(result.rows[0]);
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al actualizar paciente",
-      glosa: err.message || err.toString(),
-    });
+    sendInternalError(res, err, "Error al actualizar paciente");
   }
 });
 
@@ -412,11 +393,7 @@ router.delete("/:id", async (req, res) => {
 
     res.json({ deleted: true });
   } catch (err) {
-    console.error(err);
-    res.status(500).json({
-      error: "Error al eliminar paciente",
-      glosa: err.message || err.toString(),
-    });
+    sendInternalError(res, err, "Error al eliminar paciente");
   }
 });
 
