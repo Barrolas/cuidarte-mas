@@ -10,13 +10,13 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 
 ## Checklist
 
-- [x] EV56-04 INC-04 quitar delay *(before/after + humo FE 2026-11-25; aviso Nico pendiente)*  
+- [x] EV56-04 INC-04 quitar delay *(before/after + humo FE 2026-11-25; Nico avisado)*  
 - [x] EV56-08 INC-05 CORS + headers *(curl + humo FE + /docs 2026-11-27)*  
 - [ ] EV56-10 Fuerza bruta / lockout (evidencia + sync Nico)  
-- [ ] EV56-13 JMeter → 5000 VU  
+- [x] EV56-13 JMeter → 5000 VU *(A–E 2026-11-27; E = 5000 logins, error HTTP 0 %)*  
 - [ ] EV56-14 John retest  
 - [ ] EV56-15 ZAP before/after  
-- [ ] EV56-17 Wireshark carga  
+- [x] EV56-17 Wireshark carga *(pcap + I/O Graph D 2500 y E 5000)*  
 - [ ] Handoff KPIs a Ninna  
 
 ---
@@ -28,9 +28,9 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 3. Eliminar delay; rebuild API. **Hecho** — `delayMiddleware` retirado de `pacientes.js`, `examenes.js`, `documentos.js`. Queda `BACKEND/src/middleware/delay.js` sin usos.  
 4. Medir **después**. **Hecho** 2026-11-25 01:13: `GET /pacientes` 200 **0.029100 s**, `GET /examenes` 200 **0.031565 s**. Carpeta [`Evidencias/EV56-04/`](./Evidencias/EV56-04/README.md).  
 5. Humo FE: login + listados. **Hecho** 2026-11-25 01:32: pacientes 304 / 23 ms, exámenes 304 / 11 ms, listas con datos.  
-6. Avisar a Nicolás (Selenium) y liberar JMeter.
+6. Avisar a Nicolás (Selenium) y liberar JMeter. **Hecho.**
 
-**DoD:** sin espera artificial; timing before/after archivado. **Cumplido** (curl 1 VU + humo FE). Aviso a Nico sigue.
+**DoD:** sin espera artificial; timing before/after archivado. **Cumplido** (curl 1 VU + humo FE).
 
 ---
 
@@ -62,14 +62,14 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 
 **Precondición:** EV56-04 hecho.
 
-1. Plan `.jmx` no-GUI con login + GET de lectura (exámenes/pacientes).  
-2. Ramp: 100 → 500 → 1000 → 2500 → **5000**.  
-3. Registrar por fase: samples, avg, p90, p95, error %, throughput, CPU/RAM.  
-4. Dashboard HTML desde `.jtl`.  
-5. Comparar p95 vs **300 ms**.  
-6. Si el host no aguanta 5000: documentar techo estable **y** el intento a 5000 (errores de conexión), sin ocultar el requisito.
+1. Plan `.jmx` no-GUI con login + GET de lectura (exámenes/pacientes). **Hecho** — `EV56-13 Cuidarte 5000.jmx`.  
+2. Ramp: 100 → 500 → 1000 → 2500 → **5000**. **Hecho** 2026-11-27. Primer intento E leyó 2500 VU (jmx sin guardar); reintento E: **5000 logins**.  
+3. Registrar por fase: samples, avg, p90, p95, error %, throughput. **Hecho** — tabla en [`Evidencias/EV56-13/README.md`](./Evidencias/EV56-13/README.md). Sin PNG de CPU/RAM.  
+4. Dashboard HTML desde `.jtl`. **Hecho** `dashboard-faseA`…`dashboard-faseE`.  
+5. Comparar p95 vs **300 ms**. Solo **fase A** cumple (GET p95 ~266 ms). B–E residual de capacidad (0 % error HTTP).  
+6. Intento 5000: **Hecho** (error HTTP 0 %; p95 GET ~14,5 s; throughput 344 txn/s).
 
-**DoD:** intento 5000 documentado + gráficos para §5.1.
+**DoD:** intento 5000 documentado + gráficos para §5.1. **Cumplido.**
 
 ---
 
@@ -98,11 +98,11 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 
 ## EV56-17 — Wireshark bajo carga
 
-1. Iniciar captura en puerto API antes de fase alta de JMeter.  
-2. Guardar `.pcapng` + I/O Graph / retransmissions.  
-3. Párrafo corto para Ninna (volumen, errores TCP).
+1. Iniciar captura en puerto API antes de fase alta de JMeter. **Hecho** — loopback, `tcp.port == 4444`, fases D y E.  
+2. Guardar `.pcapng` + I/O Graph / retransmissions. **Hecho** — [`Evidencias/EV56-17/`](./Evidencias/EV56-17/README.md). D: errores TCP ≈ 0. E: errores TCP ~200–280 s.  
+3. Párrafo corto para Ninna (volumen, errores TCP). **Hecho** en el README de EV56-17.
 
-**DoD:** anexo de red ligado a estrés.
+**DoD:** anexo de red ligado a estrés. **Cumplido.**
 
 ---
 
