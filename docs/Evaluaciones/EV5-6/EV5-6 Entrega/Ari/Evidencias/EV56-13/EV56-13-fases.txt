@@ -1,0 +1,19 @@
+EV56-13 / JMeter ramp → 5000 VU
+Fecha:     2026-11-27 ~02:25–03:38 (UTC-3)
+Ejecutora: Ari Araya
+Entorno:   API http://localhost:4444 (Docker), JMeter 5.6.3 local, Java 21
+Plan:      EV56-13 Cuidarte 5000.jmx
+Usuario:   medico / medico
+Samplers:  POST /autenticacion/login (Once Only) + GET /pacientes + GET /examenes
+
+p95 = statistics.json pct2ResTime. Error HTTP 0 % en A–E.
+
+Fase A  100 VU   02:37–02:39  samples 52433   GET p95 266/267 ms   Total p95 259 ms   437 txn/s  NFR-PERF cumple
+Fase B  500 VU   02:52–02:55  samples 77576   GET p95 1285/1286 ms Total p95 1319 ms  429 txn/s
+Fase C 1000 VU   03:00–03:03  samples 70631   GET p95 3268/3287 ms Total p95 3239 ms  388 txn/s
+Fase D 2500 VU   03:11–03:14  samples 70528   GET p95 6736/6736 ms Total p95 6772 ms  380 txn/s
+Fase E 5000 VU   03:31–03:38  samples 127371  GET p95 14514/14515 ms Total p95 13735 ms 344 txn/s  logins 5000
+
+Intento E previo: EV56-13-faseE-5000-intento1-2500vu.jtl (jmx sin guardar; 2500 logins). No usar como fase E.
+
+Conclusión: techo de latencia desde 500 VU. 5000 VU ejecutado sin error HTTP. Residual de capacidad, no INC-04.
