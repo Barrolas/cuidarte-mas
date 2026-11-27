@@ -11,7 +11,7 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 ## Checklist
 
 - [x] EV56-04 INC-04 quitar delay *(before/after + humo FE 2026-11-25; aviso Nico pendiente)*  
-- [ ] EV56-08 INC-05 CORS + headers  
+- [x] EV56-08 INC-05 CORS + headers *(curl + humo FE + /docs 2026-11-27)*  
 - [ ] EV56-10 Fuerza bruta / lockout (evidencia + sync Nico)  
 - [ ] EV56-13 JMeter → 5000 VU  
 - [ ] EV56-14 John retest  
@@ -36,13 +36,13 @@ Estándares: **25010** (desempeño, seguridad), **27001** (hardening), **29119**
 
 ## EV56-08 — INC-05 CORS y cabeceras
 
-1. Revisar `cors` / headers en `app.js`.  
-2. CORS al origen FE (`http://localhost:3333`), no `*`.  
-3. Headers: `X-Content-Type-Options`, `X-Frame-Options`, ocultar `X-Powered-By` si aplica.  
-4. Verificar con `curl -i`; no romper FE ni `/docs`.  
-5. Evidencias TXT/PNG.
+1. Revisar `cors` / headers en `app.js`. **Hecho** — `app.use(cors())` sin origen.  
+2. CORS al origen FE (`http://localhost:3333`), no `*`. **Hecho.**  
+3. Headers: `X-Content-Type-Options`, `X-Frame-Options`, ocultar `X-Powered-By` si aplica. **Hecho** en `BACKEND/src/app.js`.  
+4. Verificar con `curl -i`; no romper FE ni `/docs`. **Hecho** 2026-11-27: ANTES `Allow-Origin: *` + `X-Powered-By`; DESPUÉS origen acotado, `evil.example` sin `Allow-Origin`, `nosniff` + `DENY`. Humo FE login/listados 200; Swagger `/docs` abre.  
+5. Evidencias TXT/PNG. **Hecho** — [`Evidencias/EV56-08/`](./Evidencias/EV56-08/README.md) (`*-INC-05.png`).
 
-**DoD:** headers presentes; FE operativo.
+**DoD:** headers presentes; FE operativo. **Cumplido.** OPTIONS no capturado (filtro Fetch/XHR). No merge a `main` hasta retest de equipo.
 
 ---
 

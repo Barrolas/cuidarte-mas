@@ -1,0 +1,36 @@
+EV56-08 / INC-05 — curl ANTES / DESPUÉS (cabeceras)
+Fecha ANTES:   2026-11-27 ~00:37 (UTC-3)  Date: Fri, 27 Nov 2026 03:37:12 / 03:37:18 GMT
+Fecha DESPUÉS: 2026-11-27 ~00:46 (UTC-3)  Date: Fri, 27 Nov 2026 03:46:13 / 03:46:15 GMT
+Ejecutora:     Ari Araya
+Entorno:       API http://localhost:4444  (Docker cuidarteplus-backend-ev)
+Comandos:
+  curl.exe -i -H "Origin: http://localhost:3333" "http://localhost:4444/"
+  curl.exe -i -H "Origin: http://evil.example" "http://localhost:4444/"
+
+ANTES (app.use(cors()) sin origen; evidencia ANTES-INC-05.png)
+
+  Origin http://localhost:3333  → HTTP 200
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+    (sin X-Content-Type-Options, sin X-Frame-Options)
+
+  Origin http://evil.example    → HTTP 200
+    X-Powered-By: Express
+    Access-Control-Allow-Origin: *
+
+DESPUÉS (app.js: CORS acotado + headers; rebuild API; evidencia DESPUES-INC-05.png)
+
+  Origin http://localhost:3333  → HTTP 200
+    Access-Control-Allow-Origin: http://localhost:3333
+    Vary: Origin
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: DENY
+    (sin X-Powered-By)
+
+  Origin http://evil.example    → HTTP 200
+    (sin Access-Control-Allow-Origin)
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: DENY
+    (sin X-Powered-By)
+
+Cuerpo en todos: {"name":"cuidarteplus","status":"ok"}
