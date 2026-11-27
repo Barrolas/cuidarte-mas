@@ -1,0 +1,31 @@
+EV56-08 / INC-05 — humo frontend (tras CORS acotado + cabeceras)
+Fecha:     2026-11-27 ~00:54–01:06 (UTC-3)
+Ejecutora: Ari Araya
+Entorno:   FE http://localhost:3333 · API http://localhost:4444  (Compose up)
+Usuario:   medico (sesión en UI)
+
+Qué se hizo:
+- Login en el SPA (POST /autenticacion/login).
+- Home, Pacientes y Exámenes con DevTools → Network (Fetch/XHR), Disable cache, Preserve log.
+- Comprobación de /docs (Swagger).
+- OPTIONS no capturado: el filtro Fetch/XHR oculta el preflight. DoD cubierto con POST + headers.
+
+Resultado:
+
+| Pantalla | Request | Método | Status | Time | UI / headers |
+|----------|---------|--------|--------|------|----------------|
+| /home    | login (xhr) | POST /autenticacion/login | 200 | 56 ms | sesión médico; Allow-Origin http://localhost:3333; nosniff; DENY; Origin request 3333; sin X-Powered-By |
+| /home    | examenes / pacientes | GET | 200 | 69 ms / 27 ms | home con datos (Daniela Figueroa Soto); Console: No issues |
+| /pacientes | pacientes | GET | 200 | — | lista con datos (Rocío Jara Méndez, …); mismas cabeceras CORS |
+| /examenes  | examenes  | GET | 200 | — | lista con datos (Radiografía de cráneo, …); mismas cabeceras CORS |
+| /docs      | —         | —   | UI OK | — | Swagger cuidarteplus API (español) 1.0.0 |
+
+Evidencia PNG:
+- Humo_1-INC-05.png — home + Network 200 (~00:54)
+- Humo_2-INC-05.png — POST login Response headers (~00:59; Date 03:52:41 GMT)
+- Humo_3-INC-05.png — POST login Request Origin + X-Frame-Options DENY
+- Humo_pacientes-INC-05.png — listado + GET /pacientes 200
+- Humo_examenes-INC-05.png — listado + GET /examenes 200
+- Swagger-INC-05.png — http://localhost:4444/docs/
+
+Conclusión: humo FE pasa. CORS acotado no rompe el SPA ni /docs. Cabeceras INC-05 visibles en el browser.

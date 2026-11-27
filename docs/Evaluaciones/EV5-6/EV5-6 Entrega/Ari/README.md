@@ -9,3 +9,5 @@
 | [Evidencias/](./Evidencias/README.md) | PNG, TXT, JMeter, ZAP, pcap |
 
 Arranque del ciclo: Docker Compose (`cuidarte-frontend` :3333, `cuidarte-api` :4444, `cuidarte-db` :15442).
+
+**Lab cerrado (no merge a `main`):** EV56-04 INC-04 · EV56-08 INC-05. Siguiente: EV56-13 JMeter 5000.

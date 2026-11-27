@@ -18,7 +18,27 @@ const rolesRoutes = require("./routes/roles");
 
 const app = express();
 
-app.use(cors());
+app.disable("x-powered-by");
+
+const allowedOrigin = process.env.FRONTEND_URL || "http://localhost:3333";
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+      if (!origin || origin === allowedOrigin) {
+        return callback(null, origin || allowedOrigin);
+      }
+      return callback(null, false);
+    },
+  })
+);
+
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "DENY");
+  next();
+});
+
 app.use(express.json());
 app.use(morgan("dev"));
 
