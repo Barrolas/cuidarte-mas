@@ -1,0 +1,120 @@
+=== CP-16 Estado Real Reposo y /files/documentos (rama dev 2d0abc7) - 2026-11-25T12:41:14-03:00 ===
+--- Extensiones PostgreSQL (pgcrypto?) ---
+                 List of installed extensions
+  Name   | Version |   Schema   |         Description          
+---------+---------+------------+------------------------------
+ plpgsql | 1.0     | pg_catalog | PL/pgSQL procedural language
+(1 row)
+
+--- Columnas sensibles en pacientes, examen_medico, documentos_examen, usuarios ---
+                                             Table "public.pacientes"
+             Column              |           Type           | Collation | Nullable |           Default            
+---------------------------------+--------------------------+-----------+----------+------------------------------
+ id                              | bigint                   |           | not null | generated always as identity
+ rut                             | text                     |           | not null | 
+ primer_nombre                   | text                     |           | not null | 
+ apellido_paterno                | text                     |           | not null | 
+ apellido_materno                | text                     |           |          | 
+ fecha_nacimiento                | date                     |           | not null | 
+ sexo                            | text                     |           | not null | 
+ nacionalidad                    | text                     |           |          | 
+ estado_civil                    | text                     |           |          | 
+ email                           | text                     |           | not null | 
+ telefono                        | text                     |           |          | 
+ direccion                       | text                     |           |          | 
+ contacto_emergencia_nombre      | text                     |           |          | 
+ contacto_emergencia_telefono    | text                     |           |          | 
+ contacto_emergencia_relacion    | text                     |           |          | 
+ tipo_prevision                  | text                     |           |          | 
+ tiene_convenio                  | boolean                  |           |          | false
+ grupo_sanguineo                 | text                     |           |          | 
+ alergias                        | text                     |           |          | 
+ enfermedades_cronicas           | text                     |           |          | 
+ discapacidades                  | text                     |           |          | 
+ observaciones_medicas_generales | text                     |           |          | 
+ usuario_id                      | bigint                   |           |          | 
+ created_at                      | timestamp with time zone |           |          | now()
+Indexes:
+    "pacientes_pkey" PRIMARY KEY, btree (id)
+    "idx_pacientes_rut" btree (rut)
+    "idx_pacientes_usuario_id" btree (usuario_id)
+    "pacientes_rut_key" UNIQUE CONSTRAINT, btree (rut)
+Check constraints:
+    "pacientes_estado_civil_check" CHECK (estado_civil = ANY (ARRAY['soltero'::text, 'casado'::text, 'divorciado'::text, 'viudo'::text, 'union_libre'::text]))
+    "pacientes_sexo_check" CHECK (sexo = ANY (ARRAY['M'::text, 'F'::text, 'O'::text]))
+Foreign-key constraints:
+    "pacientes_usuario_id_fkey" FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+Referenced by:
+    TABLE "documentos_examen" CONSTRAINT "documentos_examen_paciente_id_fkey" FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE
+    TABLE "examen_medico" CONSTRAINT "examen_medico_paciente_id_fkey" FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE
+
+                                      Table "public.examen_medico"
+        Column         |           Type           | Collation | Nullable |           Default            
+-----------------------+--------------------------+-----------+----------+------------------------------
+ id                    | bigint                   |           | not null | generated always as identity
+ tipo_examen_medico_id | bigint                   |           | not null | 
+ paciente_id           | bigint                   |           | not null | 
+ diagnosis             | text                     |           |          | 
+ tratamiento           | text                     |           |          | 
+ observaciones         | text                     |           |          | 
+ notas                 | text                     |           |          | 
+ created_at            | timestamp with time zone |           |          | now()
+Indexes:
+    "examen_medico_pkey" PRIMARY KEY, btree (id)
+    "idx_examen_medico_paciente_id" btree (paciente_id)
+Foreign-key constraints:
+    "examen_medico_paciente_id_fkey" FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE
+    "examen_medico_tipo_examen_medico_id_fkey" FOREIGN KEY (tipo_examen_medico_id) REFERENCES tipo_examen_medico(id)
+Referenced by:
+    TABLE "documentos_examen" CONSTRAINT "documentos_examen_examen_medico_id_fkey" FOREIGN KEY (examen_medico_id) REFERENCES examen_medico(id) ON DELETE CASCADE
+
+                                 Table "public.documentos_examen"
+      Column      |           Type           | Collation | Nullable |           Default            
+------------------+--------------------------+-----------+----------+------------------------------
+ id               | bigint                   |           | not null | generated always as identity
+ examen_medico_id | bigint                   |           | not null | 
+ paciente_id      | bigint                   |           | not null | 
+ documento        | bytea                    |           | not null | 
+ nombre_archivo   | text                     |           | not null | 
+ created_at       | timestamp with time zone |           |          | now()
+Indexes:
+    "documentos_examen_pkey" PRIMARY KEY, btree (id)
+    "idx_documentos_examen_examen_id" btree (examen_medico_id)
+    "idx_documentos_examen_paciente_id" btree (paciente_id)
+Foreign-key constraints:
+    "documentos_examen_examen_medico_id_fkey" FOREIGN KEY (examen_medico_id) REFERENCES examen_medico(id) ON DELETE CASCADE
+    "documentos_examen_paciente_id_fkey" FOREIGN KEY (paciente_id) REFERENCES pacientes(id) ON DELETE CASCADE
+
+                                     Table "public.usuarios"
+     Column     |           Type           | Collation | Nullable |           Default            
+----------------+--------------------------+-----------+----------+------------------------------
+ id             | bigint                   |           | not null | generated always as identity
+ nombre_usuario | text                     |           | not null | 
+ contrasena     | text                     |           | not null | 
+ correo         | text                     |           | not null | 
+ created_at     | timestamp with time zone |           |          | now()
+Indexes:
+    "usuarios_pkey" PRIMARY KEY, btree (id)
+    "usuarios_correo_key" UNIQUE CONSTRAINT, btree (correo)
+    "usuarios_nombre_usuario_key" UNIQUE CONSTRAINT, btree (nombre_usuario)
+Referenced by:
+    TABLE "auditoria" CONSTRAINT "auditoria_usuario_id_fkey" FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+    TABLE "pacientes" CONSTRAINT "pacientes_usuario_id_fkey" FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE SET NULL
+    TABLE "usuario_roles" CONSTRAINT "usuario_roles_usuario_id_fkey" FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+
+--- Prueba /files/documentos sin token (INC-16) ---
+HTTP/1.1 200 OK
+X-Powered-By: Express
+Access-Control-Allow-Origin: *
+Accept-Ranges: bytes
+Cache-Control: public, max-age=0
+Last-Modified: Wed, 25 Nov 2026 15:41:14 GMT
+ETag: W/"22-1a2135e4435"
+Content-Type: text/plain; charset=UTF-8
+Content-Length: 34
+Date: Wed, 25 Nov 2026 15:41:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+archivo sintetico de prueba CP-16
+
