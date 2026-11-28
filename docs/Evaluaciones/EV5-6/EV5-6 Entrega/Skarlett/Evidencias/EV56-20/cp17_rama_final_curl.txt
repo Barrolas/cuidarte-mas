@@ -1,0 +1,175 @@
+box@grok-bot-vm:~/cuidarte-mas$ date
+2026-11-27 20:06:14 -03 (UTC-0300)
+
+box@grok-bot-vm:~/cuidarte-mas$ git rev-parse HEAD && git log -1 --oneline && git rev-parse origin/feature/skarlett-ep3
+df6fd24d22145d3f7eaf5a66e3a1b9130fc1ea6d
+df6fd24 [ MERGE ]: Se integra dev (INC-05 CORS y evidencias EV56-13/17) en feature/skarlett-ep3 Co-authored-by
+df6fd24d22145d3f7eaf5a66e3a1b9130fc1ea6d
+
+box@grok-bot-vm:~/cuidarte-mas$ TOKEN=$(curl -s -X POST http://localhost:4444/autenticacion/login -H 'Content-Type: application/json' -d '{"nombre_usuario":"medico","password":"<REDACTED>"}' | jq -r .token)
+TOKEN obtenido (303 caracteres)
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -H "Authorization: Bearer $TOKEN" http://localhost:4444/examenes/abc
+HTTP/1.1 500 Internal Server Error
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 94
+ETag: W/"5e-GRuTN4E5rl+4RVjl91UlYfZ5748"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Error al obtener examen médico","glosa":"Ocurrió un error interno en el servidor"}
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -H "Authorization: Bearer $TOKEN" -F 'documento=@dummy.png' -F 'examen_medico_id=abc' -F 'paciente_id=1' http://localhost:4444/documentos
+HTTP/1.1 500 Internal Server Error
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 88
+ETag: W/"58-qIbC5xRM+y2sWxA6kO+tswnR0A0"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Error al subir documentos","glosa":"Ocurrió un error interno en el servidor"}
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -H "Authorization: Bearer $TOKEN" http://localhost:4444/roles/abc
+HTTP/1.1 500 Internal Server Error
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 83
+ETag: W/"53-vhT37f8p6cxEHk00QKnpy4WmNno"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Error al obtener rol","glosa":"Ocurrió un error interno en el servidor"}
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -H "Authorization: Bearer $TOKEN" http://localhost:4444/pacientes/abc
+HTTP/1.1 500 Internal Server Error
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 88
+ETag: W/"58-CfCGPEsukLw8cTpDiQsmQr+B0DA"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Error al obtener paciente","glosa":"Ocurrió un error interno en el servidor"}
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -H "Authorization: Bearer $TOKEN" http://localhost:4444/tipo-examen/abc
+HTTP/1.1 500 Internal Server Error
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 94
+ETag: W/"5e-tMN/mYbRESpBYILPiW6+hiH7DQ8"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Error al obtener tipo de examen","glosa":"Ocurrió un error interno en el servidor"}
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -X POST -H "Authorization: Bearer $TOKEN" -H 'Content-Type: application/json' -d '{"rut":"11111111-1","primer_nombre":"Prueba","apellido_paterno":"Duplicado","fecha_nacimiento":"1990-01-01","sexo":"F","email":"cp17.duplicado@example.com"}' http://localhost:4444/pacientes
+HTTP/1.1 400 Bad Request
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 70
+ETag: W/"46-uXZschATY0dUpXbBFj4KF2USyAY"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"Error al crear paciente","glosa":"El RUT o email ya existe"}
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS http://localhost:4444/examenes
+HTTP/1.1 401 Unauthorized
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 51
+ETag: W/"33-ep78Q8EmsO5ehR4PS7ODBa83UVU"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"No autorizado","glosa":"Token inválido"}
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -H "Authorization: Bearer $TOKEN" http://localhost:4444/auditoria
+HTTP/1.1 403 Forbidden
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 99
+ETag: W/"63-evJsNCJyiPhobV+4RJLt6WC1zOE"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"No autorizado","glosa":"Solo los administradores pueden ver los registros de auditoría"}
+
+box@grok-bot-vm:~/cuidarte-mas$ TOKEN_PAC=$(curl -s -X POST http://localhost:4444/autenticacion/login ... paciente/<REDACTED> | jq -r .token)
+TOKEN_PAC obtenido (309 caracteres)
+
+box@grok-bot-vm:~/cuidarte-mas$ curl -i -sS -H "Authorization: Bearer $TOKEN_PAC" http://localhost:4444/examenes/paciente/999
+HTTP/1.1 403 Forbidden
+Access-Control-Allow-Origin: http://localhost:3333
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Type: application/json; charset=utf-8
+Content-Length: 72
+ETag: W/"48-h1dOSO2kwzzQEO+dRy6jnqclEAM"
+Date: Fri, 27 Nov 2026 23:06:14 GMT
+Connection: keep-alive
+Keep-Alive: timeout=5
+
+{"error":"No autorizado","glosa":"Solo puede ver sus propios exámenes"}
+
+box@grok-bot-vm:~/cuidarte-mas$ docker logs --since 2026-11-27T23:06:14Z cuidarteplus-backend-ev 2>&1 | grep -E "code: '(22P02|23505)'|^error:|at async|500|400|401|403"
+error: invalid input syntax for type bigint: "abc"
+    at async /app/src/routes/examenes.js:235:20 {
+  code: '22P02',
+[0mGET /examenes/abc [31m500[0m 7.142 ms - 94[0m
+error: invalid input syntax for type bigint: "abc"
+    at async /app/src/routes/documentos.js:93:20 {
+  code: '22P02',
+[0mPOST /documentos [31m500[0m 19.608 ms - 88[0m
+error: invalid input syntax for type bigint: "abc"
+    at async /app/src/routes/roles.js:47:20 {
+  code: '22P02',
+[0mGET /roles/abc [31m500[0m 9.350 ms - 83[0m
+error: invalid input syntax for type bigint: "abc"
+    at async /app/src/routes/pacientes.js:219:20 {
+  code: '22P02',
+[0mGET /pacientes/abc [31m500[0m 11.359 ms - 88[0m
+error: invalid input syntax for type bigint: "abc"
+[0mGET /tipo-examen/abc [31m500[0m 8.590 ms - 94[0m
+    at async /app/src/routes/tipo-examen.js:21:20 {
+  code: '22P02',
+[0mPOST /pacientes [33m400[0m 61.157 ms - 70[0m
+[0mGET /examenes [33m401[0m 0.400 ms - 51[0m
+[0mGET /auditoria [33m403[0m 11.995 ms - 99[0m
+[0mGET /examenes/paciente/999 [33m403[0m 2.170 ms - 72[0m
+
