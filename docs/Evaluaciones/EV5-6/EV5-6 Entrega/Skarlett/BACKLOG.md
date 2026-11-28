@@ -2,116 +2,48 @@
 
 **Rol:** SAST (SonarQube), errores/logs (CP-17), configuración TLS/backup, lectura normativa, apoyo diagrama CI/CD con controles de seguridad.  
 **Tablero:** [`../00_Backlog_Equipo.md`](../00_Backlog_Equipo.md)  
-**Análisis:** [`../00_Analisis_Encargo_Final.md`](../00_Analisis_Encargo_Final.md)
+**Análisis:** [`../00_Analisis_Encargo_Final.md`](../00_Analisis_Encargo_Final.md)  
+**Handoff a Ninna:** [`HANDOFF_SKARLETT.md`](./HANDOFF_SKARLETT.md)
 
 Estándares: **25010**, **27001**, Leyes **19.628**, **20.584**, **DS 41**.
+
+Corte de este paquete: **27-nov-2026**, America/Santiago. Rama de docs: `skarlett/ev56-handoff` (base `origin/main` `d5829ed`, porque el paquete de Ninna solo está en `main`).
 
 ---
 
 ## Checklist
 
-- [ ] EV56-09 INC-06 sin fuga de errores  
-- [ ] EV56-20 CP-17 retest  
-- [ ] EV56-18 Sonar post-fix  
-- [ ] EV56-19 CP-14 / 16 / 18  
-- [ ] EV56-21 Diagrama CI/CD + controles (con Ninna)  
-- [ ] Tabla normativa → estado  
-- [ ] Handoff a Ninna  
+- [x] EV56-09 INC-06 sin fuga de errores — verificado en `origin/dev` `5707693` (PR #6/#7)
+- [x] EV56-20 CP-17 retest — PASA con observaciones (evidencia en `Evidencias/EV56-20/`, sin alterar)
+- [x] EV56-18 Sonar post-fix sobre `origin/dev` `5707693` (INC-04/05/06). **Pendiente** un re-scan cuando Nicolás mergee INC-01, INC-02 e INC-07
+- [x] EV56-19 CP-14 / 16 / 18 — ejecutados 25-nov; fallidos o parciales con plan fechado
+- [x] EV56-21 Diagrama CI/CD + controles (con Ninna) — propuesta IE7; el repo aún no tiene GitHub Actions
+- [x] Tabla normativa → estado
+- [x] Handoff a Ninna
 
 ---
 
 ## EV56-09 — INC-06 no exponer `err.message`
 
-1. Inventario de `catch` / `glosa: err.message` en routers.  
-2. Log interno en servidor; respuesta al cliente genérica en 500.  
-3. Priorizar auth, documentos, auditoría, roles.  
-4. Coordinar merges con Nicolás el mismo día.  
-5. Guardar sample diff / captura.
-
-**DoD:** catch críticos sin fuga; lista de archivos en bitácora.
-
----
+**Estado:** Verificado (retest). Severidad según inventario de Ninna: **Grave**.  
+Helper `BACKEND/src/utils/httpErrors.js`. Bitácora: [`Entregables/EV56-09-INC-06-Resumen-Bitacora.md`](./Entregables/EV56-09-INC-06-Resumen-Bitacora.md).
 
 ## EV56-20 — Retest CP-17
 
-1. Tras EV56-09, provocar error controlado en laboratorio.  
-2. Verificar cuerpo HTTP sin SQL/stack/`err.message`.  
-3. 401/403 genéricos.  
-4. Si no hay 500 reproducible: declarar limitación + evidencia de código/grep.  
-5. Actualizar veredicto CP-17.
-
-**DoD:** bitácora ciclo final + cruce INC-06.
-
----
+**Estado:** Paso con observaciones. Evidencia intacta: [`Evidencias/EV56-20/`](./Evidencias/EV56-20/README.md). Pendiente de observación: INC-14 (Nicolás) e INC-11 (`npm audit`).
 
 ## EV56-18 — SonarQube post-mitigación
 
-1. Analizar cuando P0/P1 relevantes estén en la branch.  
-2. Capturar Quality Gate, bugs, vulnerabilidades, security rating BE/FE.  
-3. Tabla delta vs Sonar EV2 (20-oct).  
-4. Recordar: Quality Gate Passed ≠ producto seguro (mismo matiz EP4).
-
-**DoD:** capturas + tabla delta para §5/§6.
-
----
+**Estado:** Ejecutado 27-nov ~22:00 America/Santiago sobre `origin/dev` `5707693`. Backend: 4→2 vulnerabilidades; Security sigue **E**. Frontend sin cambio (14 bugs, Security A). Falta la corrida posterior a INC-01/02/07.
 
 ## EV56-19 — CP-14 TLS / CP-16 reposo / CP-18 backup
 
-### TLS (CP-14)
-1. Intento TLS en Docker (cert autofirmado) **o**  
-2. Wireshark HTTP en claro + limitación declarada + plan fechado en §6.  
-3. No aprobar CP-14 sin TLS real.
-
-### Reposo (CP-16) y backup (CP-18)
-1. Retestar o documentar residual.  
-2. Propuestas §6 con dueño/fecha si no hay fix completo.
-
-**DoD:** resultado explícito por CP.
-
----
+**Estado:** CP-14 Fallido con reserva (plan 15-dic-2026). CP-16 Fallido / INC-16 (plan 15-dic-2026). CP-18 Fallido / Parcial con reserva (plan 20-dic-2026).
 
 ## EV56-21 — Diagrama CI/CD con controles de seguridad (IE3)
 
-1. Con Ninna, dibujar pipeline (build → test → SAST/DAST → deploy lab).  
-2. Marcar controles: Sonar, Selenium, ZAP, secretos en env, no deploy si Quality Gate falla (aunque sea aspiracional).  
-3. Alinear con criterios normativos (acceso, registro, criptografía).  
-4. Entregar figura lista para el informe.
+**Estado:** Diagrama + leyenda + `security.yml` de propuesta. Hoy el laboratorio es Docker manual; no hay workflow activo.
 
-**DoD:** diagrama claro + leyenda de controles.
+## Tabla normativa y handoff
 
----
-
-## Tabla normativa (handoff clave)
-
-Completar y pasar a Ninna:
-
-| Hallazgo / INC | Evidencia ciclo final | Control 27001 / 25010 | Deber legal | Estado post-fix |
-|----------------|----------------------|------------------------|-------------|------------------|
-| INC-01 | John (Ari) + bcrypt (Nico) | Autenticación | 19.628 art. 11 | |
-| INC-02 | Grep JWT | Secretos | 19.628 / 20.584 | |
-| INC-06 | CP-17 | Logging seguro | 19.628 art. 11 | |
-| INC-07 | Postman Nico | Control de acceso | 20.584 art. 13 | |
-| CP-14 | Wireshark/TLS | Cifrado tránsito | DS 41 art. 8 | |
-| Sonar | EV56-18 | SAST | DS 41 / 19.628 | |
-
----
-
-## Handoff a Ninna
-
-1. Tabla normativa.  
-2. Estados CP-14, 16, 17, 18.  
-3. Delta Sonar.  
-4. Diagrama CI/CD.  
-5. Recomendaciones §6 residuales con fecha.
-
----
-
-## Orden sugerido
-
-| Bloque | Foco |
-|--------|------|
-| 1 | EV56-09 |
-| 2 | EV56-20 |
-| 3 | EV56-19 |
-| 4 | EV56-18 (cuando haya merges) |
-| 5 | EV56-21 + handoff |
+Ver [`Entregables/EV56-Tabla-Normativa.md`](./Entregables/EV56-Tabla-Normativa.md) y [`HANDOFF_SKARLETT.md`](./HANDOFF_SKARLETT.md).

@@ -1,0 +1,118 @@
+# Borrador de propuesta para .github/workflows/security.yml
+# NO está activo en el repositorio (al 27-nov-2026 no existe carpeta .github/workflows/).
+# Alineado al diagrama EV56-21 (IE3 / IE7). No subir sin revisión del equipo.
+# Los secretos del runner deben vivir en GitHub Secrets, nunca en el YAML.
+name: Cuidarte+ Security & Quality Gate
+
+on:
+  push:
+    branches: [dev, main]
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  secret-scan-and-lint:
+    name: 1. Shift-Left - Secretos y Dependencias
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositorio
+        uses: actions/checkout@v4
+
+      - name: Verificar ausencia de secretos hardcodeados (JWT fallback / URLs con credenciales)
+        run: |
+          if grep -rnE 'JWT_SECRET[[:space:]]*=.*\|\|' BACKEND/src/ \
+            || grep -rnE 'postgres(ql)?://[^[:space:]/]+:[^[:space:]@/]+@' BACKEND/src/; then
+            echo "ERROR: Se detectaron fallbacks de secretos o credenciales en código fuente."
+            exit 1
+          fi
+
+      - name: Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Auditoría de dependencias Backend (npm audit)
+        working-directory: BACKEND
+        run: |
+          npm ci
+          npm audit --audit-level=high
+
+      - name: Lint y auditoría de dependencias Frontend
+        working-directory: FRONTEND
+        run: |
+          npm ci
+          npm run lint
+          npm audit --audit-level=high
+
+  sast-sonarqube:
+    name: 2. SAST - SonarQube Quality Gate
+    needs: secret-scan-and-lint
+    runs-on: ubuntu-latest
+    # Requiere SONAR_HOST_URL y SONAR_TOKEN en GitHub Secrets (nunca en código)
+    if: ${{ secrets.SONAR_TOKEN != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: SonarQube Scan Backend
+        uses: SonarSource/sonarqube-scan-action@v3
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          projectBaseDir: BACKEND
+          args: >
+            -Dsonar.projectKey=cuidarteplus-backend
+            -Dsonar.qualitygate.wait=true
+
+      - name: SonarQube Scan Frontend
+        uses: SonarSource/sonarqube-scan-action@v3
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        with:
+          projectBaseDir: FRONTEND
+          args: >
+            -Dsonar.projectKey=cuidarteplus-frontend
+            -Dsonar.qualitygate.wait=true
+
+  lab-dast-and-e2e:
+    name: 3. Lab Docker + Selenium E2E + OWASP ZAP (DAST, propuesta nocturna)
+    needs: secret-scan-and-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Levantar entorno controlado con variables de GitHub Secrets
+        env:
+          JWT_SECRET: ${{ secrets.LAB_JWT_SECRET }}
+          POSTGRES_PASSWORD: ${{ secrets.LAB_DB_PASSWORD }}
+        run: |
+          docker compose up -d --build
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:4444/ >/dev/null; then break; fi
+            sleep 2
+          done
+
+      - name: Ejecutar suite Selenium (pytest/POM)
+        working-directory: docs/Evaluaciones/EV2/EV2 Entrega/Nicolas/selenium_suite
+        run: |
+          python3 -m pip install -r requirements.txt
+          pytest -v --html=selenium-report.html --self-contained-html
+
+      - name: DAST Baseline con OWASP ZAP sobre Frontend local (propuesta; hoy ZAP es manual)
+        uses: zaproxy/action-baseline@v0.12.0
+        with:
+          target: "http://localhost:3333"
+          rules_file_name: ".zap/rules.tsv"
+          cmd_options: "-a"
+
+      - name: Archivar evidencias de ejecución
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cuidarteplus-qa-security-reports
+          path: |
+            docs/Evaluaciones/EV2/EV2 Entrega/Nicolas/selenium_suite/selenium-report.html
+            report_html.html

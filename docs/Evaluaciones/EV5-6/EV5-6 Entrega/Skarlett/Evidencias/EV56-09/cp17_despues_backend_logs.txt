@@ -1,0 +1,60 @@
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '316',
+  routine: 'pg_strtoint64'
+}
+[0mGET /roles/abc [31m500[0m 8.858 ms - 83[0m
+error: invalid input syntax for type bigint: "abc"
+    at /app/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /app/src/routes/pacientes.js:227:20 {
+  length: 140,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '316',
+  routine: 'pg_strtoint64'
+}
+[0mGET /pacientes/abc [31m500[0m 11.933 ms - 88[0m
+error: invalid input syntax for type bigint: "abc"
+    at /app/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async /app/src/routes/tipo-examen.js:24:20 {
+  length: 140,
+  severity: 'ERROR',
+  code: '22P02',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: "unnamed portal parameter $1 = '...'",
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: 'numutils.c',
+  line: '316',
+  routine: 'pg_strtoint64'
+}
+[0mGET /tipo-examen/abc [31m500[0m 8.342 ms - 94[0m
+[0mGET /examenes [33m401[0m 5000.993 ms - 51[0m
+[0mGET /auditoria [33m403[0m 13.545 ms - 99[0m
+[0mGET /examenes/paciente/999 [33m403[0m 3.503 ms - 72[0m
